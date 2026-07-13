@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ketan Mishra — Creative & Content Operations</title>
+<meta name="description" content="Creative & content operations lead. Builds creative systems for affiliate performance marketing across copy, AI workflows, and team leadership." />
+
+<!-- =====================================================
+     CUSTOMIZE THESE NUMBERS BEFORE DEPLOY (search "TODO")
+     ===================================================== -->
+
+
+<script>
+  // Apply saved theme before first paint to avoid FOUC
+  try { if (localStorage.getItem('km-theme') === 'light') document.documentElement.classList.add('light-mode'); } catch(e) {}
+</script>
+
+<style>
+  :root {
+    --bg: #0A0A0B;
+    --bg-elev: #131316;
+    --bg-card: #16161A;
+    --border: #1F1F23;
+    --border-bright: #2A2A30;
+    --text: #F5F5F0;
+    --text-mute: #7A7A82;
+    --text-dim: #4D4D54;
+    --accent: #FF6B35;
+    --accent-soft: #FFB088;
+    --green: #7FB069;
+    --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Subtle grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+
+  .logo span { color: var(--text); }
+
+  .status-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 32px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-bottom: 80px;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(64px, 14vw, 200px);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .hero-name .last {
+    display: block;
+    padding-left: clamp(20px, 8vw, 120px);
+    color: var(--text);
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    margin-top: 40px;
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-style: italic;
+    color: var(--text-mute);
+    max-width: 720px;
+    line-height: 1.3;
+  }
+
+  .hero-tagline strong {
+    color: var(--text);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* Stats grid */
+  .stats {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat {
+    padding: 24px 20px;
+    border-right: 1px solid var(--border);
+    transition: background 0.3s ease;
+  }
+
+  .stat:last-child { border-right: none; }
+  .stat:hover { background: var(--bg-elev); }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .stat-num em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+
+  /* Background SVG chart line */
+  .bg-chart {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    width: 60%;
+    height: 40%;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  /* === SECTION HEADERS === */
+  .section {
+    padding: 100px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .section-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+
+  /* === FILTER BAR === */
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    color: var(--text-mute);
+    padding: 8px 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .filter-btn.active {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
+
+  /* === PROJECT GRID === */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .project {
+    background: var(--bg);
+    padding: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .project:hover { background: var(--bg-card); }
+  .project:hover::before { transform: translateX(0); }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .project-code {
+    color: var(--accent);
+  }
+
+  .project-tag {
+    color: var(--text-mute);
+    border: 1px solid var(--border-bright);
+    padding: 3px 8px;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    margin-bottom: 14px;
+    align-items: start;
+  }
+
+  .project-row:last-child {
+    margin-bottom: 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    margin-top: 18px;
+  }
+
+  .project-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+
+  .project-text {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .project-text.output {
+    color: var(--accent-soft);
+    font-style: italic;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+  .project-link:hover {
+    color: var(--accent-soft);
+    gap: 14px;
+  }
+
+  /* === STACK SECTION === */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .stack-col {
+    background: var(--bg);
+    padding: 32px;
+  }
+
+  .stack-col h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .stack-col ul {
+    list-style: none;
+  }
+
+  .stack-col li {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stack-col li:last-child { border-bottom: none; }
+
+  /* === PHILOSOPHY === */
+  .philosophy {
+    padding: 120px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .philosophy-quote {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .philosophy-quote em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .philosophy-meta {
+    margin-top: 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+
+  /* === EXPLORING === */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .role-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .role-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-card);
+  }
+
+  .role-card h5 {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .role-card p {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+
+  /* === FOOTER === */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 32px 40px;
+    margin-top: 80px;
+  }
+
+  .footer-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .footer-cta {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-cta em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .footer-cta a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+    transition: opacity 0.2s;
+  }
+
+  .footer-cta a:hover { opacity: 0.7; }
+
+  .footer-col h6 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    padding: 4px 0;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--accent); }
+
+  .footer-base {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* === STAT GRID (HERO) === */
+  .stat-section {
+    margin-top: 72px;
+  }
+
+  .stat-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stat-meta::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .stat-tile {
+    background: var(--bg);
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    color: inherit;
+    transition: background 0.25s ease;
+    width: 100%;
+  }
+
+  .stat-tile .stat-label { margin-top: 18px; }
+
+  .stat-tile:hover { background: var(--bg-elev); }
+  .stat-tile.open { background: var(--bg-elev); }
+  .stat-tile:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .stat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 52px;
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+  }
+
+  .stat-toggle {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    border: 1px solid var(--border-bright);
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .stat-tile:hover .stat-toggle { color: var(--text-mute); border-color: var(--text-dim); }
+  .stat-tile.open .stat-toggle { color: var(--accent); border-color: var(--accent); }
+
+  .stat-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+
+  .stat-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-mute);
+    line-height: 1.4;
+  }
+
+  .stat-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  .stat-tile.open .stat-body {
+    grid-template-rows: 1fr;
+  }
+
+  .stat-body-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .stat-body ul {
+    list-style: none;
+    padding: 14px 0 0;
+    margin: 16px 0 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-body li {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--text);
+    padding: 7px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.3;
+  }
+
+  .stat-body li::before {
+    content: '';
+    width: 3px;
+    height: 3px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .stat-body li a {
+    color: inherit;
+    text-decoration: none;
+    flex: 1;
+    transition: color 0.2s ease;
+  }
+  .stat-body li:has(a):hover { color: var(--accent); cursor: pointer; }
+
+  /* === ACCOLADES === */
+  .accolades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .accolade {
+    background: var(--bg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .accolade-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .accolade-tag {
+    color: var(--accent);
+  }
+
+  .accolade-meta {
+    color: var(--text-mute);
+  }
+
+  .accolade-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .accolade-desc {
+    color: var(--text-mute);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* === FADE IN === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .hero { padding: 120px 20px 40px; }
+    .section { padding: 60px 20px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-num { font-size: 42px; }
+    .accolades-grid { grid-template-columns: 1fr; }
+    .projects { grid-template-columns: 1fr; }
+    .project { padding: 28px; }
+    .project-title { font-size: 26px; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .roles-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .section-head { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .hero-name { letter-spacing: -0.02em; }
+    .hero-name .last { padding-left: 16px; }
+    nav { padding: 16px 20px; }
+    .footer-base { flex-direction: column; gap: 8px; }
+  }
+
+  @media (max-width: 500px) {
+    .project-row { grid-template-columns: 1fr; gap: 4px; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .stat-num { font-size: 48px; }
+  }
+
+  /* === LIGHT MODE (toggled via .light-mode on body) === */
+  .light-mode {
+    --bg: #FAFAF8;
+    --bg-elev: #FFFFFF;
+    --bg-card: #F0F0EC;
+    --border: #E5E5E0;
+    --border-bright: #C5C5C0;
+    --text: #0A0A0B;
+    --text-mute: #5A5A62;
+    --text-dim: #9A9AA0;
+    --accent: #E5550F;
+    --accent-soft: #FF6B35;
+    --green: #5A9050;
+  }
+  .light-mode body::before { opacity: 0.015; mix-blend-mode: multiply; }
+  .light-mode nav { background: rgba(250, 250, 248, 0.78); }
+
+  /* === THEME TOGGLE === */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-toggle {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-mute);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .theme-toggle .icon-light { display: none; }
+  .light-mode .theme-toggle .icon-dark { display: none; }
+  .light-mode .theme-toggle .icon-light { display: block; }
+  .theme-hint {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .theme-hint::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid var(--accent);
+  }
+  .theme-hint.show { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="logo">KM <span>// CREATIVE OPS</span></div>
+  <div class="nav-right">
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      Available for new roles
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <span class="theme-hint">Try light mode</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-meta">
+    <span>FILE / PORTFOLIO.HTML</span>
+    <span>LAST UPDATED // <!-- TODO: update date -->NOV 2025</span>
+  </div>
+
+  <div>
+    <h1 class="hero-name">
+      Ketan
+      <span class="last">Mishra<em>.</em></span>
+    </h1>
+
+    <p class="hero-tagline">
+      <strong>Creative Lead</strong> building creative systems for affiliate performance marketing. Copy, content, AI workflows, and the teams that ship at volume.
+    </p>
+  </div>
+
+  <!-- Background chart decoration -->
+  <svg class="bg-chart" viewBox="0 0 800 300" preserveAspectRatio="none">
+    <path d="M0,200 Q100,180 150,160 T280,140 Q340,120 380,90 T500,70 Q580,50 640,80 T800,40"
+          fill="none" stroke="#FF6B35" stroke-width="1.5" />
+    <path d="M0,250 Q100,240 180,210 T320,200 Q400,180 460,160 T620,130 Q700,110 800,90"
+          fill="none" stroke="#FF6B35" stroke-width="1" opacity="0.5" />
+  </svg>
+
+  <!-- ============ STAT GRID ============ -->
+  <div class="stat-section">
+    <div class="stat-meta">// What I bring</div>
+
+    <div class="stat-grid">
+
+      <div class="stat-tile" role="button" tabindex="0" aria-expanded="false">
+        <div class="stat-head">
+          <span class="stat-num">05</span>
+          <span class="stat-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="stat-label">
+          <span class="stat-tag">Verticals</span>
+          <span class="stat-sub">Performance markets shipped</span>
+        </div>
+        <div class="stat-body"><div class="stat-body-inner">
+          <ul>
+            <li><a href="verticals.html#healthcare">Healthcare</a></li>
+            <li><a href="verticals.html#health-insurance">Health Insurance</a></li>
+            <li><a href="verticals.html#fintech">Fintech</a></li>
+            <li><a href="verticals.html#consumer-lending">Consumer Lending</a></li>
+            <li><a href="verticals.html#auto-insurance">Auto Insurance</a></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="stat-tile" role="button" tabindex="0" aria-expanded="false">
+        <div class="stat-head">
+          <span class="stat-num">05</span>
+          <span class="stat-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="stat-label">
+          <span class="stat-tag">Formats</span>
+          <span class="stat-sub">Creative formats deployed</span>
+        </div>
+        <div class="stat-body"><div class="stat-body-inner">
+          <ul>
+            <li><a href="formats.html#vsl">VSL &amp; long-form video</a></li>
+            <li><a href="formats.html#ugc">UGC video</a></li>
+            <li><a href="formats.html#static">Static &amp; display</a></li>
+            <li><a href="formats.html#native">Native advertising</a></li>
+            <li><a href="formats.html#short-form">Short-form video</a></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="stat-tile" role="button" tabindex="0" aria-expanded="false">
+        <div class="stat-head">
+          <span class="stat-num">05</span>
+          <span class="stat-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="stat-label">
+          <span class="stat-tag">Teams</span>
+          <span class="stat-sub">Functions built and led</span>
+        </div>
+        <div class="stat-body"><div class="stat-body-inner">
+          <ul>
+            <li><a href="teams.html#copywriters">Copywriters</a></li>
+            <li><a href="teams.html#strategists">Creative Strategists</a></li>
+            <li><a href="teams.html#editors">Video Editors</a></li>
+            <li><a href="teams.html#researchers">Researchers</a></li>
+            <li><a href="teams.html#ops">Creative Ops</a></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="stat-tile" role="button" tabindex="0" aria-expanded="false">
+        <div class="stat-head">
+          <span class="stat-num">05</span>
+          <span class="stat-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="stat-label">
+          <span class="stat-tag">AI &amp; Agents</span>
+          <span class="stat-sub">AI and automation stack</span>
+        </div>
+        <div class="stat-body"><div class="stat-body-inner">
+          <ul>
+            <li><a href="ai.html#claude">Claude pipelines</a></li>
+            <li><a href="ai.html#n8n">n8n workflows</a></li>
+            <li><a href="ai.html#kie-seedance">KIE / Seedance</a></li>
+            <li><a href="ai.html#clickup">ClickUp automations</a></li>
+            <li><a href="ai.html#research-bots">Research &amp; SOP bots</a></li>
+          </ul>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="work">
+  <div class="section-head">
+    <h2 class="section-title">Selected <em>work</em></h2>
+    <span class="section-meta">13 PROJECTS // FILTER BELOW</span>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="systems">Systems</button>
+    <button class="filter-btn" data-filter="ai">AI Workflows</button>
+    <button class="filter-btn" data-filter="copy">Copy</button>
+    <button class="filter-btn" data-filter="leadership">Leadership</button>
+  </div>
+
+  <div class="projects">
+
+    <!-- =============== SYSTEMS =============== -->
+
+    <!-- P-001 -->
+    <div class="project" data-cat="systems">
+      <div class="project-head">
+        <span class="project-code">P—001</span>
+        <span class="project-tag">Systems</span>
+      </div>
+      <h3 class="project-title">Creative Intelligence Dashboard</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Winning creatives died before anyone caught it. Performance signal lived in 4 different tabs.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Internal dashboard pulling daily creative performance across 5 verticals. Tracks winning hooks, format decay, and angle saturation in one place.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Refresh cycles moved from reactive to scheduled.</p>
+      </div>
+      <a href="p-001.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-002 -->
+    <div class="project" data-cat="systems">
+      <div class="project-head">
+        <span class="project-code">P—002</span>
+        <span class="project-tag">Systems</span>
+      </div>
+      <h3 class="project-title">ClickUp + n8n creative ops automation</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Creative production ops was a manual juggling act. Briefs, reviews, status updates, performance tags, all by hand.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">End-to-end automation layer on ClickUp wired through n8n. Briefs route automatically. Reviews trigger when assets ship. Performance data syncs back to creative tickets. Status updates write themselves.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Ops layer ran the team. The team ran the creatives.</p>
+      </div>
+      <a href="p-002.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-003 -->
+    <div class="project" data-cat="systems">
+      <div class="project-head">
+        <span class="project-code">P—003</span>
+        <span class="project-tag">Systems</span>
+      </div>
+      <h3 class="project-title">News Intel Board</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Copywriters needed fresh angles daily. Researching from scratch every morning burned hours of senior time.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Live raw feed pulling news, market shifts, and cultural moments tagged by vertical. Copywriters open it, scan, pick angles for the day. Updates automatically through scrapers and AI summarization.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Angle generation became a daily 10-minute task. Always current, always vertical-relevant.</p>
+      </div>
+      <a href="p-003.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- =============== AI WORKFLOWS =============== -->
+
+    <!-- P-004 -->
+    <div class="project" data-cat="ai">
+      <div class="project-head">
+        <span class="project-code">P—004</span>
+        <span class="project-tag">AI Workflows</span>
+      </div>
+      <h3 class="project-title">Claude creative replication pipeline</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Manual creative analysis was subjective. Two analysts named the same script's patterns differently. The dataset of "what works" was noisy and the next variant rebuilt the wrong elements.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Agentic VS Code workflow. Claude analyzes scripts and Gemini reads video frames, both driven by a system-instructions playbook. Phase 1 outputs replica scripts ready to shoot. Phase 2 renders the videos.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Pattern analysis stopped being a person. It became a pipeline.</p>
+      </div>
+      <a href="p-004.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-005 -->
+    <div class="project" data-cat="ai">
+      <div class="project-head">
+        <span class="project-code">P—005</span>
+        <span class="project-tag">AI Workflows</span>
+      </div>
+      <h3 class="project-title">AI agent fleet operations</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Senior time was being eaten by research, summaries, and competitor pulls. The bottleneck was structural.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Agent ecosystem covering competitor scraping, market research, creative analysis, and SOP assistance. Agents pull, summarize, route to the right human.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Research cycles compressed from days to hours.</p>
+      </div>
+    </div>
+
+    <!-- =============== COPY =============== -->
+
+    <!-- P-006 -->
+    <div class="project" data-cat="copy">
+      <div class="project-head">
+        <span class="project-code">P—006</span>
+        <span class="project-tag">Copy</span>
+      </div>
+      <h3 class="project-title">VSL scaling framework</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">VSL hits felt like luck. Hard to repeat, harder to teach to a new copywriter.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Hook libraries, structure templates, performance tagging, and a testing protocol that decides what scales next. Plug-in for new copywriters to ship validated work in week one.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">VSL production became repeatable. Ramp time dropped from quarters to weeks.</p>
+      </div>
+    </div>
+
+    <!-- P-007 -->
+    <div class="project" data-cat="copy">
+      <div class="project-head">
+        <span class="project-code">P—007</span>
+        <span class="project-tag">Copy</span>
+      </div>
+      <h3 class="project-title">Founder-led LinkedIn growth</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">An AI SaaS founder had a sharp POV and zero authoring system. Building presence at AI's pace needed more than time-on-LinkedIn.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Voice DNA doc, comment frameworks, post structures, and a daily content cadence ghostwritten in the founder's voice. Built for speed without losing tone.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Founder presence compounded on LinkedIn. Founder kept building product.</p>
+      </div>
+      <a href="p-007.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-008 -->
+    <div class="project" data-cat="copy">
+      <div class="project-head">
+        <span class="project-code">P—008</span>
+        <span class="project-tag">Copy</span>
+      </div>
+      <h3 class="project-title">Vibelets content operations</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Vibelets needed a full content engine. Website, lifecycle emails, in-app content, marketing pages. The whole stack, from scratch.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">End-to-end content operations across website rewrites (Nas.com / Opus.pro tone references), direct-response lifecycle email sequences, in-app content, and product copy. One voice across every surface.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Vibelets shipped with a complete content stack across every surface.</p>
+      </div>
+      <a href="p-008.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-009 -->
+    <div class="project" data-cat="copy">
+      <div class="project-head">
+        <span class="project-code">P—009</span>
+        <span class="project-tag">Copy</span>
+      </div>
+      <h3 class="project-title">Long-form ghostwriting</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Founders and operators have ideas worth publishing. Most don't have time to write them.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Ghostwriting practice across blogs and Substacks. Voice match, research, structure, edit. Drafts ship in their voice, ready to publish.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Ideas compounding in public for people who shouldn't be at a keyboard.</p>
+      </div>
+      <a href="p-009.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- =============== LEADERSHIP =============== -->
+
+    <!-- P-010 -->
+    <div class="project" data-cat="leadership">
+      <div class="project-head">
+        <span class="project-code">P—010</span>
+        <span class="project-tag">Leadership</span>
+      </div>
+      <h3 class="project-title">Cross-vertical creative ops</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Five verticals. One creative team. Different audiences and compliance rules, same shipping cadence required.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Unified shipping rhythm across Personal Loans, Debt Relief, Medicare, ACA, and Auto Insurance. Vertical-specific hook patterns layered on top of a shared production stack.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">One creative org serving five P&amp;Ls without losing voice or velocity.</p>
+      </div>
+      <a href="p-010.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-011 -->
+    <div class="project" data-cat="leadership">
+      <div class="project-head">
+        <span class="project-code">P—011</span>
+        <span class="project-tag">Leadership</span>
+      </div>
+      <h3 class="project-title">Dreamweavers team build</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">Creative team needed real structure. The org was running on tribal knowledge.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Built the Dreamweavers team from the ground up. People, role definitions, workflow systems, accountability cadences. Quarterly execution rhythm. Breakthrough methodology layered into team practice.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">A creative team that operates with the discipline of a real org.</p>
+      </div>
+      <a href="p-011.html" class="project-link">Read case study →</a>
+    </div>
+
+    <!-- P-012 -->
+    <div class="project" data-cat="leadership">
+      <div class="project-head">
+        <span class="project-code">P—012</span>
+        <span class="project-tag">Leadership</span>
+      </div>
+      <h3 class="project-title">Internal training programs</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">New hires took months to ship at quality. Onboarding was tribal knowledge and Slack scrolling.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">L&amp;D programs for copywriters, editors, strategists, and creative ops. Craft, frameworks, vertical patterns, testing playbook. Documented, repeatable, taught.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">Ramp time cut. Quality floor raised. Senior time freed up for strategy.</p>
+      </div>
+    </div>
+
+    <!-- P-013 -->
+    <div class="project" data-cat="ai">
+      <div class="project-head">
+        <span class="project-code">P—013</span>
+        <span class="project-tag">AI Workflows</span>
+      </div>
+      <h3 class="project-title">Coding Sharks gesture FX</h3>
+      <div class="project-row">
+        <span class="project-label">Problem</span>
+        <p class="project-text">A coding institute brand needed a demo that hit harder than static promos. The brand had to be something you interacted with.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Built</span>
+        <p class="project-text">Single-file gesture demo. Webcam plus MediaPipe Hands, 1800 particles assembled into rotating brand words (SHARKS, CODE, HIRED, BUILD, INDORE, AI), scattering when you raise your hands. Auto-cycles when idle. Safari-safe, no heavy dependencies.</p>
+      </div>
+      <div class="project-row">
+        <span class="project-label">Output</span>
+        <p class="project-text output">The brand became something you could touch. Reel-ready and scroll-stopping.</p>
+      </div>
+      <a href="p-013.html" class="project-link">Read case study →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philosophy">
+  <p class="philosophy-quote">
+    Creative teams scale when systems, strategy, and storytelling work <em>together</em>. My job is to build environments where creativity becomes operational, execution becomes repeatable, and AI becomes a force multiplier inside the team.
+  </p>
+  <p class="philosophy-meta">— Working principle</p>
+</section>
+
+<!-- ============ ACCOLADES ============ -->
+<section class="section" id="accolades">
+  <div class="section-head">
+    <h2 class="section-title">Track <em>record</em></h2>
+    <span class="section-meta">LEADERSHIP // RECOGNITION</span>
+  </div>
+
+  <div class="accolades-grid">
+
+    <div class="accolade">
+      <div class="accolade-head">
+        <span class="accolade-tag">// Leadership Development</span>
+        <span class="accolade-meta">Ongoing</span>
+      </div>
+      <h3 class="accolade-title">Vanto Leadership Development Program</h3>
+      <p class="accolade-desc">Active enrollment in the Vanto leadership program. Focused on systems thinking, organizational management, accountability structures, and team coaching. Applied directly to the Dreamweavers team build and creative org operating model.</p>
+    </div>
+
+    <div class="accolade">
+      <div class="accolade-head">
+        <span class="accolade-tag">// Core Team</span>
+        <span class="accolade-meta">Adsparkx</span>
+      </div>
+      <h3 class="accolade-title">Adsparkx growth core team</h3>
+      <p class="accolade-desc">Core team member driving growth across people and structured workflow domains. Org design, team scaling frameworks, accountability cadences, and operating systems for a high-velocity affiliate performance org.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ROLES ============ -->
+<section class="section" id="roles">
+  <div class="section-head">
+    <h2 class="section-title">Roles I'm <em>exploring</em></h2>
+    <span class="section-meta">OPEN TO CONVERSATION</span>
+  </div>
+
+  <div class="roles-grid">
+    <div class="role-card">
+      <h5>Creative Lead, Copy</h5>
+      <p>Performance-focused</p>
+    </div>
+    <div class="role-card">
+      <h5>Content &amp; Marketing Lead</h5>
+      <p>Affiliate / Direct response</p>
+    </div>
+    <div class="role-card">
+      <h5>Creative Operations Lead</h5>
+      <p>Systems &amp; team</p>
+    </div>
+    <div class="role-card">
+      <h5>AI-Augmented Creative Lead</h5>
+      <p>Workflows &amp; agents</p>
+    </div>
+    <div class="role-card">
+      <h5>Performance Content Strategist</h5>
+      <p>Cross-vertical</p>
+    </div>
+    <div class="role-card">
+      <h5>Head of Creative</h5>
+      <p>Performance marketing teams</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-cta">
+        Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em>
+        <!-- TODO: Replace email -->
+      </p>
+    </div>
+    <div class="footer-col">
+      <h6>// Reach</h6>
+      <!-- TODO: Replace with real links -->
+      <a href="mailto:ketanmishra47@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="footer-col">
+      <h6>// Index</h6>
+      <a href="#work">Work</a>
+      <a href="#roles">Roles</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© Ketan Mishra <!-- TODO: update year -->2026</span>
+    <span>Portfolio v1.0 // Hand-built</span>
+  </div>
+</footer>
+
+<!-- ============ JS ============ -->
+<script>
+  // === Filter logic ===
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projects = document.querySelectorAll('.project');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      projects.forEach(p => {
+        const cats = p.dataset.cat.split(' ');
+        if (filter === 'all' || cats.includes(filter)) {
+          p.style.display = 'block';
+          requestAnimationFrame(() => {
+            p.style.opacity = '1';
+            p.style.transform = 'translateY(0)';
+          });
+        } else {
+          p.style.opacity = '0';
+          p.style.transform = 'translateY(10px)';
+          setTimeout(() => { p.style.display = 'none'; }, 200);
+        }
+      });
+    });
+  });
+
+  // === Stat tile toggle (with anchor link passthrough) ===
+  document.querySelectorAll('.stat-tile').forEach(tile => {
+    tile.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return; // let inner links navigate
+      const open = tile.classList.toggle('open');
+      tile.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const toggle = tile.querySelector('.stat-toggle');
+      if (toggle) toggle.textContent = open ? '–' : '+';
+    });
+    tile.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      if (e.target.closest('a')) return;
+      if (e.target !== tile) return;
+      e.preventDefault();
+      tile.click();
+    });
+  });
+
+  // === Reveal on scroll ===
+  const reveals = document.querySelectorAll('.project, .stat-tile, .stack-col, .role-card, .accolade');
+  reveals.forEach(el => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // === Smooth project transitions ===
+  projects.forEach(p => {
+    p.style.transition = 'opacity 0.3s ease, transform 0.3s ease, background 0.3s ease';
+  });
+
+  // === Tagline cycle (subtle text rotation) ===
+  // Optional: keeps the page feeling alive on the meta
+  const updated = document.querySelector('.hero-meta span:last-child');
+  // Already set in HTML — no action needed.
+
+  // === Theme toggle ===
+  (function() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+    const hint = toggle.querySelector('.theme-hint');
+    const saved = localStorage.getItem('km-theme');
+    if (saved === 'light') document.documentElement.classList.add('light-mode');
+    if (!localStorage.getItem('km-theme-seen')) {
+      setTimeout(() => hint && hint.classList.add('show'), 1500);
+      setTimeout(() => hint && hint.classList.remove('show'), 6500);
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('km-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('km-theme-seen', '1');
+      if (hint) hint.classList.remove('show');
+    });
+  })();
+</script>
+</body>
+</html>
