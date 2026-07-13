@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teams · What I bring — Ketan Mishra</title>
+<meta name="description" content="The 5 creative functions I've built and led. Copywriters, Creative Strategists, Video Editors, Researchers, and Creative Ops." />
+
+
+<script>
+  // Apply saved theme before first paint to avoid FOUC
+  try { if (localStorage.getItem('km-theme') === 'light') document.documentElement.classList.add('light-mode'); } catch(e) {}
+</script>
+
+<style>
+  :root {
+    --bg: #0A0A0B;
+    --bg-elev: #131316;
+    --bg-card: #16161A;
+    --border: #1F1F23;
+    --border-bright: #2A2A30;
+    --text: #F5F5F0;
+    --text-mute: #7A7A82;
+    --text-dim: #4D4D54;
+    --accent: #FF6B35;
+    --accent-soft: #FFB088;
+    --green: #7FB069;
+    --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--sans); font-weight: 400; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E");
+    opacity: 0.025; pointer-events: none; z-index: 1; mix-blend-mode: overlay;
+  }
+  a { color: inherit; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 20px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.7);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    color: var(--text-mute); text-transform: uppercase;
+    text-decoration: none; transition: color 0.2s ease;
+  }
+  .logo:hover { color: var(--accent); }
+  .logo span { color: var(--text); }
+  .logo:hover span { color: var(--accent); }
+  .status-pill {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-mute);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .status-dot {
+    width: 6px; height: 6px; background: var(--green); border-radius: 50%;
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 2s infinite ease-in-out;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+  .hp { max-width: 1100px; margin: 0 auto; padding: 120px 32px 80px; position: relative; z-index: 2; }
+  .hp-hero { margin-bottom: 56px; }
+  .hp-breadcrumb {
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-mute); margin-bottom: 32px;
+  }
+  .hp-breadcrumb a {
+    color: var(--text-mute); text-decoration: none;
+    border: 1px solid var(--border-bright);
+    width: 28px; height: 28px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .hp-breadcrumb a:hover { border-color: var(--accent); color: var(--accent); }
+  .hp-meta-row {
+    display: flex; align-items: center; gap: 16px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--text-mute);
+    margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .hp-meta-count { color: var(--accent); font-weight: 600; }
+  .hp-title {
+    font-family: var(--serif); font-size: clamp(56px, 9vw, 130px);
+    line-height: 0.95; font-weight: 400; letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hp-title em { font-style: italic; color: var(--text-mute); }
+  .hp-title .hp-dot { color: var(--accent); font-style: normal; }
+  .hp-tagline {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(18px, 2vw, 26px); color: var(--text-mute);
+    max-width: 720px; line-height: 1.4;
+  }
+  .hp-toc {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px; background: var(--border); border: 1px solid var(--border);
+    margin-bottom: 80px;
+  }
+  .hp-toc a {
+    background: var(--bg); padding: 18px 20px;
+    text-decoration: none; color: var(--text-mute);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hp-toc a:hover { background: var(--bg-elev); color: var(--accent); }
+  .hp-toc-num { color: var(--accent); font-weight: 600; }
+  .hp-item {
+    padding: 56px 0; border-top: 1px solid var(--border);
+    scroll-margin-top: 90px;
+  }
+  .hp-item:first-of-type { border-top: none; padding-top: 0; }
+  .hp-item:last-of-type { border-bottom: none; }
+  .hp-item-head {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 28px; flex-wrap: wrap;
+  }
+  .hp-item-num {
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.2em;
+    color: var(--accent); font-weight: 600;
+  }
+  .hp-item-title {
+    font-family: var(--serif); font-size: clamp(36px, 5vw, 64px);
+    line-height: 1; font-weight: 400; letter-spacing: -0.02em;
+  }
+  .hp-item-title em { font-style: italic; color: var(--accent); }
+  .hp-item-body { max-width: 760px; margin-bottom: 36px; }
+  .hp-item-body p {
+    font-family: var(--serif); font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.55; color: var(--text); margin-bottom: 16px;
+    letter-spacing: -0.005em;
+  }
+  .hp-item-body p:last-child { margin-bottom: 0; }
+  .hp-item-body p.dim { color: var(--text-mute); font-style: italic; }
+  .hp-item-projects {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 14px; margin-top: 36px;
+  }
+  .hp-pc {
+    text-decoration: none; color: inherit;
+    background: var(--bg-elev); border: 1px solid var(--border);
+    padding: 20px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: all 0.25s ease;
+  }
+  .hp-pc:hover {
+    border-color: var(--accent); background: var(--bg-card);
+    transform: translateY(-2px);
+  }
+  .hp-pc-head {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .hp-pc-code { color: var(--accent); }
+  .hp-pc-tag { color: var(--text-mute); }
+  .hp-pc-title {
+    font-family: var(--serif); font-size: 20px; line-height: 1.2;
+    font-weight: 400; letter-spacing: -0.01em;
+  }
+  .hp-pc-line {
+    font-family: var(--sans); font-size: 13px;
+    color: var(--text-mute); line-height: 1.5;
+  }
+  .hp-cta {
+    margin-top: 64px; padding-top: 36px;
+    border-top: 1px solid var(--border);
+  }
+  .hp-back {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--text-mute);
+    text-decoration: none; border: 1px solid var(--border-bright);
+    padding: 12px 22px; display: inline-block;
+    transition: all 0.2s ease;
+  }
+  .hp-back:hover { color: var(--accent); border-color: var(--accent); }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 32px 40px; margin-top: 80px;
+    position: relative; z-index: 2;
+  }
+  .footer-grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px; margin-bottom: 60px;
+  }
+  .footer-cta {
+    font-family: var(--serif); font-size: clamp(36px, 5vw, 64px);
+    line-height: 1; letter-spacing: -0.02em;
+  }
+  .footer-cta em { font-style: italic; color: var(--accent); }
+  .footer-cta a {
+    color: inherit; text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px; transition: opacity 0.2s;
+  }
+  .footer-cta a:hover { opacity: 0.7; }
+  .footer-col h6 {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+    color: var(--text-mute); text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 500;
+  }
+  .footer-col a {
+    display: block; color: var(--text); text-decoration: none;
+    padding: 4px 0; font-size: 14px; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-base {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; justify-content: space-between;
+    padding-top: 24px; border-top: 1px solid var(--border);
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  @media (max-width: 900px) {
+    .hp { padding: 100px 20px 60px; }
+    nav { padding: 16px 20px; }
+    .hp-item-projects { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-base { flex-direction: column; gap: 8px; }
+  }
+
+  /* === LIGHT MODE (toggled via .light-mode on body) === */
+  .light-mode {
+    --bg: #FAFAF8;
+    --bg-elev: #FFFFFF;
+    --bg-card: #F0F0EC;
+    --border: #E5E5E0;
+    --border-bright: #C5C5C0;
+    --text: #0A0A0B;
+    --text-mute: #5A5A62;
+    --text-dim: #9A9AA0;
+    --accent: #E5550F;
+    --accent-soft: #FF6B35;
+    --green: #5A9050;
+  }
+  .light-mode body::before { opacity: 0.015; mix-blend-mode: multiply; }
+  .light-mode nav { background: rgba(250, 250, 248, 0.78); }
+
+  /* === THEME TOGGLE === */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-toggle {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-mute);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .theme-toggle .icon-light { display: none; }
+  .light-mode .theme-toggle .icon-dark { display: none; }
+  .light-mode .theme-toggle .icon-light { display: block; }
+  .theme-hint {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .theme-hint::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid var(--accent);
+  }
+  .theme-hint.show { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">KM <span>// CREATIVE OPS</span></a>
+  <div class="nav-right">
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      Available for new roles
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <span class="theme-hint">Try light mode</span>
+    </button>
+  </div>
+</nav>
+
+<article class="hp">
+
+  <header class="hp-hero">
+    <div class="hp-breadcrumb">
+      <a href="index.html" aria-label="Back to portfolio">←</a>
+      <span>// PORTFOLIO / WHAT-I-BRING / TEAMS</span>
+    </div>
+    <div class="hp-meta-row">
+      <span class="hp-meta-count">05</span>
+      <span>·</span>
+      <span>Teams</span>
+      <span>·</span>
+      <span>Functions built and led</span>
+    </div>
+    <h1 class="hp-title">Teams<span class="hp-dot">.</span></h1>
+    <p class="hp-tagline">The 5 creative functions I've built and led. A creative org that ships at performance speed.</p>
+  </header>
+
+  <nav class="hp-toc" aria-label="Team sections">
+    <a href="#copywriters"><span class="hp-toc-num">01</span> Copywriters</a>
+    <a href="#strategists"><span class="hp-toc-num">02</span> Strategists</a>
+    <a href="#editors"><span class="hp-toc-num">03</span> Video Editors</a>
+    <a href="#researchers"><span class="hp-toc-num">04</span> Researchers</a>
+    <a href="#ops"><span class="hp-toc-num">05</span> Creative Ops</a>
+  </nav>
+
+  <section class="hp-item" id="copywriters">
+    <div class="hp-item-head">
+      <span class="hp-item-num">// 01</span>
+      <h2 class="hp-item-title">Copywriters<em>.</em></h2>
+    </div>
+    <div class="hp-item-body">
+      <p>Copy is where most performance creative lives or dies. The team ships hooks, scripts, and lifecycle copy across multiple verticals every week.</p>
+      <p>I've built copy teams from junior writers up. The discipline: voice docs per vertical, hook libraries everyone pulls from, structured templates that respect production speed. Onboarding cuts a writer's ramp time from quarters to weeks.</p>
+      <p class="dim">The output: copy that performs without the senior writer rewriting every line.</p>
+    </div>
+    <div class="hp-item-projects">
+      <a href="p-011.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—011</span><span class="hp-pc-tag">Leadership</span></div>
+        <h4 class="hp-pc-title">Dreamweavers team build</h4>
+        <p class="hp-pc-line">Built the team from zero. Roles, cadences, quarterly execution rhythm.</p>
+      </a>
+      <a href="p-012.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—012</span><span class="hp-pc-tag">Leadership</span></div>
+        <h4 class="hp-pc-title">Internal training programs</h4>
+        <p class="hp-pc-line">L&amp;D for copywriters that cut ramp time and raised quality floors.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="hp-item" id="strategists">
+    <div class="hp-item-head">
+      <span class="hp-item-num">// 02</span>
+      <h2 class="hp-item-title">Creative <em>Strategists.</em></h2>
+    </div>
+    <div class="hp-item-body">
+      <p>Creative strategists are the translation layer between performance data and creative direction. They look at what's working, name why, and brief the next variant.</p>
+      <p>I've led strategists across 5 verticals. The discipline: shared performance taxonomy, weekly intel rhythms, and creative briefs that compress 12 hours of analysis into a 1-page brief.</p>
+      <p class="dim">When strategy and copy run on the same rhythm, the org ships sharper creative.</p>
+    </div>
+    <div class="hp-item-projects">
+      <a href="p-001.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—001</span><span class="hp-pc-tag">Systems</span></div>
+        <h4 class="hp-pc-title">Creative Intelligence Dashboard</h4>
+        <p class="hp-pc-line">The shared performance taxonomy strategists work from every morning.</p>
+      </a>
+      <a href="p-010.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—010</span><span class="hp-pc-tag">Leadership</span></div>
+        <h4 class="hp-pc-title">Cross-vertical creative ops</h4>
+        <p class="hp-pc-line">Operating model where strategist rhythms hold across all 5 verticals.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="hp-item" id="editors">
+    <div class="hp-item-head">
+      <span class="hp-item-num">// 03</span>
+      <h2 class="hp-item-title">Video <em>Editors.</em></h2>
+    </div>
+    <div class="hp-item-body">
+      <p>Editors are downstream of every winning hook. The team turns approved scripts into shipped video at performance speed.</p>
+      <p>I've worked with editor teams on VSLs, UGC cuts, and short-form. The discipline: structured project files, asset libraries, and an editing brief format that ships a script from copywriter to editor in one document.</p>
+      <p class="dim">The output: video that doesn't bottleneck on the editing stage.</p>
+    </div>
+    <div class="hp-item-projects">
+      <a href="p-002.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—002</span><span class="hp-pc-tag">Systems</span></div>
+        <h4 class="hp-pc-title">ClickUp + n8n creative ops</h4>
+        <p class="hp-pc-line">The brief-to-edit handoff lives in this automation layer.</p>
+      </a>
+      <a href="p-001.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—001</span><span class="hp-pc-tag">Systems</span></div>
+        <h4 class="hp-pc-title">Creative Intelligence Dashboard</h4>
+        <p class="hp-pc-line">Performance signal that tells editors which formats are fatiguing daily.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="hp-item" id="researchers">
+    <div class="hp-item-head">
+      <span class="hp-item-num">// 04</span>
+      <h2 class="hp-item-title">Researchers<em>.</em></h2>
+    </div>
+    <div class="hp-item-body">
+      <p>Research is the function most teams underbuild. Without it, copy is guessing.</p>
+      <p>I've built and managed research functions covering competitor scraping, market intel, customer language libraries, and angle freshness. Most of the work runs on AI agents now, with humans curating and synthesizing.</p>
+      <p class="dim">The output: copy that lands because the angle is right. Talent matters less when research is right.</p>
+    </div>
+    <div class="hp-item-projects">
+      <a href="p-005.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—005</span><span class="hp-pc-tag">AI Workflows</span></div>
+        <h4 class="hp-pc-title">AI agent fleet operations</h4>
+        <p class="hp-pc-line">Research agents covering competitor pulls, market intel, and SOP lookup.</p>
+      </a>
+      <a href="p-003.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—003</span><span class="hp-pc-tag">Systems</span></div>
+        <h4 class="hp-pc-title">News Intel Board</h4>
+        <p class="hp-pc-line">Live raw feed that turned daily angle generation into a 10-minute task.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="hp-item" id="ops">
+    <div class="hp-item-head">
+      <span class="hp-item-num">// 05</span>
+      <h2 class="hp-item-title">Creative <em>Ops.</em></h2>
+    </div>
+    <div class="hp-item-body">
+      <p>Ops is the function that lets the rest of the org actually ship. Without it, briefs sit, reviews stack, performance never gets back to the writer.</p>
+      <p>I've built creative ops layers using ClickUp and n8n. Briefs route automatically. Performance data syncs back to creative tickets. Status updates write themselves.</p>
+      <p class="dim">When ops runs, the team ships at twice the cadence with half the meetings.</p>
+    </div>
+    <div class="hp-item-projects">
+      <a href="p-002.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—002</span><span class="hp-pc-tag">Systems</span></div>
+        <h4 class="hp-pc-title">ClickUp + n8n creative ops</h4>
+        <p class="hp-pc-line">End-to-end automation layer that runs the operational rhythm.</p>
+      </a>
+      <a href="p-011.html" class="hp-pc">
+        <div class="hp-pc-head"><span class="hp-pc-code">P—011</span><span class="hp-pc-tag">Leadership</span></div>
+        <h4 class="hp-pc-title">Dreamweavers team build</h4>
+        <p class="hp-pc-line">The ops cadences that hold the team together quarter over quarter.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="hp-cta">
+    <a href="index.html" class="hp-back">← Back to portfolio</a>
+  </section>
+
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-cta">
+        Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h6>// Reach</h6>
+      <a href="mailto:ketanmishra47@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="footer-col">
+      <h6>// Index</h6>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#roles">Roles</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© Ketan Mishra 2026</span>
+    <span>Portfolio v1.0 // Hand-built</span>
+  </div>
+</footer>
+
+
+<script>
+  // === Theme toggle ===
+  (function() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+    const hint = toggle.querySelector('.theme-hint');
+    const saved = localStorage.getItem('km-theme');
+    if (saved === 'light') document.documentElement.classList.add('light-mode');
+    if (!localStorage.getItem('km-theme-seen')) {
+      setTimeout(() => hint && hint.classList.add('show'), 1500);
+      setTimeout(() => hint && hint.classList.remove('show'), 6500);
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('km-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('km-theme-seen', '1');
+      if (hint) hint.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>

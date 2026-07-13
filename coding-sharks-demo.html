@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Sharks — Gesture FX v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#000; overflow:hidden; width:100vw; height:100vh; font-family:'Space Grotesk',sans-serif; cursor:none; }
+
+  /* ===== WEBCAM hidden — drawn directly on canvas for reliability ===== */
+  #webcam {
+    position: fixed;
+    top:-9999px; left:-9999px; width:1px; height:1px;
+    opacity:0; pointer-events:none;
+  }
+
+  /* ===== Dark vignette overlay so particles pop ===== */
+  #vignette {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: radial-gradient(ellipse at center,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.55) 70%,
+      rgba(0,0,0,0.82) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ===== Color grade overlay (brand tint) ===== */
+  #colorgrade {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(135deg,
+      rgba(255,107,53,0.07) 0%,
+      rgba(0,0,0,0) 50%,
+      rgba(255,45,85,0.05) 100%);
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* ===== Particle canvas on top ===== */
+  #main {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    z-index: 3;
+  }
+
+  /* ===== UI Layer ===== */
+  #ui-layer {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* ===== Logo ===== */
+  #logo {
+    position:absolute; top:22px; left:24px;
+    display:flex; align-items:center; gap:10px;
+    opacity:0; animation:fadeIn 1s 2s forwards;
+  }
+  #logo-emoji { font-size:28px; filter: drop-shadow(0 0 8px rgba(255,107,53,0.8)); }
+  #logo-text {
+    font-family:'Orbitron',sans-serif; font-size:14px; font-weight:900; letter-spacing:2.5px;
+    background:linear-gradient(90deg,#FF6B35,#FF9500);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    text-shadow: none;
+    text-transform:uppercase;
+    filter: drop-shadow(0 0 12px rgba(255,107,53,0.5));
+  }
+
+  /* ===== Top badge ===== */
+  #badge {
+    position:absolute; top:22px; right:24px;
+    background:rgba(0,0,0,0.5);
+    border:1px solid rgba(255,107,53,0.5);
+    backdrop-filter: blur(8px);
+    color:#FF9500; font-size:10px; letter-spacing:2px;
+    padding:6px 14px; border-radius:3px; font-weight:600;
+    text-transform:uppercase;
+    opacity:0; animation:fadeIn 1s 2.2s forwards;
+    box-shadow: 0 0 20px rgba(255,107,53,0.2);
+  }
+
+  /* ===== Mode pill ===== */
+  #mode-pill {
+    position:absolute; top:22px; left:50%; transform:translateX(-50%);
+    background:rgba(0,0,0,0.45); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,107,53,0.2);
+    padding:5px 18px; border-radius:20px;
+    font-size:10px; letter-spacing:2px; color:rgba(255,149,0,0.8);
+    text-transform:uppercase; font-family:'Space Grotesk',monospace;
+    opacity:0; animation:fadeIn 1s 2.5s forwards;
+  }
+
+  /* ===== HUD ===== */
+  #hud {
+    position:absolute; bottom:110px; left:24px;
+    color:rgba(255,107,53,0.5); font-size:10px; letter-spacing:1.5px;
+    line-height:2.2; text-transform:uppercase;
+    opacity:0; animation:fadeIn 1s 3s forwards;
+  }
+  #hud span { color:rgba(255,149,0,0.85); }
+
+  /* ===== Stats ===== */
+  #stats-strip {
+    position:absolute; bottom:110px; right:24px;
+    display:flex; flex-direction:column; gap:12px; align-items:flex-end;
+    opacity:0; animation:fadeIn 1s 3s forwards;
+  }
+  .stat { text-align:right; }
+  .stat-num {
+    font-family:'Orbitron',sans-serif; font-size:20px; font-weight:900;
+    background:linear-gradient(135deg,#FF6B35,#FF9500);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    filter: drop-shadow(0 0 8px rgba(255,107,53,0.6));
+    line-height:1;
+  }
+  .stat-label { font-size:9px; letter-spacing:2px; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-top:2px; }
+
+  /* ===== Word switcher ===== */
+  #word-switcher {
+    position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    display:flex; gap:8px; pointer-events:all;
+    opacity:0; animation:fadeIn 0.8s 3.5s forwards;
+  }
+  .word-btn {
+    background:rgba(0,0,0,0.45); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,107,53,0.3);
+    color:rgba(255,149,0,0.7); padding:7px 14px;
+    font-family:'Orbitron',sans-serif; font-size:10px;
+    letter-spacing:2px; cursor:pointer; border-radius:3px;
+    transition:all 0.25s; text-transform:uppercase;
+  }
+  .word-btn:hover, .word-btn.active {
+    background:rgba(255,107,53,0.2); border-color:rgba(255,107,53,0.9);
+    color:#FF9500; box-shadow:0 0 16px rgba(255,107,53,0.3);
+  }
+
+  /* ===== Tagline ===== */
+  #tagline {
+    position:absolute; bottom:80px; left:50%; transform:translateX(-50%);
+    text-align:center; white-space:nowrap;
+    opacity:0; animation:fadeIn 1s 4s forwards;
+  }
+  #tagline-main {
+    font-family:'Orbitron',sans-serif; font-size:clamp(9px,1.5vw,14px);
+    letter-spacing:5px; color:rgba(255,255,255,0.2); text-transform:uppercase;
+  }
+  #tagline-url {
+    font-size:10px; letter-spacing:3px; color:rgba(255,107,53,0.5);
+    margin-top:4px; text-transform:uppercase;
+  }
+
+  /* ===== Status ===== */
+  #status {
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    text-align:center; transition: opacity 1s;
+  }
+  #status-text {
+    font-family:'Orbitron',sans-serif; font-size:14px; letter-spacing:4px;
+    color:rgba(255,107,53,0.8); text-transform:uppercase;
+    animation:pulse 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255,107,53,0.5);
+  }
+  #status-sub { font-size:11px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-top:10px; text-transform:uppercase; }
+
+  /* ===== Tip toast ===== */
+  #tip {
+    position:absolute; top:70px; left:50%; transform:translateX(-50%);
+    background:rgba(0,0,0,0.55); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,107,53,0.25);
+    padding:8px 20px; border-radius:4px;
+    font-size:11px; letter-spacing:1.5px; color:rgba(255,200,100,0.75);
+    text-transform:uppercase; opacity:0; transition:opacity 0.5s;
+    pointer-events:none; white-space:nowrap;
+  }
+
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+</style>
+</head>
+<body>
+
+<!-- WEBCAM — hidden, drawn on canvas (Safari needs playsinline + muted for autoplay) -->
+<video id="webcam" autoplay muted playsinline webkit-playsinline style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"></video>
+<div id="vignette"></div>
+<div id="colorgrade"></div>
+
+<!-- Particle canvas -->
+<canvas id="main"></canvas>
+
+<!-- UI -->
+<div id="ui-layer">
+  <div id="logo">
+    <span id="logo-emoji">🦈</span>
+    <div id="logo-text">Coding Sharks</div>
+  </div>
+
+  <div id="badge">Indore's #1 Coding Institute</div>
+  <div id="mode-pill">⬡ GESTURE ACTIVE</div>
+
+  <div id="status">
+    <div id="status-text">Initializing camera...</div>
+    <div id="status-sub">Allow access · Move your hands to control particles</div>
+  </div>
+
+  <div id="tip"></div>
+
+  <div id="hud">
+    PARTICLES: <span id="pc">0</span><br>
+    HANDS: <span id="hc">0</span><br>
+    RATING: <span>4.9 ★</span><br>
+    PLACED: <span>Accenture · CSI</span>
+  </div>
+
+  <div id="stats-strip">
+    <div class="stat">
+      <div class="stat-num">5,000+</div>
+      <div class="stat-label">Active Students</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+200%</div>
+      <div class="stat-label">Salary Growth</div>
+    </div>
+  </div>
+
+  <div id="tagline">
+    <div id="tagline-main">Dive Deep &nbsp;·&nbsp; Build Real &nbsp;·&nbsp; Get Hired</div>
+    <div id="tagline-url">thecodingsharks.in &nbsp;·&nbsp; Bhawarkua, Indore</div>
+  </div>
+
+  <div id="word-switcher">
+    <button class="word-btn active" onclick="switchWord('SHARKS',this)">Sharks</button>
+    <button class="word-btn" onclick="switchWord('CODE',this)">Code</button>
+    <button class="word-btn" onclick="switchWord('HIRED',this)">Hired</button>
+    <button class="word-btn" onclick="switchWord('BUILD',this)">Build</button>
+    <button class="word-btn" onclick="switchWord('INDORE',this)">Indore</button>
+    <button class="word-btn" onclick="switchWord('AI',this)">AI</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<script>
+// ===== CANVAS SETUP =====
+const canvas = document.getElementById('main');
+const ctx = canvas.getContext('2d');
+const video = document.getElementById('webcam');
+const statusDiv = document.getElementById('status');
+const pcEl = document.getElementById('pc');
+const hcEl = document.getElementById('hc');
+const tipEl = document.getElementById('tip');
+
+let W, H, t = 0;
+let particles = [], targetPoints = [], handLandmarks = [];
+let currentWord = 'SHARKS', transitioning = false;
+let lastHandTime = 0, autoCycleTimer;
+let mpReady = false, mpHands = null;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  buildTargets(currentWord);
+  rebuildParticles();
+}
+window.addEventListener('resize', resize);
+
+// ===== TIPS =====
+const tips = [
+  '🦈 Raise both hands to scatter particles',
+  '✋ Push slowly — particles resist your hands',
+  '🎯 Switch words using buttons below',
+  '🔴 Record screen for Instagram Reels',
+];
+let tipIdx = 0;
+function showTip(msg) {
+  tipEl.textContent = msg;
+  tipEl.style.opacity = '1';
+  setTimeout(() => tipEl.style.opacity = '0', 3000);
+}
+setTimeout(() => {
+  showTip(tips[0]);
+  setInterval(() => { tipIdx=(tipIdx+1)%tips.length; showTip(tips[tipIdx]); }, 6000);
+}, 5000);
+
+// ===== BUILD TEXT TARGETS =====
+function buildTargets(word) {
+  const off = document.createElement('canvas');
+  off.width = W; off.height = H;
+  const oc = off.getContext('2d');
+  const fs = Math.min(W * 0.28, H * 0.38, 280);
+  oc.fillStyle = '#fff';
+  oc.font = `900 ${fs}px "Orbitron","Arial Black",monospace`;
+  oc.textAlign = 'center';
+  oc.textBaseline = 'middle';
+  oc.fillText(word, W/2, H/2);
+  const d = oc.getImageData(0,0,W,H).data;
+  const pts = [];
+  const step = Math.max(5, Math.floor(W/220));
+  for (let y=0;y<H;y+=step)
+    for (let x=0;x<W;x+=step)
+      if (d[(y*W+x)*4+3] > 100) pts.push({x,y});
+  for (let i=pts.length-1;i>0;i--) {
+    const j=Math.floor(Math.random()*(i+1));
+    [pts[i],pts[j]]=[pts[j],pts[i]];
+  }
+  targetPoints = pts;
+}
+
+// ===== PARTICLE =====
+class Particle {
+  constructor(target) {
+    this.target = target;
+    this.x = Math.random()*W;
+    this.y = Math.random()*H;
+    this.vx = (Math.random()-0.5)*8;
+    this.vy = (Math.random()-0.5)*8;
+    this.size = 1.4 + Math.random()*1.8;
+    this.alpha = 0.6 + Math.random()*0.4;
+    this.noise = Math.random()*Math.PI*2;
+    this.ns = 0.012 + Math.random()*0.016;
+    this.colorShift = Math.random()<0.6 ? 0 : (Math.random()<0.5 ? 1 : 2);
+  }
+  update(hands) {
+    const dx = this.target.x - this.x;
+    const dy = this.target.y - this.y;
+    this.vx += dx * 0.055;
+    this.vy += dy * 0.055;
+    this.noise += this.ns;
+    this.vx += Math.cos(this.noise)*0.28;
+    this.vy += Math.sin(this.noise)*0.28;
+    for (const hand of hands) {
+      for (let i=0;i<hand.length;i+=2) {
+        const lm=hand[i]; if(!lm) continue;
+        const hx=(1-lm.x)*W, hy=lm.y*H;
+        const ddx=this.x-hx, ddy=this.y-hy;
+        const d2=ddx*ddx+ddy*ddy;
+        const R=150;
+        if (d2<R*R && d2>0) {
+          const dist=Math.sqrt(d2);
+          const f=((R-dist)/R)*16;
+          this.vx+=(ddx/dist)*f;
+          this.vy+=(ddy/dist)*f;
+        }
+      }
+    }
+    this.vx*=0.86; this.vy*=0.86;
+    this.x+=this.vx; this.y+=this.vy;
+    this.x=Math.max(0,Math.min(W,this.x));
+    this.y=Math.max(0,Math.min(H,this.y));
+  }
+  draw() {
+    const spd=Math.sqrt(this.vx*this.vx+this.vy*this.vy);
+    const fast=spd>3.5;
+    let r,g,b;
+    if (this.colorShift===0){r=255;g=107;b=53;}
+    else if (this.colorShift===1){r=255;g=45;b=35;}
+    else {r=255;g=180;b=0;}
+    if (fast) {
+      ctx.beginPath();
+      ctx.moveTo(this.x-this.vx*2.5, this.y-this.vy*2.5);
+      ctx.lineTo(this.x, this.y);
+      ctx.strokeStyle=`rgba(${r},${g},${b},${Math.min(this.alpha*0.45,0.38)})`;
+      ctx.lineWidth=this.size*0.6;
+      ctx.stroke();
+    }
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size*(fast?1.4:1), 0, Math.PI*2);
+    ctx.fillStyle=`rgba(${r},${g},${b},${this.alpha})`;
+    ctx.fill();
+  }
+}
+
+function rebuildParticles() {
+  // Safari-safe: max 1800 particles to prevent hang
+  const count = Math.min(1800, Math.max(targetPoints.length||600, 600));
+  if (!particles.length) {
+    for (let i=0;i<count;i++)
+      particles.push(new Particle(targetPoints[i%targetPoints.length]||{x:W/2,y:H/2}));
+  } else {
+    while (particles.length > count) particles.pop();
+    while (particles.length < count)
+      particles.push(new Particle(targetPoints[particles.length%targetPoints.length]||{x:W/2,y:H/2}));
+    for (let i=0;i<particles.length;i++)
+      particles[i].target = targetPoints[i%targetPoints.length]||{x:W/2,y:H/2};
+  }
+  pcEl.textContent = particles.length;
+}
+
+// ===== WORD SWITCH =====
+function switchWord(word, btn) {
+  if (transitioning || word===currentWord) return;
+  transitioning = true;
+  currentWord = word;
+  particles.forEach(p => { p.vx+=(Math.random()-0.5)*20; p.vy+=(Math.random()-0.5)*20; });
+  setTimeout(() => { buildTargets(word); rebuildParticles(); transitioning=false; }, 350);
+  document.querySelectorAll('.word-btn').forEach(b=>b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+
+// ===== HAND SKELETON =====
+const CONN=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],
+  [5,9],[9,10],[10,11],[11,12],[9,13],[13,14],[14,15],[15,16],
+  [13,17],[17,18],[18,19],[19,20],[0,17]];
+
+function drawHands(hands) {
+  for (const hand of hands) {
+    ctx.lineWidth=1;
+    for (const [a,b] of CONN) {
+      const la=hand[a],lb=hand[b]; if(!la||!lb) continue;
+      ctx.beginPath();
+      ctx.moveTo((1-la.x)*W, la.y*H);
+      ctx.lineTo((1-lb.x)*W, lb.y*H);
+      ctx.strokeStyle='rgba(255,107,53,0.3)';
+      ctx.globalAlpha=1; ctx.stroke();
+    }
+    [0,4,8,12,16,20].forEach(idx => {
+      const lm=hand[idx]; if(!lm) return;
+      const hx=(1-lm.x)*W, hy=lm.y*H;
+      const r=idx===0?22:13;
+      const pulse=1+0.12*Math.sin(t*0.07+idx*0.9);
+      ctx.beginPath();
+      ctx.arc(hx,hy,r*pulse+5,0,Math.PI*2);
+      ctx.strokeStyle=idx===0?'rgba(255,200,0,0.1)':'rgba(255,107,53,0.08)';
+      ctx.lineWidth=7; ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(hx,hy,r*pulse,0,Math.PI*2);
+      ctx.strokeStyle=idx===0?'rgba(255,180,0,0.9)':'rgba(255,107,53,0.8)';
+      ctx.lineWidth=1.5; ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(hx,hy,idx===0?5:3,0,Math.PI*2);
+      ctx.fillStyle=idx===0?'#FFB300':'#FF6B35';
+      ctx.globalAlpha=1; ctx.fill();
+    });
+  }
+  ctx.globalAlpha=1;
+}
+
+// ===== AMBIENT DOTS =====
+const amb=Array.from({length:40},()=>({
+  x:Math.random(),y:Math.random(),
+  vx:(Math.random()-0.5)*0.0007,vy:(Math.random()-0.5)*0.0007,
+  r:Math.random()*1.1+0.3,a:Math.random()*0.07+0.02
+}));
+function drawAmbient() {
+  for (const p of amb) {
+    p.x=(p.x+p.vx+1)%1; p.y=(p.y+p.vy+1)%1;
+    ctx.beginPath();
+    ctx.arc(p.x*W,p.y*H,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(255,107,53,${p.a})`; ctx.fill();
+  }
+}
+
+// ===== SCANLINE =====
+function drawScanline() {
+  [[0,0,1,1],[W,0,-1,1],[0,H,1,-1],[W,H,-1,-1]].forEach(([cx,cy,sx,sy])=>{
+    ctx.beginPath();
+    ctx.moveTo(cx+sx*50,cy); ctx.lineTo(cx,cy); ctx.lineTo(cx,cy+sy*50);
+    ctx.strokeStyle='rgba(255,107,53,0.15)'; ctx.lineWidth=1.5; ctx.stroke();
+  });
+}
+
+// ===== RENDER — Safari-safe: NO ctx.filter blur =====
+function render() {
+  t++;
+
+  // Draw live webcam on canvas (mirrored) — works in Safari
+  if (video.readyState >= 2) {
+    ctx.save();
+    ctx.translate(W,0);
+    ctx.scale(-1,1);
+    ctx.drawImage(video, 0, 0, W, H);
+    ctx.restore();
+  } else {
+    ctx.fillStyle='#000';
+    ctx.fillRect(0,0,W,H);
+  }
+
+  // Vignette directly on canvas
+  const vg=ctx.createRadialGradient(W/2,H/2,H*0.08,W/2,H/2,H*0.88);
+  vg.addColorStop(0,'rgba(0,0,0,0.0)');
+  vg.addColorStop(0.55,'rgba(0,0,0,0.3)');
+  vg.addColorStop(1,'rgba(0,0,0,0.75)');
+  ctx.fillStyle=vg; ctx.fillRect(0,0,W,H);
+
+  // Particle motion trail (no ctx.filter — Safari breaks with it)
+  ctx.fillStyle='rgba(0,0,0,0.06)';
+  ctx.fillRect(0,0,W,H);
+
+  drawAmbient();
+  drawScanline();
+
+  // Single crisp pass — NO blur filter pass (Safari/Chrome safe)
+  ctx.globalAlpha=1;
+  for (const p of particles) { p.update(handLandmarks); p.draw(); }
+
+  if (handLandmarks.length>0) drawHands(handLandmarks);
+  ctx.globalAlpha=1;
+
+  pcEl.textContent=particles.length;
+  hcEl.textContent=handLandmarks.length;
+
+  requestAnimationFrame(render);
+}
+
+// ===== CAMERA — Direct getUserMedia (Safari compatible) =====
+async function startCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode:'user', width:{ideal:1280}, height:{ideal:720} },
+      audio: false
+    });
+    video.srcObject = stream;
+    video.setAttribute('playsinline','');
+    video.setAttribute('autoplay','');
+    video.muted = true;
+    await video.play();
+    document.getElementById('status-text').textContent = '🦈 MOVE YOUR HANDS';
+    document.getElementById('status-sub').textContent = 'Particles respond to your gestures';
+    setTimeout(()=>{ statusDiv.style.transition='opacity 2s'; statusDiv.style.opacity='0'; },3000);
+    return true;
+  } catch(e) {
+    document.getElementById('status-text').textContent = '⚠️ Camera Access Needed';
+    document.getElementById('status-sub').textContent = 'Safari: Settings → Safari → Camera → Allow';
+    return false;
+  }
+}
+
+// ===== MEDIAPIPE — manual frame loop, no Camera utility =====
+function initMP() {
+  mpHands = new Hands({locateFile: f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}`});
+  mpHands.setOptions({
+    maxNumHands: 2,
+    modelComplexity: 0,
+    minDetectionConfidence: 0.65,
+    minTrackingConfidence: 0.55
+  });
+  mpHands.onResults(r => {
+    handLandmarks = r.multiHandLandmarks || [];
+    if (handLandmarks.length>0) {
+      lastHandTime = Date.now();
+      if (statusDiv.style.opacity !== '0') {
+        statusDiv.style.transition='opacity 0.6s';
+        statusDiv.style.opacity='0';
+      }
+    }
+  });
+  mpHands.initialize().then(() => {
+    mpReady = true;
+    pumpFrames();
+  }).catch(e => {
+    console.warn('MediaPipe init failed:', e);
+    mpReady = false;
+  });
+}
+
+// Manual frame pump — replaces Camera utility (Safari-safe)
+let pumping = false;
+async function pumpFrames() {
+  if (!mpReady || pumping) return;
+  pumping = true;
+  const loop = async () => {
+    if (video.readyState >= 2 && !video.paused) {
+      try { await mpHands.send({image: video}); } catch(_){}
+    }
+    setTimeout(loop, 50);
+  };
+  loop();
+}
+
+// ===== AUTO CYCLE =====
+const WORDS=['SHARKS','CODE','HIRED','BUILD','INDORE','AI'];
+const BTNS=()=>document.querySelectorAll('.word-btn');
+let wIdx=0;
+autoCycleTimer=setInterval(()=>{
+  if (Date.now()-lastHandTime < 5000) return;
+  wIdx=(wIdx+1)%WORDS.length;
+  const btns=[...BTNS()];
+  switchWord(WORDS[wIdx], btns[wIdx]);
+},4000);
+
+// ===== BOOT =====
+resize();
+render();
+startCamera().then(ok => {
+  if (ok) initMP();
+});
+</script>
+</body>
+</html>

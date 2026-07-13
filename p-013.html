@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>P—013 · Coding Sharks gesture FX — Ketan Mishra</title>
+<meta name="description" content="Coding Sharks gesture FX — a single-file brand demo built on MediaPipe Hands and HTML5 Canvas. Particles assemble into the brand's words and scatter around your hands." />
+
+
+<script>
+  // Apply saved theme before first paint to avoid FOUC
+  try { if (localStorage.getItem('km-theme') === 'light') document.documentElement.classList.add('light-mode'); } catch(e) {}
+</script>
+
+<style>
+  :root {
+    --bg: #0A0A0B;
+    --bg-elev: #131316;
+    --bg-card: #16161A;
+    --border: #1F1F23;
+    --border-bright: #2A2A30;
+    --text: #F5F5F0;
+    --text-mute: #7A7A82;
+    --text-dim: #4D4D54;
+    --accent: #FF6B35;
+    --accent-soft: #FFB088;
+    --green: #7FB069;
+    --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  a { color: inherit; }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .logo:hover { color: var(--accent); }
+  .logo span { color: var(--text); }
+  .logo:hover span { color: var(--accent); }
+
+  .status-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 2s infinite ease-in-out;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* === PROJECT PAGE === */
+  .pp {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 32px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pp-hero { margin-bottom: 48px; }
+
+  .pp-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 32px;
+  }
+  .pp-breadcrumb a {
+    color: var(--text-mute);
+    text-decoration: none;
+    border: 1px solid var(--border-bright);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .pp-breadcrumb a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .pp-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .pp-code { color: var(--accent); font-weight: 600; }
+  .pp-tag { color: var(--text); }
+  .pp-status { color: var(--text-dim); }
+  .pp-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--border-bright);
+  }
+
+  .pp-title {
+    font-family: var(--serif);
+    font-size: clamp(48px, 8vw, 110px);
+    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .pp-title em {
+    font-style: italic;
+    color: var(--text-mute);
+  }
+  .pp-title .pp-dot { color: var(--accent); font-style: normal; }
+
+  .pp-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--text-mute);
+    max-width: 720px;
+    line-height: 1.4;
+  }
+
+  /* === SPEC STRIP (flexes 2–4 columns based on filled fields) === */
+  .pp-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+  .pp-stripe-item {
+    background: var(--bg);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .pp-stripe-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .pp-stripe-item strong {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.005em;
+  }
+
+  /* === SECTION === */
+  .pp-section { margin-bottom: 56px; }
+
+  .pp-section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pp-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .pp-section-body {
+    max-width: 760px;
+  }
+  .pp-section-body p {
+    font-family: var(--serif);
+    font-size: clamp(18px, 1.4vw, 22px);
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 18px;
+    letter-spacing: -0.005em;
+  }
+  .pp-section-body p:last-child { margin-bottom: 0; }
+
+  .pp-list {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+  }
+  .pp-list li {
+    font-family: var(--serif);
+    font-size: clamp(17px, 1.3vw, 20px);
+    line-height: 1.5;
+    color: var(--text);
+    padding: 10px 0 10px 28px;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+  .pp-list li:last-child { border-bottom: 1px solid var(--border); }
+  .pp-list li::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 22px;
+    width: 8px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .pp-list code {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--bg-card);
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    color: var(--accent-soft);
+  }
+
+  .pp-output {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2vw, 28px) !important;
+    color: var(--accent-soft) !important;
+    line-height: 1.35 !important;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--border);
+    max-width: 640px;
+  }
+
+  /* === DEMO EMBED === */
+  .pp-demo-section .pp-section-title { color: var(--accent); }
+
+  .pp-demo-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .pp-demo-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 460px;
+    border: 1px solid var(--border-bright);
+    background: #000;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  }
+  .pp-demo-frame::before {
+    content: 'LIVE / P—013';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 5;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    background: rgba(0, 0, 0, 0.55);
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    pointer-events: none;
+  }
+  .pp-demo-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* === STACK CHIPS === */
+  .pp-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pp-stack span {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    padding: 8px 14px;
+    border: 1px solid var(--border-bright);
+    background: var(--bg-elev);
+  }
+
+  /* === RELATED === */
+  .pp-related {
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+  .pp-related-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .pp-related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .pp-related-card {
+    text-decoration: none;
+    color: inherit;
+    padding: 24px;
+    border: 1px solid var(--border);
+    background: var(--bg-elev);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pp-related-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-card);
+    transform: translateY(-2px);
+  }
+  .pp-rc-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .pp-rc-code { color: var(--accent); }
+  .pp-rc-tag { color: var(--text-mute); }
+  .pp-rc-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .pp-rc-desc {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-mute);
+    line-height: 1.5;
+  }
+
+  /* === CTA === */
+  .pp-cta {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .pp-back {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    text-decoration: none;
+    border: 1px solid var(--border-bright);
+    padding: 12px 22px;
+    display: inline-block;
+    transition: all 0.2s ease;
+  }
+  .pp-back:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* === FOOTER === */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 32px 40px;
+    margin-top: 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .footer-cta {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .footer-cta em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .footer-cta a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+    transition: opacity 0.2s;
+  }
+  .footer-cta a:hover { opacity: 0.7; }
+
+  .footer-col h6 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .footer-col a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    padding: 4px 0;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--accent); }
+
+  .footer-base {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .pp { padding: 100px 20px 60px; }
+    nav { padding: 16px 20px; }
+    .pp-related-grid { grid-template-columns: 1fr; }
+    .pp-demo-frame { aspect-ratio: 3 / 4; min-height: 520px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-base { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 500px) {
+    .pp-meta-row { gap: 12px; }
+    .pp-divider { display: none; }
+  }
+
+  /* === LIGHT MODE (toggled via .light-mode on body) === */
+  .light-mode {
+    --bg: #FAFAF8;
+    --bg-elev: #FFFFFF;
+    --bg-card: #F0F0EC;
+    --border: #E5E5E0;
+    --border-bright: #C5C5C0;
+    --text: #0A0A0B;
+    --text-mute: #5A5A62;
+    --text-dim: #9A9AA0;
+    --accent: #E5550F;
+    --accent-soft: #FF6B35;
+    --green: #5A9050;
+  }
+  .light-mode body::before { opacity: 0.015; mix-blend-mode: multiply; }
+  .light-mode nav { background: rgba(250, 250, 248, 0.78); }
+
+  /* === THEME TOGGLE === */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-toggle {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-mute);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .theme-toggle .icon-light { display: none; }
+  .light-mode .theme-toggle .icon-dark { display: none; }
+  .light-mode .theme-toggle .icon-light { display: block; }
+  .theme-hint {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .theme-hint::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid var(--accent);
+  }
+  .theme-hint.show { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="index.html" class="logo">KM <span>// CREATIVE OPS</span></a>
+  <div class="nav-right">
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      Available for new roles
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <span class="theme-hint">Try light mode</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ PROJECT PAGE ============ -->
+<article class="pp">
+
+  <header class="pp-hero">
+    <div class="pp-breadcrumb">
+      <a href="index.html" aria-label="Back to portfolio">←</a>
+      <span>// PORTFOLIO / WORK / P—013</span>
+    </div>
+
+    <div class="pp-meta-row">
+      <span class="pp-code">P—013</span>
+      <span class="pp-divider"></span>
+      <span class="pp-tag">AI Workflows · Vibe Coding</span>
+      <span class="pp-divider"></span>
+      <span class="pp-status">Shipped 2025</span>
+    </div>
+
+    <h1 class="pp-title">Coding Sharks <em>gesture FX</em><span class="pp-dot">.</span></h1>
+    <p class="pp-tagline">A brand demo you interact with using your hands. Particles assemble the brand. Your gestures scatter them.</p>
+  </header>
+
+  <!-- Quick spec strip — 3 fixed fields across all flagships -->
+  <div class="pp-strip">
+    <div class="pp-stripe-item">
+      <span class="pp-stripe-label">Built for</span>
+      <strong>Coding Sharks · Indore</strong>
+    </div>
+    <div class="pp-stripe-item">
+      <span class="pp-stripe-label">Format</span>
+      <strong>Single-file gesture demo</strong>
+    </div>
+    <div class="pp-stripe-item">
+      <span class="pp-stripe-label">Status</span>
+      <strong>Shipped 2025</strong>
+    </div>
+  </div>
+
+  <!-- Context -->
+  <section class="pp-section">
+    <h2 class="pp-section-title">// Context</h2>
+    <div class="pp-section-body">
+      <p>Coding Sharks is a coding institute in Bhawarkua, Indore. 5,000+ active students, 4.9★ Google rating, alumni placed at Accenture and CSI. The brand had every credential a hiring student looks for — and the same feed presence as any other institute.</p>
+      <p>Static promos got scrolled past. Reels explaining the curriculum landed on the same flat dropoff curve. The brand needed a moment a student would stop on, send to friends, and walk into the institute already curious about.</p>
+      <p>The brief: a brand demo that lives outside a Reel. Something that uses the camera the student already has. Something that doesn't ask them to install an app.</p>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="pp-section">
+    <h2 class="pp-section-title">// Approach</h2>
+    <div class="pp-section-body">
+      <p>Single-file HTML. No build step, no framework, no installer. One link to run on any device with a camera and a modern browser.</p>
+      <p>The interaction: 1,800 particles assemble into the brand's words — SHARKS, CODE, HIRED, BUILD, INDORE, AI. Raise your hands and the particles scatter around your fingertips like a force field. Drop your hands and they reassemble. The words rotate every 4 seconds when no one's interacting, so the demo never goes idle.</p>
+      <p>MediaPipe Hands handles gesture tracking. HTML5 Canvas handles the particle system. Hand landmarks act as repulsion vectors against each particle. Particles carry noise-driven drift so they never feel rigid.</p>
+      <p>Two engineering choices that mattered most for cross-device reliability:</p>
+      <ul class="pp-list">
+        <li>Manual frame pump for MediaPipe instead of its built-in Camera utility. The utility hangs on iOS Safari mid-session, the manual pump survives.</li>
+        <li>No <code>ctx.filter</code> blur calls anywhere. Safari renders them inconsistently. All glow effects come from layered fill passes with stacked alpha.</li>
+      </ul>
+      <p>Particle count capped at 1,800. Past that, older phones running Safari start choking on the per-frame draw loop.</p>
+    </div>
+  </section>
+
+  <!-- Live demo -->
+  <section class="pp-section pp-demo-section">
+    <h2 class="pp-section-title">// Live demo</h2>
+    <p class="pp-demo-note">Allow camera permission in the frame to interact. Move your hands. Use the buttons in the demo to switch the assembly word.</p>
+    <div class="pp-demo-frame">
+      <iframe src="coding-sharks-demo.html" allow="camera" title="Coding Sharks Gesture FX live demo" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Outcome -->
+  <section class="pp-section">
+    <h2 class="pp-section-title">// Outcome</h2>
+    <div class="pp-section-body">
+      <p>The brand became something a student could touch. The demo lives on the institute's website as the hero element. It runs in the background of Reels and stories. Walk-in students pull out their phones at the front desk and try it themselves.</p>
+      <p class="pp-output">A coding institute with a brand toy. The shortest path from feed to walk-in.</p>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="pp-section">
+    <h2 class="pp-section-title">// Stack</h2>
+    <div class="pp-stack">
+      <span>HTML5 Canvas</span>
+      <span>MediaPipe Hands</span>
+      <span>Vanilla JavaScript</span>
+      <span>WebRTC getUserMedia</span>
+      <span>Orbitron · Space Grotesk</span>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="pp-related">
+    <h3 class="pp-related-title">// Related work</h3>
+    <div class="pp-related-grid">
+      <a href="p-004.html" class="pp-related-card">
+        <div class="pp-rc-head">
+          <span class="pp-rc-code">P—004</span>
+          <span class="pp-rc-tag">AI Workflows</span>
+        </div>
+        <h4 class="pp-rc-title">Claude creative replication pipeline</h4>
+        <p class="pp-rc-desc">Agentic workflow that analyzes winning creatives and generates replica scripts and videos.</p>
+      </a>
+      <a href="p-005.html" class="pp-related-card">
+        <div class="pp-rc-head">
+          <span class="pp-rc-code">P—005</span>
+          <span class="pp-rc-tag">AI Workflows</span>
+        </div>
+        <h4 class="pp-rc-title">AI agent fleet operations</h4>
+        <p class="pp-rc-desc">Agent ecosystem for competitor scraping, market research, creative analysis, and SOP assistance.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA back -->
+  <section class="pp-cta">
+    <a href="index.html" class="pp-back">← Back to portfolio</a>
+  </section>
+
+</article>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-cta">
+        Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h6>// Reach</h6>
+      <a href="mailto:ketanmishra47@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="footer-col">
+      <h6>// Index</h6>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#roles">Roles</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© Ketan Mishra 2026</span>
+    <span>Portfolio v1.0 // Hand-built</span>
+  </div>
+</footer>
+
+
+<script>
+  // === Theme toggle ===
+  (function() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+    const hint = toggle.querySelector('.theme-hint');
+    const saved = localStorage.getItem('km-theme');
+    if (saved === 'light') document.documentElement.classList.add('light-mode');
+    if (!localStorage.getItem('km-theme-seen')) {
+      setTimeout(() => hint && hint.classList.add('show'), 1500);
+      setTimeout(() => hint && hint.classList.remove('show'), 6500);
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('km-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('km-theme-seen', '1');
+      if (hint) hint.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>

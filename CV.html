@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ketan Mishra — CV</title>
+<meta name="description" content="Ketan Mishra — Creative Lead · Content Operations · Performance Marketing + AI. 8+ years across affiliate performance marketing, SaaS, and eCommerce." />
+<meta name="author" content="Ketan Mishra" />
+
+<style>
+  /* Reset */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Base — system fonts for ATS reliability, print-friendly */
+  :root {
+    --text: #1a1a1a;
+    --text-mute: #555;
+    --text-dim: #888;
+    --accent: #1a1a1a;
+    --divider: #d0d0d0;
+    --page-max: 820px;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --sans-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 48px 24px;
+  }
+
+  .page {
+    max-width: var(--page-max);
+    margin: 0 auto;
+  }
+
+  /* Header */
+  header { margin-bottom: 28px; }
+  h1 {
+    font-family: var(--sans-display);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .headline {
+    font-size: 14px;
+    color: var(--text-mute);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .contact {
+    font-size: 13px;
+    color: var(--text-mute);
+    line-height: 1.7;
+  }
+  .contact a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--divider);
+  }
+  .contact a:hover { border-bottom-color: var(--text); }
+  .contact-sep { color: var(--text-dim); margin: 0 8px; }
+
+  /* Section */
+  section { margin-top: 24px; page-break-inside: auto; }
+  h2 {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text);
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 14px;
+  }
+
+  /* Summary */
+  .summary p { margin-bottom: 10px; }
+  .summary p:last-child { margin-bottom: 0; }
+
+  /* Experience */
+  .job { margin-bottom: 18px; page-break-inside: avoid; }
+  .job:last-child { margin-bottom: 0; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+  }
+  .job-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .job-dates {
+    font-size: 12px;
+    color: var(--text-mute);
+    white-space: nowrap;
+  }
+  .job-org {
+    font-size: 13px;
+    color: var(--text-mute);
+    margin-bottom: 6px;
+  }
+  .job-org strong { color: var(--text); font-weight: 600; }
+  .job ul { list-style: none; padding: 0; }
+  .job li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .job li::before {
+    content: "·";
+    position: absolute;
+    left: 4px;
+    top: -1px;
+    color: var(--text-mute);
+    font-weight: 700;
+  }
+
+  /* Projects */
+  .project { margin-bottom: 12px; page-break-inside: avoid; }
+  .project:last-child { margin-bottom: 0; }
+  .project-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .project-desc {
+    font-size: 13px;
+    color: var(--text-mute);
+    line-height: 1.55;
+  }
+
+  /* Competencies */
+  .comp-group { margin-bottom: 8px; }
+  .comp-group:last-child { margin-bottom: 0; }
+  .comp-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 130px;
+    vertical-align: top;
+  }
+  .comp-list {
+    display: inline;
+    font-size: 13px;
+    color: var(--text-mute);
+    line-height: 1.6;
+  }
+
+  /* Education / Awards */
+  .edu-item, .award-item {
+    margin-bottom: 6px;
+    font-size: 13.5px;
+  }
+  .edu-title { font-weight: 700; color: var(--text); }
+  .edu-org { color: var(--text-mute); }
+  .edu-dates { color: var(--text-dim); font-size: 12px; }
+
+  /* Print */
+  @media print {
+    body { padding: 24px 32px; font-size: 11pt; }
+    .page { max-width: 100%; }
+    a { color: var(--text); border-bottom: none; }
+    section { page-break-inside: auto; }
+    .job, .project { page-break-inside: avoid; }
+    @page { margin: 0.6in 0.6in; size: letter; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ============ HEADER ============ -->
+<header>
+  <h1>Ketan Mishra</h1>
+  <div class="headline">Creative Lead · Content Operations · Performance Marketing + AI</div>
+  <div class="contact">
+    Gurugram, Haryana, India<span class="contact-sep">·</span>
+    <a href="tel:+917355278429">+91 7355278429</a><span class="contact-sep">·</span>
+    <a href="mailto:ketanmishra47@gmail.com">ketanmishra47@gmail.com</a><br>
+    <a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">linkedin.com/in/ketan-mishra</a>
+  </div>
+</header>
+
+<!-- ============ SUMMARY ============ -->
+<section class="summary">
+  <h2>Summary</h2>
+  <p>Creative Lead with 8+ years across affiliate performance marketing, SaaS, eCommerce, and B2B content. I build the creative operating systems that let content teams ship at scale — from cross-vertical hook libraries and AI-augmented content pipelines to custom internal tools that break creative silos.</p>
+  <p>Currently at Adsparkx leading creative and content ops across 5 performance-marketing verticals: Healthcare, Health Insurance, Fintech, Consumer Lending, and Auto &amp; P&amp;C Insurance.</p>
+  <p>Areas of expertise: creative operations at scale, AI-augmented content workflows, performance marketing strategy, cross-functional team building, and generative-engine content optimization.</p>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section>
+  <h2>Professional Experience</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Team Lead — Creative</span>
+      <span class="job-dates">April 2025 – Present</span>
+    </div>
+    <div class="job-org"><strong>Adsparkx</strong> · Gurugram, India</div>
+    <ul>
+      <li>Lead creative and content operations across 5 performance-marketing verticals (Healthcare, Health Insurance, Fintech, Consumer Lending, Auto &amp; P&amp;C).</li>
+      <li>Built a Claude + Gemini creative replication pipeline that analyzes winning creatives across script and visual frames. Phase 1 generates replica scripts. Phase 2 renders full video output (in development).</li>
+      <li>Established a cross-vertical operating model that lets hooks and angles travel across silos, with a shared performance taxonomy and vertical-specific hook libraries.</li>
+      <li>Grew creative production from 30 to 70+ creatives per day by integrating AI copywriting and automated video production workflows. Increased campaign profits by 30%.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Assistant Team Lead — Creative</span>
+      <span class="job-dates">December 2023 – March 2025</span>
+    </div>
+    <div class="job-org"><strong>Adsparkx</strong> · Gurugram, India</div>
+    <ul>
+      <li>Led performance marketing initiatives across 5 verticals. Refined ad creatives and increased campaign profits by 30%.</li>
+      <li>Built <strong>ClickUp + n8n creative ops automation</strong>: one master workflow with 30+ branches handling every event from brief creation to final delivery. 100+ creative handoffs a day, 365 days a year.</li>
+      <li>Shipped the <strong>News Intel Board</strong>: Python scrapers plus Claude-authored backend scoring US news stories across three axes (virality, vertical relevance, emotional quotient). Auto-drafts angles and script starters for Debt and Personal Loans. Zero-cost on Vercel.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Creative Head — Content Marketing</span>
+      <span class="job-dates">March 2020 – November 2023</span>
+    </div>
+    <div class="job-org"><strong>CEDCOSS Technologies</strong> · Lucknow, India</div>
+    <ul>
+      <li>Built and ran multi-channel performance marketing campaigns. Increased MQLs by 40% for Video Marketing Services.</li>
+      <li>Led Go-To-Market strategies for multiple SaaS and eCommerce solutions. Earned Shopify Recommended Partner status through partner-led marketing programs.</li>
+      <li>Grew creative production efficiency by 2.3x through structured L&amp;D programs that ramped video editors into animators.</li>
+      <li>Launched data-driven Account-Based Marketing (ABM) initiatives. Increased B2B deal closure rate by 20%.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Content Marketer</span>
+      <span class="job-dates">March 2019 – March 2020</span>
+    </div>
+    <div class="job-org"><strong>CEDCOSS Technologies</strong> · Lucknow, India</div>
+    <ul>
+      <li>Ran a long-term content marketing strategy. Increased organic traffic by 45% and grew blog engagement by 30% through SEO-driven content.</li>
+      <li>Produced localized content for U.S., Southeast Asia, France, and U.K. markets.</li>
+      <li>Wrote SEO-driven landing page copy that ranked in the top 5 of Google SERP.</li>
+      <li>Wrote press releases, corporate communications, launch copy, and brand positioning materials.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Brand Video Strategist (Self-Employed)</span>
+      <span class="job-dates">January 2018 – February 2019</span>
+    </div>
+    <div class="job-org">Freelance · Delhi NCR, India</div>
+    <ul>
+      <li>Freelance video editing and brand video strategy for media houses and IT companies across Delhi NCR.</li>
+      <li>Aligned each video project with the client's overarching marketing strategy — bridging production craft with marketing outcomes.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Corporate Communications Intern</span>
+      <span class="job-dates">June 2017 – January 2018</span>
+    </div>
+    <div class="job-org"><strong>NDTV</strong> · New Delhi, India</div>
+    <ul>
+      <li>Progressed from Intern to PR Executive in 2 months.</li>
+      <li>Coordinated production for NDTV's high-profile shows including <em>Hum Log</em> and <em>We The People</em>.</li>
+      <li>Managed audience engagement, show flow, guest onboarding, and interactive Q&amp;A sessions.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SELECTED PROJECTS ============ -->
+<section>
+  <h2>Selected Projects</h2>
+
+  <div class="project">
+    <div class="project-name">Claude Creative Replication Pipeline</div>
+    <div class="project-desc">On-demand agentic workflow in VS Code. Claude analyzes winning scripts and Gemini reads video frames, both driven by a system-instructions playbook. Phase 1 outputs replica scripts ready to shoot. Phase 2 renders full talking-head video with B-rolls and avatar variations.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name">Vibelets Pre-Launch Content Stack</div>
+    <div class="project-desc">Zero-audience-to-600-signups in 1.5 months. Built a full lead acquisition infrastructure: Framer-based site with blogs, Claude-drafted brand-voice content, customer journey emails, and a cold-email engine on Apollo + Instantly + NeverBounce.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name">Founder-Led LinkedIn Ghostwriting Practice</div>
+    <div class="project-desc">Multi-client ghostwriting practice serving two founders (Dusan Radovanovic, Nipun Taneja). Voice DNA doc per founder, n8n news intel pipeline, ManyChat comment automation, lead-magnet-to-connect mechanic. Grew Dusan from 5K to 25K+ followers.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name">News Intel Board</div>
+    <div class="project-desc">Self-hosted news intel for Debt and Personal Loans verticals. Python scrapers plus Claude-authored backend scoring stories on virality, vertical relevance, and emotional quotient. Auto-drafts angles and scripts. Hosted on Vercel at zero cost.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name">Coding Sharks Gesture FX</div>
+    <div class="project-desc">Vibe-coded brand demo for a coding institute. Single-file HTML using MediaPipe Hands and HTML5 Canvas. 1,800 particles assemble into brand words and scatter when the visitor raises their hands. Safari-safe, no build system.</div>
+  </div>
+</section>
+
+<!-- ============ CORE COMPETENCIES ============ -->
+<section>
+  <h2>Core Competencies</h2>
+
+  <div class="comp-group">
+    <span class="comp-label">Leadership</span>
+    <span class="comp-list">Creative Leadership · Creative Operations · Cross-functional Team Building · Content Strategy · Team Management · Vanto Leadership Development</span>
+  </div>
+
+  <div class="comp-group">
+    <span class="comp-label">AI &amp; Automation</span>
+    <span class="comp-list">Claude Pipelines · Gemini · LLM Prompt Engineering · Agentic Workflows · n8n · Custom Internal Tools · Vibe Coding · System-Instructions Playbooks</span>
+  </div>
+
+  <div class="comp-group">
+    <span class="comp-label">Performance Marketing</span>
+    <span class="comp-list">Direct Response · Affiliate Marketing · VSL Development · UGC Video · Native Advertising · Landing Page Copy · Hook &amp; Angle Development · Creative Testing Frameworks · Funnel Design · Meta Ads</span>
+  </div>
+
+  <div class="comp-group">
+    <span class="comp-label">Content &amp; Copy</span>
+    <span class="comp-list">Long-form Ghostwriting · Blog SEO · Generative Engine Optimization (GEO) · Voice DNA · Brand Guides · Lead Magnets · Email Marketing · Cold Email · Newsletter Systems · Landing Page Copy</span>
+  </div>
+
+  <div class="comp-group">
+    <span class="comp-label">Verticals</span>
+    <span class="comp-list">Healthcare · Health Insurance · Fintech · Consumer Lending · Auto &amp; P&amp;C Insurance · SaaS · eCommerce · B2B</span>
+  </div>
+
+  <div class="comp-group">
+    <span class="comp-label">Tools &amp; Platforms</span>
+    <span class="comp-list">ClickUp · n8n · Notion · Meta Marketing API · Vercel · Framer · Apollo.io · Instantly · NeverBounce · Perplexity · Claude Code · VS Code · Figma · Google Docs · SimilarWeb · SEMrush · Google Keyword Planner · Google Trends · MediaPipe · face-api.js</span>
+  </div>
+</section>
+
+<!-- ============ CROSS-FUNCTIONAL INITIATIVES ============ -->
+<section>
+  <h2>Cross-Functional Initiatives</h2>
+
+  <div class="project">
+    <div class="project-name">Dreamweavers — Captain</div>
+    <div class="project-desc">Cross-functional ops squad inside Adsparkx. Inserted into the growth team to lead the people and structured workflow domain alongside my core creative role. Captained a squad of 11 members drawn from HR, LnD, Media Buying, EA, and Admin. Ran the team on Future Backwards methodology, unpacking mission goals into causatives (mini-projects) and Promise Actions. Shipped multiple internal tools, ClickUp automations, cross-team SOPs, and structured workflow programs.</div>
+  </div>
+
+  <div class="project">
+    <div class="project-name">Adsparkx Growth Core Team — Member</div>
+    <div class="project-desc">Core member of the Adsparkx growth team driving initiatives across people and structured workflow domains. Focus areas: org design, team scaling frameworks, accountability cadences, and cross-team operating rhythms for a high-velocity affiliate performance marketing organization.</div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section>
+  <h2>Education</h2>
+  <div class="edu-item">
+    <span class="edu-title">Bachelor of Arts — Mass Communication / Media Studies</span><br>
+    <span class="edu-org">Asian Academy of Film and Television</span>
+    <span class="edu-dates">· 2014 – 2017</span>
+  </div>
+</section>
+
+<!-- ============ AWARDS & LANGUAGES ============ -->
+<section>
+  <h2>Awards &amp; Recognition</h2>
+  <div class="award-item">Newcomer Award — Driving Impactful Change at Adsparkx</div>
+</section>
+
+<section>
+  <h2>Languages</h2>
+  <div class="award-item">English — Full Professional Proficiency</div>
+  <div class="award-item">Hindi — Native / Bilingual</div>
+</section>
+
+</div>
+</body>
+</html>
