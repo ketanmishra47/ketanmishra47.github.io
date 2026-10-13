@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>W—002 · Steal This Billion-Dollar Ad Strategy (Then Reverse-Engineer It With AI) — Ketan Mishra</title>
+<meta name="description" content="Grüns sold to Unilever for a reported $1.2B. Its Meta winners fit 6 creative formats. How to pull them, break them down and scale them with Claude." />
+<!-- share -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="canonical" href="https://ketanmishra47.github.io/w-002.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ketan Mishra" />
+<meta property="og:title" content="W—002 · Steal This Billion-Dollar Ad Strategy (Then Reverse-Engineer It With AI) — Ketan Mishra" />
+<meta property="og:description" content="Grüns sold to Unilever for a reported $1.2B. Its Meta winners fit 6 creative formats. How to pull them, break them down and scale them with Claude." />
+<meta property="og:url" content="https://ketanmishra47.github.io/w-002.html" />
+<meta property="og:image" content="https://ketanmishra47.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="W—002 · Steal This Billion-Dollar Ad Strategy (Then Reverse-Engineer It With AI) — Ketan Mishra" />
+<meta name="twitter:description" content="Grüns sold to Unilever for a reported $1.2B. Its Meta winners fit 6 creative formats. How to pull them, break them down and scale them with Claude." />
+<meta name="twitter:image" content="https://ketanmishra47.github.io/og-image.png" />
+<!-- /share -->
+
+<script>
+  // Apply saved theme before first paint to avoid FOUC
+  try { if (localStorage.getItem('km-theme') === 'light') document.documentElement.classList.add('light-mode'); } catch(e) {}
+</script>
+
+<style>
+  :root { --bg: #0A0A0B; --bg-elev: #131316; --bg-card: #16161A; --border: #1F1F23; --border-bright: #2A2A30; --text: #F5F5F0; --text-mute: #7A7A82; --text-dim: #4D4D54; --accent: #FF6B35; --accent-soft: #FFB088; --green: #7FB069; --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif; --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace; --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 1; mix-blend-mode: overlay; }
+  a { color: inherit; }
+  nav { position: fixed; top: 0; left: 0; right: 0; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(10, 10, 11, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .logo { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--text-mute); text-transform: uppercase; text-decoration: none; transition: color 0.2s ease; }
+  .logo:hover { color: var(--accent); }
+  .logo span { color: var(--text); }
+  .logo:hover span { color: var(--accent); }
+  .status-pill { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); display: flex; align-items: center; gap: 8px; }
+  .status-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite ease-in-out; }
+  @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  .pp { max-width: 1100px; margin: 0 auto; padding: 120px 32px 80px; position: relative; z-index: 2; }
+  .pp-hero { margin-bottom: 48px; }
+  .pp-breadcrumb { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 32px; }
+  .pp-breadcrumb a { color: var(--text-mute); text-decoration: none; border: 1px solid var(--border-bright); width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+  .pp-breadcrumb a:hover { border-color: var(--accent); color: var(--accent); }
+  .pp-meta-row { display: flex; align-items: center; gap: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 24px; flex-wrap: wrap; }
+  .pp-code { color: var(--accent); font-weight: 600; }
+  .pp-tag { color: var(--text); }
+  .pp-status { color: var(--text-dim); }
+  .pp-divider { width: 1px; height: 14px; background: var(--border-bright); }
+  .pp-title { font-family: var(--serif); font-size: clamp(48px, 8vw, 110px); line-height: 0.95; font-weight: 400; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .pp-title em { font-style: italic; color: var(--text-mute); }
+  .pp-title .pp-dot { color: var(--accent); font-style: normal; }
+  .pp-tagline { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 24px); color: var(--text-mute); max-width: 720px; line-height: 1.4; }
+  .pp-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 64px; }
+  .pp-stripe-item { background: var(--bg); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .pp-stripe-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); }
+  .pp-stripe-item strong { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: -0.005em; }
+  .pp-section { margin-bottom: 56px; }
+  .pp-section-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+  .pp-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .pp-section-body { max-width: 760px; }
+  .pp-section-body p { font-family: var(--serif); font-size: clamp(18px, 1.4vw, 22px); line-height: 1.55; color: var(--text); margin-bottom: 18px; letter-spacing: -0.005em; }
+  .pp-section-body p:last-child { margin-bottom: 0; }
+  .pp-output { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2vw, 28px) !important; color: var(--accent-soft) !important; line-height: 1.35 !important; padding: 20px 0 0; border-top: 1px solid var(--border); max-width: 640px; }
+  .pp-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pp-stack span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); padding: 8px 14px; border: 1px solid var(--border-bright); background: var(--bg-elev); }
+  .pp-shot { margin: 0 0 28px; border: 1px solid var(--border-bright); background: var(--bg-elev); overflow: hidden; }
+  .pp-shot:last-child { margin-bottom: 0; }
+  .pp-shot img { display: block; width: 100%; height: auto; }
+  .pp-shot video { display: block; width: 100%; height: auto; max-height: 70vh; background: #000; }
+  .pp-shot figcaption { padding: 14px 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--text-mute); text-transform: uppercase; line-height: 1.6; border-top: 1px solid var(--border); }
+  .pp-shot figcaption strong { color: var(--accent); font-weight: 600; }
+
+  .pp-related { margin-top: 80px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .pp-related-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 22px; font-weight: 500; }
+  .pp-related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .pp-related-card { text-decoration: none; color: inherit; padding: 24px; border: 1px solid var(--border); background: var(--bg-elev); transition: all 0.25s ease; display: flex; flex-direction: column; gap: 14px; }
+  .pp-related-card:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+  .pp-rc-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .pp-rc-code { color: var(--accent); }
+  .pp-rc-tag { color: var(--text-mute); }
+  .pp-rc-title { font-family: var(--serif); font-size: 22px; line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; }
+  .pp-rc-desc { font-family: var(--sans); font-size: 13px; color: var(--text-mute); line-height: 1.5; }
+  .pp-cta { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .pp-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mute); text-decoration: none; border: 1px solid var(--border-bright); padding: 12px 22px; display: inline-block; transition: all 0.2s ease; }
+  .pp-back:hover { color: var(--accent); border-color: var(--accent); }
+  footer { border-top: 1px solid var(--border); padding: 60px 32px 40px; margin-top: 80px; position: relative; z-index: 2; }
+  .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+  .footer-cta { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em; }
+  .footer-cta em { font-style: italic; color: var(--accent); }
+  .footer-cta a { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: opacity 0.2s; }
+  .footer-cta a:hover { opacity: 0.7; }
+  .footer-col h6 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 16px; font-weight: 500; }
+  .footer-col a { display: block; color: var(--text); text-decoration: none; padding: 4px 0; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-base { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+  @media (max-width: 900px) { .pp { padding: 100px 20px 60px; } nav { padding: 16px 20px; } .pp-related-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-base { flex-direction: column; gap: 8px; } }
+  @media (max-width: 500px) { .pp-meta-row { gap: 12px; } .pp-divider { display: none; } }
+
+  /* === LIGHT MODE (toggled via .light-mode on body) === */
+  .light-mode {
+    --bg: #FAFAF8;
+    --bg-elev: #FFFFFF;
+    --bg-card: #F0F0EC;
+    --border: #E5E5E0;
+    --border-bright: #C5C5C0;
+    --text: #0A0A0B;
+    --text-mute: #5A5A62;
+    --text-dim: #9A9AA0;
+    --accent: #E5550F;
+    --accent-soft: #FF6B35;
+    --green: #5A9050;
+  }
+  .light-mode body::before { opacity: 0.015; mix-blend-mode: multiply; }
+  .light-mode nav { background: rgba(250, 250, 248, 0.78); }
+
+  /* === THEME TOGGLE === */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-toggle {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-mute);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .theme-toggle .icon-light { display: none; }
+  .light-mode .theme-toggle .icon-dark { display: none; }
+  .light-mode .theme-toggle .icon-light { display: block; }
+  .theme-hint {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .theme-hint::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid var(--accent);
+  }
+  .theme-hint.show { opacity: 1; transform: translateY(0); }
+
+
+  /* === CV DOWNLOAD === */
+  .cv-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); text-decoration: none; border: 1px solid var(--accent); background: rgba(255, 107, 53, 0.06); padding: 12px 20px; transition: background 0.2s ease, color 0.2s ease; }
+  .cv-btn:hover { background: var(--accent); color: #fff; }
+  .cv-btn span { color: var(--accent); transition: color 0.2s ease; }
+  .cv-btn:hover span { color: #fff; }
+  .footer-cv { margin-top: 28px; }
+  .hero-cv { margin-top: 28px; }
+
+  /* === WRITING === */
+  .wr-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); line-height: 1.7; margin: -40px 0 48px; }
+  .wr-note a { color: var(--text-mute); }
+  .wr-note a:hover { color: var(--accent); }
+  .wr-cover { margin: 0 0 48px; border: 1px solid var(--border-bright); }
+  .wr-cover img { display: block; width: 100%; height: auto; }
+  .wr-body { max-width: 720px; }
+  .wr-body > * + * { margin-top: 20px; }
+  .wr-body p, .wr-body li { font-size: 18px; line-height: 1.7; color: var(--text); }
+  .wr-body h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-top: 56px; }
+  .wr-body h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; margin-top: 40px; }
+  .wr-body h4 { font-size: 17px; font-weight: 600; margin-top: 28px; }
+  .wr-body h2 + *, .wr-body h3 + *, .wr-body h4 + * { margin-top: 12px; }
+  .wr-body [id] { scroll-margin-top: 90px; }
+  .wr-body a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  .wr-body a:hover { color: var(--accent); }
+  .wr-body strong { font-weight: 600; }
+  .wr-body ul, .wr-body ol { padding-left: 24px; }
+  .wr-body li + li { margin-top: 8px; }
+  .wr-body li::marker { color: var(--accent); }
+  .wr-body blockquote { border-left: 2px solid var(--accent); background: var(--bg-elev); padding: 16px 20px; font-size: 16px; line-height: 1.65; color: var(--text); }
+  .wr-body blockquote p { font-size: 16px; }
+  .wr-body pre { font-family: var(--mono); font-size: 13px; line-height: 1.6; background: var(--bg-elev); border: 1px solid var(--border-bright); padding: 16px 18px; white-space: pre-wrap; word-break: break-word; color: var(--text); }
+  .wr-body code { font-family: var(--mono); font-size: 0.88em; background: var(--bg-elev); padding: 1px 5px; }
+  .wr-body pre code { background: none; padding: 0; }
+  .wr-body table { width: 100%; border-collapse: collapse; font-size: 14px; display: block; overflow-x: auto; }
+  .wr-body th, .wr-body td { border: 1px solid var(--border-bright); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.5; }
+  .wr-body th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); font-weight: 500; }
+  .wr-body tr:first-child td { font-weight: 600; }
+  .wr-fig { margin: 32px 0; border: 1px solid var(--border-bright); background: var(--bg-elev); }
+  .wr-fig img { display: block; width: 100%; height: auto; }
+  .wr-body .wr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 36px; }
+  .wr-body .wr-eyebrow + h3 { margin-top: 6px; }
+  .wr-body .wr-meta { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-mute); }
+  .wr-body .wr-imgnote { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; line-height: 1.6; color: var(--text-mute); border: 1px dashed var(--border-bright); padding: 12px 14px; }
+  .wr-body .wr-imgnote::before { content: '// Image · '; color: var(--accent); }
+  .wr-body .wr-numlist { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 20px; }
+  .wr-body .wr-numlist li { font-size: 15px; margin: 0; }
+  .wr-body .wr-numlist span { font-family: var(--mono); font-size: 12px; color: var(--accent); margin-right: 6px; }
+
+  /* === AD SCRIPTS === */
+  .wr-body .ad { border: 1px solid var(--border-bright); background: var(--bg-elev); margin-top: 32px; }
+  .wr-body .ad + .ad { margin-top: 24px; }
+  .ad-head { display: flex; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--border-bright); font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .ad-code { color: var(--accent); font-weight: 600; }
+  .ad-shape { color: var(--text-mute); }
+  .wr-body .ad-shot { margin: 0; background: #fff; border-bottom: 1px solid var(--border-bright); }
+  .wr-body .ad-shot img { display: block; width: 100%; height: auto; }
+  .ad-hooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border-bright); }
+  .ad-part { background: var(--bg); padding: 18px 20px; }
+  .ad-bodypart { background: var(--bg); }
+  .ad-label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .ad-bodypart .ad-label { color: var(--text-mute); }
+  .wr-body .ad-lines p { font-size: 16px; line-height: 1.6; margin: 0; }
+  .wr-body .ad-lines p + p { margin-top: 6px; }
+  .wr-body .ad-hooks .ad-lines p { font-size: 15px; }
+  .ad-cue { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; line-height: 1.5; color: var(--text-mute); border-left: 2px solid var(--border-bright); padding: 2px 0 2px 8px; margin: 2px 0; }
+  .ad-cue::before { content: 'VISUAL · '; color: var(--text-dim); }
+  .ph { font-family: var(--mono); font-size: 0.78em; letter-spacing: 0.06em; color: var(--accent); background: rgba(255, 107, 53, 0.08); padding: 1px 4px; white-space: nowrap; }
+  .ph::before { content: '['; } .ph::after { content: ']'; }
+  .ad-cue .ph { font-size: 1em; }
+
+  /* === WRITING HUB === */
+  .wh-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .wh-filter { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); background: transparent; border: 1px solid var(--border-bright); padding: 9px 16px; cursor: pointer; transition: all 0.2s ease; }
+  .wh-filter:hover { color: var(--text); border-color: var(--text-mute); }
+  .wh-filter.active { color: var(--accent); border-color: var(--accent); }
+  .wh-filter span { color: var(--text-dim); margin-left: 6px; }
+  .wh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .wh-card { text-decoration: none; color: inherit; padding: 24px; border: 1px solid var(--border); background: var(--bg-elev); transition: all 0.25s ease; display: flex; flex-direction: column; gap: 14px; }
+  .wh-card:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+  .wh-card[hidden] { display: none; }
+  .wh-title { font-family: var(--serif); font-size: 24px; line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; }
+  .wh-dek { font-size: 14px; color: var(--text-mute); line-height: 1.55; flex: 1; }
+  .wh-foot { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 14px; }
+  @media (max-width: 600px) { .wh-grid { grid-template-columns: 1fr; } .wr-body p, .wr-body li { font-size: 17px; } }
+  /* === WRITING HUB SECTIONS (posts, hooks, email) === */
+  .sm-section { padding-top: 24px; margin-bottom: 72px; scroll-margin-top: 80px; }
+  .sm-intro { margin-bottom: 28px; }
+  .sm-from { display: inline-block; margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); text-decoration: none; border-bottom: 1px solid var(--border-bright); padding-bottom: 2px; transition: color 0.2s ease, border-color 0.2s ease; }
+  .sm-from:hover { color: var(--accent); border-color: var(--accent); }
+
+
+  .hk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .hk-card { background: var(--bg); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .hk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .hk-code { color: var(--accent); font-weight: 600; }
+  .hk-share { color: var(--text-mute); }
+  .hk-bar { height: 3px; background: var(--border-bright); }
+  .hk-bar span { display: block; height: 100%; background: var(--accent); }
+  .hk-name { font-family: var(--serif); font-size: 24px; line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; }
+  .hk-line { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.4; color: var(--accent-soft); }
+  .hk-row { font-size: 13px; line-height: 1.55; color: var(--text-mute); }
+  .hk-row b { display: block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); font-weight: 500; margin-bottom: 2px; }
+  .hk-note { margin-top: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); line-height: 1.6; }
+  .hk-structure { margin-top: 28px; }
+  .hk-structure .pp-stack span { color: var(--text); }
+  .sm-section[hidden] { display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">KM <span>// CREATIVE OPS</span></a>
+  <div class="nav-right">
+    <div class="status-pill"><span class="status-dot"></span>Available for new roles</div>
+    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <span class="theme-hint">Try light mode</span>
+    </button>
+  </div>
+</nav>
+
+<article class="pp">
+
+  <header class="pp-hero">
+    <div class="pp-breadcrumb">
+      <a href="writing.html" aria-label="Back to writing">←</a>
+      <span>// PORTFOLIO / WRITING / W—002</span>
+    </div>
+    <div class="pp-meta-row">
+      <span class="pp-code">W—002</span>
+      <span class="pp-divider"></span>
+      <span class="pp-tag">Blog</span>
+    </div>
+    <h1 class="pp-title" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.02;">Steal This Billion-Dollar Ad Strategy (Then Reverse-Engineer It With AI)</h1>
+    <p class="pp-tagline">Grüns sold to Unilever for a reported $1.2B. Its Meta winners fit 6 creative formats. How to pull them, break them down and scale them with Claude.</p>
+  </header>
+
+  <div class="pp-strip">
+    <div class="pp-stripe-item"><span class="pp-stripe-label">Length</span><strong>2,202 words · 10 min read</strong></div>
+  </div>
+
+
+  <figure class="wr-cover"><img src="screenshots/writing/w002-cover.jpg" alt="" loading="lazy"></figure>
+
+  <div class="wr-body">
+<p> Something I keep noticing when I go through big DTC ad accounts: the brands spending the most aren't guessing. </p> <p> They find something that works, then milk it. New hook, new creator, same idea underneath. </p> <p> And when you line their ads up, the same 6 formats keep showing up. </p> <p> <strong>Grüns</strong> is the cleanest example I've found. Unilever picked them up for a reported $1.2 billion, under 3 years after launch, and right now they've got 1,800+ ads live on Meta. That sounds like chaos. It isn't. Almost every winner in there fits one of 6 formats. </p> <p> So I'm going to use Grüns to walk through all of it. </p> <p> You don't need their budget for this. You need two things: </p> <ul><li><strong>A buyer's eye</strong>, so you can tell why something is scaling.</li><li><strong>AI</strong>, so you can pull, break down and iterate on winners in an afternoon instead of a few weeks.</li></ul> <p> Most teams have one or the other. Buyers who've ignored AI can't keep up with how much creative Meta wants now. And the AI-first crowd who've never managed spend make nice-looking ads that don't convert. </p> <p> You want both. Here's how I'd do it. </p> <p> These six formats dominate high-spend DTC accounts right now. The exact mix and proof requirements will shift by category, but the underlying patterns (thumb-stop hooks, persona callouts, objection handling in-creative, and deliberate volume) transfer cleanly. </p> <h3>Step 1: Pull the winners (let AI do the digging)</h3> <p> Everything Grüns runs on Meta sits in the <strong>Meta Ad Library</strong>. It's free and public, and anyone can look. </p> <p> The tricky bit is telling winners from tests. In early October 2026, Grüns had 1,809 ads live (that's from AdMakeAI, which scrapes the Ad Library every day). Most of those are tests that'll be dead within a week. A handful have been running for 4+ months. </p> <p> <strong>The rule:</strong> filter for ads live 30+ days. </p> <p> Nobody leaves spend on a loser for a month. If a Grüns ad is still running at 30, 60, 90 days, it's very likely hitting its CPA target. So the start date is the first thing to check. The second is the little "This ad has multiple versions" label, because that usually means they're iterating on something that works. </p> <p> Scrolling through all of that by hand is miserable. Let Claude do it. </p> <p> With <strong>Claude in Chrome</strong>, it'll open the Ad Library and do the scrolling for you. Here's the prompt: </p> <blockquote>Open the Meta Ad Library. Search for grüns. Filter to active ads in the United States. List every ad that has been live for 30+ days or has multiple versions. For each one, note the start date, the format (video, static, carousel), the persona it targets, the hook in the first 3 seconds and the offer. Put it all in a table, longest-running first.</blockquote> <p> A few minutes later, you've got a ranked list of Grüns' winners. </p> <h3>Step 2: Break down each winner like a creative strategist</h3> <p> A list of winners is just a swipe file. The useful part is figuring out <em>why</em> they work. </p> <p> Grab a few frames from one of the Grüns winners, or paste in the transcript, and give Claude this: </p> <blockquote>You're a senior performance creative strategist. Break down this ad:</blockquote> <p> <strong>Worth doing:</strong> save this as a <strong>Claude Skill</strong> (or a Project with instructions). Then everyone on the team breaks ads down the same way, and it stops depending on one person's taste. </p> <h3>The 6 creative formats behind Grüns' winners (and how to iterate each with AI)</h3> <h3>1. Talking-head UGC</h3> <p> A creator talks straight to camera on their phone. Kitchen, car, couch. Lo-fi and native, no studio polish. </p> <p> <strong>Why it works:</strong> it blends into the feed, so it earns the thumb-stop instead of getting skipped as an ad. Strong hook and hold rates, and it's the cheapest format to iterate: swap the creator or the opening line and you have a new test. </p> <p> <strong>Look for:</strong> selfie framing, a pain point in the first line, a quick "I used to be the same", then the product opened and used on camera. </p> <p> <strong>Grüns' winner:</strong> talking-head UGC is Grüns' most-used format. "Delicious Nutrition in Every Bite" has been live 4+ months (<a href="https://www.facebook.com/ads/library/?id=2850815231931979" target="_blank" rel="noopener">see it in the Ad Library</a>). A creator holds a huge bag up to camera, and the copy leads with the objection: "If your vitamins don't taste good, what's the point?" The same structure runs right across their account, like a creator in her car calling out that most people miss their daily fiber. </p> <p> <strong>Brief it with AI:</strong> </p> <blockquote>Write a 40-second talking-head UGC script for [product]. Creator talking to their phone. Hook with a pain point my buyer feels every week. Admit you used to have it too. Call out what you tried that didn't work. Show the product in use. Lo-fi, conversational, no brand-speak. Give me 5 alternative hooks for the first 3 seconds.</blockquote> <h3>2. Persona-led problem/solution</h3> <p> The ad calls out its persona in the first second. "If you're on a GLP-1..." "If you have PCOS..." Then the problem, then the product as the solution. </p> <p> <strong>Why it works:</strong> the callout does the targeting. Under Andromeda, creative is the targeting, so a persona-specific hook finds that buyer inside a broad campaign. Grüns sends each persona to its own landing page, so message match carries through to CVR. </p> <p> <strong>Look for:</strong> one persona per ad, one problem per ad. Grüns runs separate angles for GLP-1 users, women with PCOS, couples trying to conceive, gym-goers and busy parents. </p> <p> <strong>Grüns' winner:</strong> a GLP-1 static aimed squarely at men: "Guys, your muscles need more than protein", under the headline "Support Muscle While You Lose Weight". The persona is in the copy and in the creative. Grüns hits the GLP-1 persona from every angle, including a talking-head iteration in 5 versions where a man explains what the drug did to his hair and digestion. </p> <p> <strong>Brief it with AI:</strong> </p> <blockquote>Map every persona who buys [product] and the specific problem each one is solving. Rank the top 5 by size and pain. For each, write 3 hooks that call out the persona in the first line, plus a 30-second problem/solution script that only speaks to that persona's problem.</blockquote> <h3>3. Product demo UGC</h3> <p> A creator uses the product on camera and reacts. For Grüns, that means opening a pack and eating it. </p> <p> <strong>Why it works:</strong> it handles the category's big objection, taste, before the click. Answer the objection in the creative and you stop paying for clicks that bounce on the product page. </p> <p> <strong>Look for:</strong> pack opened, product in hand, a genuine first reaction, and lines like "tastes like fruit snacks". </p> <p> <strong>Grüns' winner:</strong> "20+ Vitamins for GLP-1 Support", live 4+ months (<a href="https://www.facebook.com/ads/library/?id=1553813810087444" target="_blank" rel="noopener">see it in the Ad Library</a>). A creator opens the bag on camera while the copy stacks the proof: 20+ vitamins, 6g fiber, sugar-free, low-carb. The taste angle runs alongside it: "Healthy Has Never Tasted So Good" has also been live 4+ months (<a href="https://www.facebook.com/ads/library/?id=1505906931026556" target="_blank" rel="noopener">see it</a>). </p> <p> <strong>Brief it with AI:</strong> </p> <blockquote>What's the biggest objection buyers have before purchasing [product]? Write 3 product demo UGC concepts where a creator disproves it on camera in under 15 seconds. Include the exact opening line and a shot list.</blockquote> <h3>4. Listicle</h3> <p> The hook is a number: "13-in-1", "20+ vitamins", "60+ ingredients". Then a fast benefit stack. </p> <p> <strong>Why it works:</strong> a number in the hook lifts thumb-stop, and a benefit stack communicates value fast. Easy to iterate: change the number, the order or the creator and you have a fresh test. </p> <p> <strong>Look for:</strong> a number in the headline or first line, fast cuts, and benefits called out with on-screen text. </p> <p> <strong>Grüns' winner:</strong> "Struggling to Get Enough Fiber?" has been live 4+ months across multiple versions (<a href="https://www.facebook.com/ads/library/?id=1508855464308079" target="_blank" rel="noopener">see it in the Ad Library</a>). It runs as a carousel listicle, one point per card, opening on "One of the most common mistakes people make when cutting calories". The number-led version is a long-runner too: "13-in-1 daily immune support", live 4+ months (<a href="https://www.facebook.com/ads/library/?id=1707182057133923" target="_blank" rel="noopener">see it</a>), plus a Lisa Rinna listicle in 6 versions. </p> <p> <strong>Brief it with AI:</strong> </p> <blockquote>Pull the strongest numbers for [product]: ingredients, servings, products it replaces. Write 10 number-led hooks, pick the top 3, and script a 20-second listicle for each with one benefit per beat and on-screen text under 8 words per line.</blockquote> <h3>5. Headline and before/after statics</h3> <p> Single-image ads. One bold headline, or a before/after that tells the story in one frame. </p> <p> <strong>Why it works:</strong> statics are cheap to produce and fast to test. The message lands in under a second, so they're the fastest way to validate new angles before you put production budget into video. </p> <p> <strong>Look for:</strong> high-contrast colour, a punchy headline, illustrated before/afters and the pack in frame. </p> <p> <strong>Grüns' winner:</strong> "Life's too short for rotten egg burps" and "Ease GLP-1 side effects with 6g of daily prebiotic fiber". One headline, one visual, read in a second. Grüns pushes the format harder elsewhere: a bright yellow "F*CK YOU, HAIR LOSS" static, and an illustrated before/after of someone on a GLP-1 losing weight, and half their hair. </p> <p> <strong>Brief it with AI:</strong> </p> <blockquote>Write 15 headline static concepts for [product] targeting [persona]. Short, punchy, written in the persona's own language. Then brief 3 illustrated before/after statics for the strongest angles: frame 1, frame 2 and headline.</blockquote> <h3>6. Competitor comparison</h3> <p> Your product against the alternative the buyer uses today. Split screen, side by side. </p> <p> <strong>Why it works:</strong> it targets in-market buyers already in the category, like pill users, powder users and AG1 buyers, who are mid-funnel and comparing options. You run the comparison for them, on your terms. </p> <p> <strong>Look for:</strong> split screens, checkmarks vs crosses, and a clearly named alternative. </p> <p> <strong>Grüns' winner:</strong> gummies vs a handful of pills, and gummies vs green powder and a shaker bottle. Their talking-head scripts land the same jab: the fix "isn't a $90 green powder you mix before work." They also run the side-by-side layout against the problem itself: "Your Skin Notices GLP-1 Too" puts skin before a GLP-1 next to skin on a GLP-1 with Grüns. </p> <p> <strong>Brief it with AI:</strong> </p> <blockquote>List the top 5 alternatives our buyers use instead of [product]. Pull the biggest complaint about each from reviews, Reddit and TikTok comments. Build a comparison static on the 4 points where we clearly win. Only claims we can substantiate.</blockquote> <h3>Step 3: Scale it (1 concept, dozens of iterations)</h3> <p> This is usually where teams get stuck. </p> <p> You've got the winners, you know the 6 formats, and you've briefed some solid scripts. </p> <p> Now you need <em>volume</em>. Grüns doesn't run one talking-head ad. It runs dozens of them, with different hooks, creators and personas: GLP-1 users, parents, gym-goers, women with PCOS. </p> <p> Meta rewards that, too. Andromeda clusters ads that look alike, so 10 near-duplicates basically count as 1 ad in the auction. You need concepts that are <strong>actually different</strong>, not the same ad with a new background colour. </p> <p> Doing that by hand takes a creative team, a buyer and weeks of back and forth. </p> <p> With AI, it looks like this: </p> <ul><li><strong>Pick a format.</strong> Start from one of the 6 you just broke down in Grüns' account.</li><li><strong>Pick your personas.</strong> List every type of buyer your product serves, the way Grüns does.</li><li><strong>Brief net-new concepts.</strong> Have AI write genuinely different versions of that format for each persona: different hooks, angles and creators.</li><li><strong>Launch and test.</strong> Run them on Meta, move budget to the winners, and iterate on those.</li></ul> <blockquote>Take the [format] format and brief 10 genuinely different ad concepts for [product]. Spread them across these personas: [list]. Each concept needs its own hook, angle and creator type. No two should feel like the same ad.</blockquote> <p> The research tells you <em>what</em> to make. AI gives you the <em>volume</em> and the <em>speed</em>. </p> <h3>The bigger shift</h3> <p> For a long time, media buyers and AI people didn't really talk to each other. </p> <p> Buyers knew what converts. The AI crowd knew how to ship fast. </p> <p> That's changing quickly. </p> <p> If you're a buyer and you don't use AI, you'll get outpaced on creative volume. If you're building with AI and you've never managed spend, you'll keep shipping ads that never get out of the learning phase. </p> <p> The people who win will do both: use their own judgment to decide what's worth testing, and let AI do the pulling, briefing and scaling. </p> <p> Grüns spent millions on tests to figure out which of these formats work. You can learn from that in an afternoon. </p> <p> So, which of these 6 is carrying your account right now? </p> <h3>Get the full kit (free)</h3> <p> I put everything from this article into one kit you can actually use: </p> <ul><li><strong>The Ad Library prompt</strong> that pulls any brand's long-running winners and tags them by format and persona.</li><li><strong>The ad dissection Claude Skill</strong>, ready to upload, so every buyer and strategist breaks down ads the same way.</li><li><strong>All 6 creative briefs</strong>, one per format, ready to paste.</li><li><strong>The Grüns swipe file</strong>: their winning ads sorted by format, why each one works, and the hook formulas behind them.</li><li><strong>A creative testing tracker</strong> to log every test by format, persona and hook, and see what scales in your account.</li></ul> <p> <strong>Comment "FORMATS" and make sure we're connected, and I'll send it straight to your inbox.</strong> </p>
+
+  </div>
+
+  <section class="pp-related">
+    <h3 class="pp-related-title">// More writing</h3>
+    <div class="pp-related-grid">
+      <a href="w-008.html" class="pp-related-card">
+        <div class="pp-rc-head"><span class="pp-rc-code">W—008</span><span class="pp-rc-tag">Website copy</span></div>
+        <h4 class="pp-rc-title">Vibelets launch site: homepage copy</h4>
+        <p class="pp-rc-desc">The full homepage, section by section: hero, problem, product, loop, pricing and FAQ. Written and designed by me, built by a web designer.</p>
+      </a>
+      <a href="w-003.html" class="pp-related-card">
+        <div class="pp-rc-head"><span class="pp-rc-code">W—003</span><span class="pp-rc-tag">Blog</span></div>
+        <h4 class="pp-rc-title">30 Claude Skills for Google and Meta Ads</h4>
+        <p class="pp-rc-desc">A library of 30 free Claude skills that run the weekly work of an ad account: diagnose CPA, cut waste, plan budgets and report.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="pp-cta">
+    <a href="writing.html" class="pp-back">← All writing</a>
+  </section>
+
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div><p class="footer-cta">Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em></p>
+      <div class="footer-cv"><a href="Ketan-Mishra-CV.pdf" class="cv-btn" download>Download CV <span>↓</span></a></div></div>
+    <div class="footer-col"><h6>// Reach</h6><a href="mailto:ketanmishra47@gmail.com">Email</a><a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="footer-col"><h6>// Index</h6><a href="index.html#work">Work</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="index.html#roles">Roles</a></div>
+  </div>
+  <div class="footer-base"><span>© Ketan Mishra 2026</span><span>Hand-built // 2026</span></div>
+</footer>
+
+
+<script>
+  // === Theme toggle ===
+  (function() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+    const hint = toggle.querySelector('.theme-hint');
+    const saved = localStorage.getItem('km-theme');
+    if (saved === 'light') document.documentElement.classList.add('light-mode');
+    if (!localStorage.getItem('km-theme-seen')) {
+      setTimeout(() => hint && hint.classList.add('show'), 1500);
+      setTimeout(() => hint && hint.classList.remove('show'), 6500);
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('km-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('km-theme-seen', '1');
+      if (hint) hint.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -3,12 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ketan Mishra — Creative & Content Operations</title>
-<meta name="description" content="Creative & content operations lead. Builds creative systems for affiliate performance marketing across copy, AI workflows, and team leadership." />
+<title>Ketan Mishra - Creative Lead</title>
+<meta name="description" content="Creative Lead Ketan Mishra: paid creative, founder-led social, AI video and creative ops. Case studies with real numbers, and copy published in full." />
+<!-- share -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="canonical" href="https://ketanmishra47.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ketan Mishra" />
+<meta property="og:title" content="Ketan Mishra - Creative Lead" />
+<meta property="og:description" content="Creative Lead Ketan Mishra: paid creative, founder-led social, AI video and creative ops. Case studies with real numbers, and copy published in full." />
+<meta property="og:url" content="https://ketanmishra47.github.io/" />
+<meta property="og:image" content="https://ketanmishra47.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ketan Mishra - Creative Lead" />
+<meta name="twitter:description" content="Creative Lead Ketan Mishra: paid creative, founder-led social, AI video and creative ops. Case studies with real numbers, and copy published in full." />
+<meta name="twitter:image" content="https://ketanmishra47.github.io/og-image.png" />
+<!-- /share -->
 
-<!-- =====================================================
-     CUSTOMIZE THESE NUMBERS BEFORE DEPLOY (search "TODO")
-     ===================================================== -->
 
 
 <script>
@@ -258,6 +273,28 @@
     color: var(--text-mute);
     text-transform: uppercase;
   }
+
+  /* === SAMPLES LINK === */
+  .samples-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 18px 22px;
+    border: 1px solid var(--accent);
+    background: rgba(255, 107, 53, 0.05);
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+  }
+  .samples-link:hover { background: rgba(255, 107, 53, 0.12); }
+  .samples-link + .samples-link { margin-top: -20px; }
+  .samples-link span:last-child { color: var(--accent); white-space: nowrap; }
 
   /* === FILTER BAR === */
   .filters {
@@ -897,6 +934,14 @@
   }
   .theme-hint.show { opacity: 1; transform: translateY(0); }
 
+
+  /* === CV DOWNLOAD === */
+  .cv-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); text-decoration: none; border: 1px solid var(--accent); background: rgba(255, 107, 53, 0.06); padding: 12px 20px; transition: background 0.2s ease, color 0.2s ease; }
+  .cv-btn:hover { background: var(--accent); color: #fff; }
+  .cv-btn span { color: var(--accent); transition: color 0.2s ease; }
+  .cv-btn:hover span { color: #fff; }
+  .footer-cv { margin-top: 28px; }
+  .hero-cv { margin-top: 28px; }
 </style>
 </head>
 <body>
@@ -920,8 +965,8 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-meta">
-    <span>FILE / PORTFOLIO.HTML</span>
-    <span>LAST UPDATED // <!-- TODO: update date -->NOV 2025</span>
+    <span>FILE / INDEX.HTML</span>
+    <span>LAST UPDATED // OCT 2026</span>
   </div>
 
   <div>
@@ -931,8 +976,9 @@
     </h1>
 
     <p class="hero-tagline">
-      <strong>Creative Lead</strong> building creative systems for affiliate performance marketing. Copy, content, AI workflows, and the teams that ship at volume.
+      <strong>Creative Lead</strong> who makes content people stop scrolling for, then builds the systems and teams that ship it at volume. Paid creative, founder-led social, AI video, and creative ops.
     </p>
+    <div class="hero-cv"><a href="Ketan-Mishra-CV.pdf" class="cv-btn" download>Download CV <span>↓</span></a></div>
   </div>
 
   <!-- Background chart decoration -->
@@ -1037,8 +1083,17 @@
 <section class="section" id="work">
   <div class="section-head">
     <h2 class="section-title">Selected <em>work</em></h2>
-    <span class="section-meta">13 PROJECTS // FILTER BELOW</span>
+    <span class="section-meta">11 PROJECTS // FILTER BELOW</span>
   </div>
+
+  <a href="writing.html" class="samples-link">
+    <span>// The copy itself: blogs, VSL ads, video scripts and hooks</span>
+    <span>Writing →</span>
+  </a>
+  <a href="ads.html" class="samples-link">
+    <span>// Ads &amp; videos: 13 short-form ads and a B2B launch film</span>
+    <span>Ads &amp; videos →</span>
+  </a>
 
   <div class="filters">
     <button class="filter-btn active" data-filter="all">All</button>
@@ -1091,7 +1146,7 @@
       </div>
       <div class="project-row">
         <span class="project-label">Output</span>
-        <p class="project-text output">Ops layer ran the team. The team ran the creatives.</p>
+        <p class="project-text output">100+ creative deliveries a day, 365 days a year. Ops layer ran the team. The team ran the creatives.</p>
       </div>
       <a href="p-002.html" class="project-link">Read case study →</a>
     </div>
@@ -1113,7 +1168,7 @@
       </div>
       <div class="project-row">
         <span class="project-label">Output</span>
-        <p class="project-text output">Angle generation became a daily 10-minute task. Always current, always vertical-relevant.</p>
+        <p class="project-text output">Angle generation became a daily 10-minute task across 2 verticals. Ideas and script drafts ready by morning.</p>
       </div>
       <a href="p-003.html" class="project-link">Read case study →</a>
     </div>
@@ -1137,31 +1192,11 @@
       </div>
       <div class="project-row">
         <span class="project-label">Output</span>
-        <p class="project-text output">Pattern analysis stopped being a person. It became a pipeline.</p>
+        <p class="project-text output">First batch: 22 winning scripts, every hook ranked by frequency. Two analysts now get the same output.</p>
       </div>
       <a href="p-004.html" class="project-link">Read case study →</a>
     </div>
 
-    <!-- P-005 -->
-    <div class="project" data-cat="ai">
-      <div class="project-head">
-        <span class="project-code">P—005</span>
-        <span class="project-tag">AI Workflows</span>
-      </div>
-      <h3 class="project-title">AI agent fleet operations</h3>
-      <div class="project-row">
-        <span class="project-label">Problem</span>
-        <p class="project-text">Senior time was being eaten by research, summaries, and competitor pulls. The bottleneck was structural.</p>
-      </div>
-      <div class="project-row">
-        <span class="project-label">Built</span>
-        <p class="project-text">Agent ecosystem covering competitor scraping, market research, creative analysis, and SOP assistance. Agents pull, summarize, route to the right human.</p>
-      </div>
-      <div class="project-row">
-        <span class="project-label">Output</span>
-        <p class="project-text output">Research cycles compressed from days to hours.</p>
-      </div>
-    </div>
 
     <!-- =============== COPY =============== -->
 
@@ -1183,6 +1218,7 @@
       <div class="project-row">
         <span class="project-label">Output</span>
         <p class="project-text output">VSL production became repeatable. Ramp time dropped from quarters to weeks.</p>
+      <a href="writing.html#vsl" class="project-link">Read the VSL ads →</a>
       </div>
     </div>
 
@@ -1203,7 +1239,7 @@
       </div>
       <div class="project-row">
         <span class="project-label">Output</span>
-        <p class="project-text output">Founder presence compounded on LinkedIn. Founder kept building product.</p>
+        <p class="project-text output">Dusan: 5K → 25K+ followers. Nipun: 1.2K → 3K+. Neither founder wrote a post.</p>
       </div>
       <a href="p-007.html" class="project-link">Read case study →</a>
     </div>
@@ -1221,11 +1257,11 @@
       </div>
       <div class="project-row">
         <span class="project-label">Built</span>
-        <p class="project-text">End-to-end content operations across website rewrites (Nas.com / Opus.pro tone references), direct-response lifecycle email sequences, in-app content, and product copy. One voice across every surface.</p>
+        <p class="project-text">Before launch: blog, lifecycle emails, lead magnets and cold email, all in one brand voice. At launch: the product site, written and designed by me in Claude Design.</p>
       </div>
       <div class="project-row">
         <span class="project-label">Output</span>
-        <p class="project-text output">Vibelets shipped with a complete content stack across every surface.</p>
+        <p class="project-text output">600 organic signups in 1.5 months. No audience to start with, $0 paid spend.</p>
       </div>
       <a href="p-008.html" class="project-link">Read case study →</a>
     </div>
@@ -1271,7 +1307,7 @@
       </div>
       <div class="project-row">
         <span class="project-label">Output</span>
-        <p class="project-text output">One creative org serving five P&amp;Ls without losing voice or velocity.</p>
+        <p class="project-text output">14,513 creatives shipped across 5 verticals. One creative org serving 5 P&amp;Ls.</p>
       </div>
       <a href="p-010.html" class="project-link">Read case study →</a>
     </div>
@@ -1298,26 +1334,6 @@
       <a href="p-011.html" class="project-link">Read case study →</a>
     </div>
 
-    <!-- P-012 -->
-    <div class="project" data-cat="leadership">
-      <div class="project-head">
-        <span class="project-code">P—012</span>
-        <span class="project-tag">Leadership</span>
-      </div>
-      <h3 class="project-title">Internal training programs</h3>
-      <div class="project-row">
-        <span class="project-label">Problem</span>
-        <p class="project-text">New hires took months to ship at quality. Onboarding was tribal knowledge and Slack scrolling.</p>
-      </div>
-      <div class="project-row">
-        <span class="project-label">Built</span>
-        <p class="project-text">L&amp;D programs for copywriters, editors, strategists, and creative ops. Craft, frameworks, vertical patterns, testing playbook. Documented, repeatable, taught.</p>
-      </div>
-      <div class="project-row">
-        <span class="project-label">Output</span>
-        <p class="project-text output">Ramp time cut. Quality floor raised. Senior time freed up for strategy.</p>
-      </div>
-    </div>
 
     <!-- P-013 -->
     <div class="project" data-cat="ai">
@@ -1376,7 +1392,7 @@
         <span class="accolade-meta">Adsparkx</span>
       </div>
       <h3 class="accolade-title">Adsparkx growth core team</h3>
-      <p class="accolade-desc">Core team member driving growth across people and structured workflow domains. Org design, team scaling frameworks, accountability cadences, and operating systems for a high-velocity affiliate performance org.</p>
+      <p class="accolade-desc">Core team member driving growth across people and structured workflow domains. Org design, team scaling frameworks, accountability cadences, and operating systems for a high-velocity performance marketing org.</p>
     </div>
 
   </div>
@@ -1392,11 +1408,11 @@
   <div class="roles-grid">
     <div class="role-card">
       <h5>Creative Lead, Copy</h5>
-      <p>Performance-focused</p>
+      <p>Performance &amp; B2B</p>
     </div>
     <div class="role-card">
       <h5>Content &amp; Marketing Lead</h5>
-      <p>Affiliate / Direct response</p>
+      <p>B2B SaaS / Direct response</p>
     </div>
     <div class="role-card">
       <h5>Creative Operations Lead</h5>
@@ -1412,7 +1428,7 @@
     </div>
     <div class="role-card">
       <h5>Head of Creative</h5>
-      <p>Performance marketing teams</p>
+      <p>Performance &amp; B2B brands</p>
     </div>
   </div>
 </section>
@@ -1423,24 +1439,25 @@
     <div>
       <p class="footer-cta">
         Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em>
-        <!-- TODO: Replace email -->
       </p>
+      <div class="footer-cv"><a href="Ketan-Mishra-CV.pdf" class="cv-btn" download>Download CV <span>↓</span></a></div>
     </div>
     <div class="footer-col">
       <h6>// Reach</h6>
-      <!-- TODO: Replace with real links -->
       <a href="mailto:ketanmishra47@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="footer-col">
       <h6>// Index</h6>
       <a href="#work">Work</a>
+      <a href="writing.html">Writing</a>
+      <a href="ads.html">Ads &amp; videos</a>
       <a href="#roles">Roles</a>
     </div>
   </div>
   <div class="footer-base">
-    <span>© Ketan Mishra <!-- TODO: update year -->2026</span>
-    <span>Portfolio v1.0 // Hand-built</span>
+    <span>© Ketan Mishra 2026</span>
+    <span>Hand-built // 2026</span>
   </div>
 </footer>
 

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>W—003 · 30 Claude Skills for Google and Meta Ads — Ketan Mishra</title>
+<meta name="description" content="A library of 30 free Claude skills that run the weekly work of an ad account: diagnose CPA, cut waste, plan budgets and report." />
+<!-- share -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="canonical" href="https://ketanmishra47.github.io/w-003.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ketan Mishra" />
+<meta property="og:title" content="W—003 · 30 Claude Skills for Google and Meta Ads — Ketan Mishra" />
+<meta property="og:description" content="A library of 30 free Claude skills that run the weekly work of an ad account: diagnose CPA, cut waste, plan budgets and report." />
+<meta property="og:url" content="https://ketanmishra47.github.io/w-003.html" />
+<meta property="og:image" content="https://ketanmishra47.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="W—003 · 30 Claude Skills for Google and Meta Ads — Ketan Mishra" />
+<meta name="twitter:description" content="A library of 30 free Claude skills that run the weekly work of an ad account: diagnose CPA, cut waste, plan budgets and report." />
+<meta name="twitter:image" content="https://ketanmishra47.github.io/og-image.png" />
+<!-- /share -->
+
+<script>
+  // Apply saved theme before first paint to avoid FOUC
+  try { if (localStorage.getItem('km-theme') === 'light') document.documentElement.classList.add('light-mode'); } catch(e) {}
+</script>
+
+<style>
+  :root { --bg: #0A0A0B; --bg-elev: #131316; --bg-card: #16161A; --border: #1F1F23; --border-bright: #2A2A30; --text: #F5F5F0; --text-mute: #7A7A82; --text-dim: #4D4D54; --accent: #FF6B35; --accent-soft: #FFB088; --green: #7FB069; --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif; --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace; --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 1; mix-blend-mode: overlay; }
+  a { color: inherit; }
+  nav { position: fixed; top: 0; left: 0; right: 0; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(10, 10, 11, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .logo { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--text-mute); text-transform: uppercase; text-decoration: none; transition: color 0.2s ease; }
+  .logo:hover { color: var(--accent); }
+  .logo span { color: var(--text); }
+  .logo:hover span { color: var(--accent); }
+  .status-pill { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); display: flex; align-items: center; gap: 8px; }
+  .status-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite ease-in-out; }
+  @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  .pp { max-width: 1100px; margin: 0 auto; padding: 120px 32px 80px; position: relative; z-index: 2; }
+  .pp-hero { margin-bottom: 48px; }
+  .pp-breadcrumb { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 32px; }
+  .pp-breadcrumb a { color: var(--text-mute); text-decoration: none; border: 1px solid var(--border-bright); width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+  .pp-breadcrumb a:hover { border-color: var(--accent); color: var(--accent); }
+  .pp-meta-row { display: flex; align-items: center; gap: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 24px; flex-wrap: wrap; }
+  .pp-code { color: var(--accent); font-weight: 600; }
+  .pp-tag { color: var(--text); }
+  .pp-status { color: var(--text-dim); }
+  .pp-divider { width: 1px; height: 14px; background: var(--border-bright); }
+  .pp-title { font-family: var(--serif); font-size: clamp(48px, 8vw, 110px); line-height: 0.95; font-weight: 400; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .pp-title em { font-style: italic; color: var(--text-mute); }
+  .pp-title .pp-dot { color: var(--accent); font-style: normal; }
+  .pp-tagline { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 24px); color: var(--text-mute); max-width: 720px; line-height: 1.4; }
+  .pp-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 64px; }
+  .pp-stripe-item { background: var(--bg); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .pp-stripe-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); }
+  .pp-stripe-item strong { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: -0.005em; }
+  .pp-section { margin-bottom: 56px; }
+  .pp-section-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+  .pp-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .pp-section-body { max-width: 760px; }
+  .pp-section-body p { font-family: var(--serif); font-size: clamp(18px, 1.4vw, 22px); line-height: 1.55; color: var(--text); margin-bottom: 18px; letter-spacing: -0.005em; }
+  .pp-section-body p:last-child { margin-bottom: 0; }
+  .pp-output { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2vw, 28px) !important; color: var(--accent-soft) !important; line-height: 1.35 !important; padding: 20px 0 0; border-top: 1px solid var(--border); max-width: 640px; }
+  .pp-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pp-stack span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); padding: 8px 14px; border: 1px solid var(--border-bright); background: var(--bg-elev); }
+  .pp-shot { margin: 0 0 28px; border: 1px solid var(--border-bright); background: var(--bg-elev); overflow: hidden; }
+  .pp-shot:last-child { margin-bottom: 0; }
+  .pp-shot img { display: block; width: 100%; height: auto; }
+  .pp-shot video { display: block; width: 100%; height: auto; max-height: 70vh; background: #000; }
+  .pp-shot figcaption { padding: 14px 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--text-mute); text-transform: uppercase; line-height: 1.6; border-top: 1px solid var(--border); }
+  .pp-shot figcaption strong { color: var(--accent); font-weight: 600; }
+
+  .pp-related { margin-top: 80px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .pp-related-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 22px; font-weight: 500; }
+  .pp-related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .pp-related-card { text-decoration: none; color: inherit; padding: 24px; border: 1px solid var(--border); background: var(--bg-elev); transition: all 0.25s ease; display: flex; flex-direction: column; gap: 14px; }
+  .pp-related-card:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+  .pp-rc-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .pp-rc-code { color: var(--accent); }
+  .pp-rc-tag { color: var(--text-mute); }
+  .pp-rc-title { font-family: var(--serif); font-size: 22px; line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; }
+  .pp-rc-desc { font-family: var(--sans); font-size: 13px; color: var(--text-mute); line-height: 1.5; }
+  .pp-cta { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .pp-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mute); text-decoration: none; border: 1px solid var(--border-bright); padding: 12px 22px; display: inline-block; transition: all 0.2s ease; }
+  .pp-back:hover { color: var(--accent); border-color: var(--accent); }
+  footer { border-top: 1px solid var(--border); padding: 60px 32px 40px; margin-top: 80px; position: relative; z-index: 2; }
+  .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+  .footer-cta { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em; }
+  .footer-cta em { font-style: italic; color: var(--accent); }
+  .footer-cta a { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: opacity 0.2s; }
+  .footer-cta a:hover { opacity: 0.7; }
+  .footer-col h6 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 16px; font-weight: 500; }
+  .footer-col a { display: block; color: var(--text); text-decoration: none; padding: 4px 0; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-base { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+  @media (max-width: 900px) { .pp { padding: 100px 20px 60px; } nav { padding: 16px 20px; } .pp-related-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-base { flex-direction: column; gap: 8px; } }
+  @media (max-width: 500px) { .pp-meta-row { gap: 12px; } .pp-divider { display: none; } }
+
+  /* === LIGHT MODE (toggled via .light-mode on body) === */
+  .light-mode {
+    --bg: #FAFAF8;
+    --bg-elev: #FFFFFF;
+    --bg-card: #F0F0EC;
+    --border: #E5E5E0;
+    --border-bright: #C5C5C0;
+    --text: #0A0A0B;
+    --text-mute: #5A5A62;
+    --text-dim: #9A9AA0;
+    --accent: #E5550F;
+    --accent-soft: #FF6B35;
+    --green: #5A9050;
+  }
+  .light-mode body::before { opacity: 0.015; mix-blend-mode: multiply; }
+  .light-mode nav { background: rgba(250, 250, 248, 0.78); }
+
+  /* === THEME TOGGLE === */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-toggle {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-mute);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .theme-toggle .icon-light { display: none; }
+  .light-mode .theme-toggle .icon-dark { display: none; }
+  .light-mode .theme-toggle .icon-light { display: block; }
+  .theme-hint {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .theme-hint::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid var(--accent);
+  }
+  .theme-hint.show { opacity: 1; transform: translateY(0); }
+
+
+  /* === CV DOWNLOAD === */
+  .cv-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); text-decoration: none; border: 1px solid var(--accent); background: rgba(255, 107, 53, 0.06); padding: 12px 20px; transition: background 0.2s ease, color 0.2s ease; }
+  .cv-btn:hover { background: var(--accent); color: #fff; }
+  .cv-btn span { color: var(--accent); transition: color 0.2s ease; }
+  .cv-btn:hover span { color: #fff; }
+  .footer-cv { margin-top: 28px; }
+  .hero-cv { margin-top: 28px; }
+
+  /* === WRITING === */
+  .wr-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); line-height: 1.7; margin: -40px 0 48px; }
+  .wr-note a { color: var(--text-mute); }
+  .wr-note a:hover { color: var(--accent); }
+  .wr-cover { margin: 0 0 48px; border: 1px solid var(--border-bright); }
+  .wr-cover img { display: block; width: 100%; height: auto; }
+  .wr-body { max-width: 720px; }
+  .wr-body > * + * { margin-top: 20px; }
+  .wr-body p, .wr-body li { font-size: 18px; line-height: 1.7; color: var(--text); }
+  .wr-body h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-top: 56px; }
+  .wr-body h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; margin-top: 40px; }
+  .wr-body h4 { font-size: 17px; font-weight: 600; margin-top: 28px; }
+  .wr-body h2 + *, .wr-body h3 + *, .wr-body h4 + * { margin-top: 12px; }
+  .wr-body [id] { scroll-margin-top: 90px; }
+  .wr-body a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  .wr-body a:hover { color: var(--accent); }
+  .wr-body strong { font-weight: 600; }
+  .wr-body ul, .wr-body ol { padding-left: 24px; }
+  .wr-body li + li { margin-top: 8px; }
+  .wr-body li::marker { color: var(--accent); }
+  .wr-body blockquote { border-left: 2px solid var(--accent); background: var(--bg-elev); padding: 16px 20px; font-size: 16px; line-height: 1.65; color: var(--text); }
+  .wr-body blockquote p { font-size: 16px; }
+  .wr-body pre { font-family: var(--mono); font-size: 13px; line-height: 1.6; background: var(--bg-elev); border: 1px solid var(--border-bright); padding: 16px 18px; white-space: pre-wrap; word-break: break-word; color: var(--text); }
+  .wr-body code { font-family: var(--mono); font-size: 0.88em; background: var(--bg-elev); padding: 1px 5px; }
+  .wr-body pre code { background: none; padding: 0; }
+  .wr-body table { width: 100%; border-collapse: collapse; font-size: 14px; display: block; overflow-x: auto; }
+  .wr-body th, .wr-body td { border: 1px solid var(--border-bright); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.5; }
+  .wr-body th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); font-weight: 500; }
+  .wr-body tr:first-child td { font-weight: 600; }
+  .wr-fig { margin: 32px 0; border: 1px solid var(--border-bright); background: var(--bg-elev); }
+  .wr-fig img { display: block; width: 100%; height: auto; }
+  .wr-body .wr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 36px; }
+  .wr-body .wr-eyebrow + h3 { margin-top: 6px; }
+  .wr-body .wr-meta { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-mute); }
+  .wr-body .wr-imgnote { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; line-height: 1.6; color: var(--text-mute); border: 1px dashed var(--border-bright); padding: 12px 14px; }
+  .wr-body .wr-imgnote::before { content: '// Image · '; color: var(--accent); }
+  .wr-body .wr-numlist { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 20px; }
+  .wr-body .wr-numlist li { font-size: 15px; margin: 0; }
+  .wr-body .wr-numlist span { font-family: var(--mono); font-size: 12px; color: var(--accent); margin-right: 6px; }
+
+  /* === AD SCRIPTS === */
+  .wr-body .ad { border: 1px solid var(--border-bright); background: var(--bg-elev); margin-top: 32px; }
+  .wr-body .ad + .ad { margin-top: 24px; }
+  .ad-head { display: flex; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--border-bright); font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .ad-code { color: var(--accent); font-weight: 600; }
+  .ad-shape { color: var(--text-mute); }
+  .wr-body .ad-shot { margin: 0; background: #fff; border-bottom: 1px solid var(--border-bright); }
+  .wr-body .ad-shot img { display: block; width: 100%; height: auto; }
+  .ad-hooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border-bright); }
+  .ad-part { background: var(--bg); padding: 18px 20px; }
+  .ad-bodypart { background: var(--bg); }
+  .ad-label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .ad-bodypart .ad-label { color: var(--text-mute); }
+  .wr-body .ad-lines p { font-size: 16px; line-height: 1.6; margin: 0; }
+  .wr-body .ad-lines p + p { margin-top: 6px; }
+  .wr-body .ad-hooks .ad-lines p { font-size: 15px; }
+  .ad-cue { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; line-height: 1.5; color: var(--text-mute); border-left: 2px solid var(--border-bright); padding: 2px 0 2px 8px; margin: 2px 0; }
+  .ad-cue::before { content: 'VISUAL · '; color: var(--text-dim); }
+  .ph { font-family: var(--mono); font-size: 0.78em; letter-spacing: 0.06em; color: var(--accent); background: rgba(255, 107, 53, 0.08); padding: 1px 4px; white-space: nowrap; }
+  .ph::before { content: '['; } .ph::after { content: ']'; }
+  .ad-cue .ph { font-size: 1em; }
+
+  /* === WRITING HUB === */
+  .wh-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .wh-filter { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); background: transparent; border: 1px solid var(--border-bright); padding: 9px 16px; cursor: pointer; transition: all 0.2s ease; }
+  .wh-filter:hover { color: var(--text); border-color: var(--text-mute); }
+  .wh-filter.active { color: var(--accent); border-color: var(--accent); }
+  .wh-filter span { color: var(--text-dim); margin-left: 6px; }
+  .wh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .wh-card { text-decoration: none; color: inherit; padding: 24px; border: 1px solid var(--border); background: var(--bg-elev); transition: all 0.25s ease; display: flex; flex-direction: column; gap: 14px; }
+  .wh-card:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+  .wh-card[hidden] { display: none; }
+  .wh-title { font-family: var(--serif); font-size: 24px; line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; }
+  .wh-dek { font-size: 14px; color: var(--text-mute); line-height: 1.55; flex: 1; }
+  .wh-foot { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 14px; }
+  @media (max-width: 600px) { .wh-grid { grid-template-columns: 1fr; } .wr-body p, .wr-body li { font-size: 17px; } }
+  /* === WRITING HUB SECTIONS (posts, hooks, email) === */
+  .sm-section { padding-top: 24px; margin-bottom: 72px; scroll-margin-top: 80px; }
+  .sm-intro { margin-bottom: 28px; }
+  .sm-from { display: inline-block; margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); text-decoration: none; border-bottom: 1px solid var(--border-bright); padding-bottom: 2px; transition: color 0.2s ease, border-color 0.2s ease; }
+  .sm-from:hover { color: var(--accent); border-color: var(--accent); }
+
+
+  .hk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .hk-card { background: var(--bg); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .hk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .hk-code { color: var(--accent); font-weight: 600; }
+  .hk-share { color: var(--text-mute); }
+  .hk-bar { height: 3px; background: var(--border-bright); }
+  .hk-bar span { display: block; height: 100%; background: var(--accent); }
+  .hk-name { font-family: var(--serif); font-size: 24px; line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; }
+  .hk-line { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.4; color: var(--accent-soft); }
+  .hk-row { font-size: 13px; line-height: 1.55; color: var(--text-mute); }
+  .hk-row b { display: block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); font-weight: 500; margin-bottom: 2px; }
+  .hk-note { margin-top: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); line-height: 1.6; }
+  .hk-structure { margin-top: 28px; }
+  .hk-structure .pp-stack span { color: var(--text); }
+  .sm-section[hidden] { display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">KM <span>// CREATIVE OPS</span></a>
+  <div class="nav-right">
+    <div class="status-pill"><span class="status-dot"></span>Available for new roles</div>
+    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <span class="theme-hint">Try light mode</span>
+    </button>
+  </div>
+</nav>
+
+<article class="pp">
+
+  <header class="pp-hero">
+    <div class="pp-breadcrumb">
+      <a href="writing.html" aria-label="Back to writing">←</a>
+      <span>// PORTFOLIO / WRITING / W—003</span>
+    </div>
+    <div class="pp-meta-row">
+      <span class="pp-code">W—003</span>
+      <span class="pp-divider"></span>
+      <span class="pp-tag">Blog</span>
+    </div>
+    <h1 class="pp-title" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.02;">30 Claude Skills for Google and Meta Ads</h1>
+    <p class="pp-tagline">A library of 30 free Claude skills that run the weekly work of an ad account: diagnose CPA, cut waste, plan budgets and report.</p>
+  </header>
+
+  <div class="pp-strip">
+    <div class="pp-stripe-item"><span class="pp-stripe-label">Length</span><strong>6,946 words · 32 min read</strong></div>
+  </div>
+
+
+  <div class="wr-body">
+|<p>Prompt-based workflows that replace manual ad operations — running inside Claude, connected to your actual account data. All 30 are <strong>free markdown files</strong>: what they are, how to install them in Claude Projects and Claude Code, and the exact prompts to run.</p><p>Most ad-account work is the same five analyses run over and over: what moved CPA, where money is leaking, which creatives are dying, what to tell the client, and what changed overnight. None of it needs a platform. It needs a method and your data.</p><p>That’s what these <strong>30 Claude ads skills</strong> are: each one is a markdown file that encodes one of those methods, so Claude runs the analysis the same way every time — on a CSV export or live account data over MCP. No dashboard, no login, no lock-in. This guide covers what the skills are, how a SKILL.md file actually works, how to install them in claude.ai and in Claude Code, the six skills people run most (with full copy-paste prompts), and the honest comparison between skills, plain prompts, and MCP connectors.</p><p>What’s on this page</p><strong>→</strong><p><strong>30 free skills</strong> — open-source markdown workflows for Google + Meta Ads</p><strong>→</strong><p><strong>Two setups</strong> — Claude Projects for the skills, MCP for live account data</p><strong>→</strong><p><strong>Six deep dives</strong> — the most-run skills with full prompts and cadences</p><strong>→</strong><p><strong>Claude Code</strong> — install the same skills as agent skills in your terminal</p><p>Who this is for: anyone who owns an ad account’s numbers — the founder running their own campaigns, the in-house marketer covering three platforms alone, the agency account manager with eleven clients and one Monday. The skills assume no coding ability whatsoever for the claude.ai route, and nothing beyond copy-pasting shell commands for the Claude Code route. What they do assume is that you can read an ad platform’s export and recognize your own metrics — the skills automate the analysis, not the accountability for acting on it.</p><p>One thing before the list: the skills are the method, not the data. They work fine on pasted exports. They get dramatically better when Claude can query the account itself — which is what the two MCP setup paths further down are for. If you only take one thing from this page, take the habit: pick one skill, run it on this week’s numbers, and keep the cadence.</p><h2>What are Claude ads skills?</h2><p>Claude ads skills are <strong>markdown instruction files that teach Claude a specific, repeatable advertising job</strong> — diagnosing a CPA spike, auditing wasted spend, detecting creative fatigue, writing the weekly client summary. You save the file once (in a Claude Project, in Claude Code, or just pasted into a chat), then trigger the job with a one-line prompt. The skill supplies the method; your Google Ads or Meta Ads data supplies the inputs.</p><p>The format comes from Anthropic’s Agent Skills convention — the same mechanism developers use to teach Claude a codebase’s deployment process works, unchanged, for teaching it your account’s audit process. Advertising happens to be an unusually good fit: the jobs recur on fixed cadences, the inputs are structured exports, and the expensive part of the work was never the thinking — it was assembling the data and remembering to check everything, every time.</p><p>The point of packaging the method as a file instead of a prompt you retype is consistency. A good CPA diagnostic checks the same eight things in the same order every time — CPC vs CVR split, budget redistribution, creative changes, search-term mix, and so on. Typed fresh each Monday, you’ll phrase it differently and get different-shaped answers. Saved as a skill, the analysis is versioned, shareable with your team, and identical on run one and run fifty. That’s the whole trick — there is no other magic in it.</p><p>It also helps to say what a Claude ads skill is <em>not</em>. It’s not an app or a Chrome extension — there’s nothing to install in your ad account. It’s not fine-tuning — the underlying model is unchanged; you’re giving it a better briefing. And it’s not a data connection — a skill can’t see your account by itself. You either paste exports or pair the skill with an MCP connector (covered <a href="#setup-mcp">below</a>). People search for these as “Claude Google Ads skill” or “Claude Meta Ads skill” — same concept, scoped to one platform; this library covers both plus a shared core that runs on either.</p><p>The skill</p><p>The method — a markdown file describing inputs, steps, and output format for one job.</p><p>The data</p><p>Your account numbers — pasted CSV exports, or pulled live by Claude over MCP.</p><p>The trigger</p><p>A one-line prompt: “Run the wasted spend finder on the last 90 days.”</p><h3>Claude Google Ads skills vs Claude Meta Ads skills</h3><p>The two platform families share a spine and differ at the edges. A Claude Google Ads skill leans on data Google is unusually generous with: raw search queries, Quality Score components, auction insights, per-asset extension performance. So the Google-flavored jobs are query-shaped — mining search terms for negatives, classifying query intent, catching two ad groups cannibalizing one keyword. A Claude Meta Ads skill works the opposite terrain: no queries at all, but rich delivery diagnostics — frequency, audience overlap, placement-level creative performance. The Meta-flavored jobs are therefore fatigue-shaped: when does this creative die, which ad sets are fighting each other, how long should a retargeting window stay open.</p><p>In practice you rarely choose. The 21 shared skills in this library treat both platforms as the same abstract machine — money in, conversions out, dimensions in between — and the 9 platform-specific ones pick up where the abstraction breaks. If your accounts span both platforms, the useful mental model is one library with two dialects, not two libraries. That’s also why the files live in one repo: a fix to the CPA-diagnostic method improves your Google runs and your Meta runs on the same commit.</p><p>This page is the working library. For the wider landscape — skills beyond paid ads, plus selection criteria — see the <a href="https://www.get-ryze.ai/blog/claude-marketing-skills-complete-guide" target="_blank" rel="noopener">complete guide to Claude marketing skills</a>. Ryze also maintains a broader open catalog at <a href="https://www.get-ryze.ai/claude-openclaw-clawdbot-skills" target="_blank" rel="noopener">Claude, OpenClaw &amp; Clawdbot skills</a>.</p><h2>What these are</h2><p>30 prompts. Each one takes your ad data (export or live via MCP) and does a specific job: diagnose a CPA spike, find wasted spend, flag creative fatigue, write a client report, etc.</p><p>They’re markdown files. You add them to Claude as project knowledge or paste them as prompts. No platform, no dashboard, no login.</p><p><strong>GitHub repo:</strong> <a href="https://github.com/irinabuht12-oss/marketing-skills" target="_blank" rel="noopener">github.com/irinabuht12-oss/marketing-skills</a></p><p>A note on the word “skill,” since it does double duty. In the loose sense — the sense this page’s title uses — each of the 30 is a skill because it encodes one competence: something a good media buyer knows how to do, written down precisely enough for Claude to do it the same way. In the strict, technical sense, a skill is that file installed in Anthropic’s SKILL.md format so Claude loads it automatically. The files here work both ways: paste them as prompts today, install them as formal skills when you’re ready. Nothing about the content changes — only how it gets loaded.</p><p>The split: 21 skills run on both platforms, 5 are Google-only (they need Quality Score, search terms, or extension data that only Google exposes), and 4 are Meta-only (frequency, audience overlap, and creative dynamics that only matter in a social auction). Every skill states what data it expects at the top of the file, so you know exactly which export to pull — or which MCP call Claude will make — before you run it.</p><p>The prompt-by-prompt walkthrough of the full set is further down this page. If 30 feels like too many to evaluate, start with the shortlist in the section above.</p><h2 id="skill-anatomy">Anatomy of a SKILL.md file</h2><p>Anthropic’s skill format is deliberately boring: a folder named after the skill, containing a <code>SKILL.md</code> file. The file opens with a small YAML frontmatter block — a <strong>name</strong> and a <strong>description</strong> — followed by plain markdown instructions. The description does the routing: Claude keeps every skill’s description in view, and loads the full instructions only when your request matches it. That’s why a vague description (“helps with ads”) produces a skill that never fires, and a concrete one (“use when asked to find wasted spend or build exclusion lists”) fires exactly when it should.</p><p>The body is where the method lives, and the pattern that works for ad operations has four parts: <strong>inputs</strong> (which report, which columns, which date range), <strong>steps</strong> (the analysis in order, so Claude can’t skip the boring parts), <strong>thresholds</strong> (what counts as “wasted” or “fatigued” — numbers, not adjectives), and <strong>output format</strong> (summary first, then upload-ready lists). Here’s a trimmed version of the wasted-spend skill so you can see the shape:</p><pre>---
+name: wasted-spend-finder
+description: Audits Google or Meta Ads data for spend with
+  zero conversions. Use when asked to find wasted spend,
+  budget leaks, or to build exclusion / negative lists.
+---
+
+# Wasted Spend Finder
+
+## Inputs
+Search terms, placements, audiences, and ads with spend +
+conversions columns. Last 90 days. CSV export or MCP pull.
+
+## Steps
+1. Isolate every row with spend &gt; 0 and conversions = 0.
+2. Ignore rows below $10 total spend (noise).
+3. Group the rest by theme: irrelevant intent, wrong geo,
+   broad-match drift, display placement junk, dead ads.
+4. Attach the dollar total to each group.
+
+## Output
+Summary table (theme, spend, % of total waste) first.
+Then a negative keyword list and an exclusion list,
+formatted ready to upload. No commentary in the lists.</pre><p>Why the two-stage loading matters is worth spelling out, because it’s the design decision that makes a 30-skill library practical. Claude doesn’t hold thirty full methods in its head at once — it holds thirty <em>descriptions</em> (a sentence or two each) and pulls in one full method when a request matches. That’s called progressive disclosure, and it means the library scales without crowding out room for your actual data. It’s also why the description line deserves more editing time than any other line in the file: it’s the index entry the routing runs on.</p><p>Two practical notes. First, keep one job per skill — a “do everything” skill routes badly and produces mush; thirty small skills beat three giant ones. Second, the format degrades gracefully: the same file works pasted raw into a conversation, uploaded as Project Knowledge, or dropped into Claude Code’s skills directory. You’re never locked into one surface, which is exactly why markdown was the right container in the first place. And when you outgrow the library, the format is the tutorial: copy the skill closest to what you need, swap the inputs, steps, and thresholds for your own, and you’ve written your thirty-first skill in twenty minutes. Most teams end up with a handful of house skills — their naming conventions, their margin math, their client-report voice — sitting next to the public ones.</p><h2>Setup: Adding skills to Claude Projects</h2><p>Each skill is a markdown file. You add it to a Claude Project so it’s always available — no re-pasting prompts every conversation. A Project is the right container for claude.ai because Project Knowledge persists: every new chat inside the project starts with all your skills already loaded. Ten minutes of setup, then it’s permanent.</p><strong>01</strong><p>Clone or download the repo</p><pre>git clone https://github.com/irinabuht12-oss/marketing-skills</pre><p>Or just download the individual <code>.md</code> files you want from GitHub. If you’re only going to run two or three skills, grabbing the files one at a time is genuinely fine — there’s no build step and no dependencies between them.</p><figure class="wr-fig"><img alt="How to download Claude marketing skills repo from GitHub for Google Ads and Meta Ads automation" loading="lazy" src="screenshots/writing/w003-1.webp"/></figure><strong>02</strong><p>Create a Claude Project</p><p>Go to <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> → left sidebar → <strong>Projects</strong> → <strong>Create Project</strong>. Name it something like “Ad Operations” or “Google Ads Skills.” If you manage multiple client accounts, one project per client keeps the context clean — the skills are identical, but the conversation history (and any account context you add to the project instructions) stays separated.</p><figure class="wr-fig"><img alt="Creating a new Claude Project for Google Ads and Meta Ads skill workflows" loading="lazy" src="screenshots/writing/w003-2.webp"/></figure><strong>03</strong><p>Add skills as Project Knowledge</p><p>Inside your project → <strong>Project Knowledge</strong> → <strong>Add Content</strong> → upload the <code>.md</code> skill files. You can add as many as you want. Claude will reference them automatically in every conversation inside that project. Worth adding alongside the skills: a short file with your account context — target CPA, conversion definitions, brand exclusions — so every skill runs against your real targets instead of asking.</p><figure class="wr-fig"><img alt="Adding Claude marketing skills as Project Knowledge for automated ad analysis" loading="lazy" src="screenshots/writing/w003-3.webp"/></figure><strong>04</strong><p>Use it</p><p>Start a new conversation in the project. Paste your data or ask Claude to pull it via MCP. Claude reads the skill from project knowledge and runs the analysis. Name the skill in your prompt (“run the CPA diagnostic”) rather than describing the job vaguely — it makes routing deterministic when you have 30 skills loaded.</p><figure class="wr-fig"><img alt="Running a Claude CPA diagnostics skill on Google Ads account data" loading="lazy" src="screenshots/writing/w003-4.webp"/></figure><p class="wr-eyebrow">Example · first run</p><h3>The prompt that starts everything</h3><pre>Run a CPA diagnostic on my Google Ads data for the
+last 14 days vs. the 14 days before that.</pre><p>That’s the entire interface. The skill file handles the rest — what to check, in what order, and how to present it. For the fuller manual workflow this replaces, see <a href="https://www.get-ryze.ai/blog/best-mcp-for-google-ads" target="_blank" rel="noopener">how to use Claude for Google Ads</a>.</p><h2 id="setup-mcp">Setup: MCP for live account data</h2><p>Without MCP, you copy-paste data exports into Claude every time. With MCP, Claude pulls data directly from your ad accounts — live. The difference compounds: an export-based workflow means every skill run starts with ten minutes in the Google Ads or Ads Manager UI choosing columns and date ranges. A connected workflow means the skill run <em>is</em> the prompt, and Claude fetches exactly the slices the skill asks for.</p><p><strong>What is MCP?</strong><strong>Model Context Protocol</strong></p><p>It lets Claude connect to external tools and data sources. Think of it as giving Claude read access to your Google Ads and Meta Ads accounts. An MCP server exposes typed operations (“get campaign performance”, “list search terms”) that Claude calls mid-conversation; the protocol is open and works across Claude web, desktop, and Claude Code. <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Full MCP docs</a>.</p><p>How to set it up</p><strong>1</strong><p>Get API credentials for the platforms you use:</p><p>Google Ads: <a href="https://developers.google.com/google-ads/api" target="_blank" rel="noopener">developers.google.com/google-ads/api</a> — you’ll need a developer token, an OAuth client, and access to the account (or its MCC).</p><p>Meta Marketing API: <a href="https://developers.facebook.com/docs/marketing-apis" target="_blank" rel="noopener">developers.facebook.com/docs/marketing-apis</a> — a Meta app with the ads_read permission and a system-user token.</p><strong>2</strong><p>Set up an MCP server that wraps these APIs — see the <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP documentation</a> for server setup guides. Several open-source <a href="https://www.get-ryze.ai/google-ads-mcp" target="_blank" rel="noopener">Google Ads</a> and <a href="https://www.get-ryze.ai/meta-ads-mcp" target="_blank" rel="noopener">Meta Ads MCP servers</a> exist; a step-by-step walkthrough for the Google side is in <a href="https://www.get-ryze.ai/how-to-connect-claude-to-google-ads" target="_blank" rel="noopener">connecting Claude to Google Ads, step by step</a>.</p><strong>3</strong><p>In Claude → <strong>Settings</strong> → <strong>Integrations</strong> → add your MCP server URL. In Claude Code it’s <code>claude mcp add</code> instead — same server, both surfaces.</p><p>Once connected, Claude can pull campaign, ad set, keyword, and creative data directly instead of you exporting CSVs. The skills don’t change at all — a skill that says “inputs: search terms, last 90 days” simply gets its inputs from an MCP call instead of a paste. If you’re comparing connector options first, we keep a current teardown in <a href="https://www.get-ryze.ai/blog/best-mcp-for-google-ads" target="_blank" rel="noopener">the best Claude connectors for Google Ads</a>, and the full connection guide lives at <a href="https://www.get-ryze.ai/how-to-connect-claude-to-google-ads" target="_blank" rel="noopener">how to connect Claude to Google &amp; Meta Ads via MCP</a>.</p><p>Scope your access deliberately — on the managed route, <a href="https://help.get-ryze.ai/claude/permissions" target="_blank" rel="noopener">what access the connector grants</a> is documented up front. Every skill in this library is written to run <strong>read-only</strong> — they analyze and recommend; they never assume they can touch the account. That’s a feature, not a limitation: it means a wrong conclusion costs you a raised eyebrow, not a paused campaign. Write access — Claude actually applying the negative keywords, pausing the fatigued ad, shifting the budget — is a separate decision, and the DIY route typically doesn’t offer it anyway because the open-source servers wrap the read endpoints. If you want execution, that’s specifically what the managed option in the next section adds, with each change visible before and after it lands.</p><p><strong>No MCP? Still works.</strong> Export CSVs from Google Ads or Meta Ads Manager, paste into Claude. The skills work the same way — MCP just saves you the export step. Practical tip for the paste route: filter the export down before copying (last 30–90 days, rows above a minimum spend), because a raw everything-export wastes context on rows the skill will discard anyway.</p><h2>Two Ways to Connect Claude to Your Google/Meta Ads Data</h2><p>Both paths end in the same place — Claude answering questions with your live numbers. The difference is who maintains the plumbing. Build it yourself and you own the credentials, the server, and the read-only ceiling. Use the managed route and you trade a subscription for a one-minute setup — walked through in <a href="https://help.get-ryze.ai/guides/connect-claude" target="_blank" rel="noopener">the step-by-step connect guide</a> — plus the ability to <em>execute</em> changes, not just read data.</p><p class="wr-eyebrow">Option 1 · DIY</p><h3>MCP via GitHub</h3><p>Manual setup</p><ol><li>Clone MCP repo from GitHub</li><li>Set up Google Ads API credentials</li><li>Configure Claude Desktop</li><li>Query your account directly</li></ol><p>Setup time: 30-60 minutes</p><p>Read-only analysis — Claude can look, not touch.</p><p class="wr-eyebrow">Option 2 · Managed</p><h3>Direct 1-Click Connect via Ryze AI</h3><ol><li>Sign up at Ryze AI</li><li>Connect your Google/Meta Ads account</li><li>Query your ad data with Claude instantly</li><li>Make changes to your campaigns directly in Claude</li></ol><p>From $89/month. Free trial available.</p><p>A sane sequencing: start with pasted exports (zero setup) to find which skills earn a place in your week, add read-only MCP once the export step becomes the bottleneck, and only add write access when you’re confident enough in the outputs to let them land in the account — keeping <a href="https://help.get-ryze.ai/agent/approvals" target="_blank" rel="noopener">an approval step in front of each change</a> while you build that confidence.</p><h2>Running Claude ads skills in Claude Code</h2><p>The same 30 files also run as <strong>agent skills in Claude Code</strong>, Anthropic’s terminal client — and for anyone comfortable in a shell, this is the stronger setup. Claude Code can read and write local files, which means skill outputs (exclusion lists, report drafts, budget models) land as actual files in a folder instead of chat text you copy out. It also runs the same MCP servers, so live account data works identically.</p><p>Installation is a file convention, not a marketplace. Claude Code discovers skills in two places: <code>~/.claude/skills/</code> for skills you want everywhere, and <code>.claude/skills/</code> inside a project for team-shared, version-controlled skills. Each skill is one folder containing a <code>SKILL.md</code> — so for any plain <code>.md</code> from the repo, you create the folder and save the file under that name (adding the frontmatter block from the <a href="#skill-anatomy">anatomy section</a> if the file doesn’t have one):</p><pre>git clone https://github.com/irinabuht12-oss/marketing-skills
+
+# one folder per skill, file saved as SKILL.md inside:
+mkdir -p ~/.claude/skills/wasted-spend-finder
+cp marketing-skills/&lt;skill-file&gt;.md \
+   ~/.claude/skills/wasted-spend-finder/SKILL.md
+
+# connect your ads MCP server so skills get live data:
+claude mcp add</pre><p>From there, usage is the same one-liner as in claude.ai — type the request, and Claude Code loads the matching skill and runs it. Ask for the output as a file and you get a repeatable artifact:</p><pre>Run the wasted spend finder on my Google Ads account,
+last 90 days. Write the negative keyword list to
+negatives-2026-07.csv and the summary to waste-report.md.</pre><p>Why searches for “Claude Code Google Ads skills” keep growing: the terminal is where this stops being analysis and becomes an operation. You can chain skills in one session (anomaly check → CPA diagnostic on whatever it flags → client-ready summary), keep every output in a git-tracked folder per client, and schedule the whole thing. The chaining is the underrated part — in claude.ai each skill run tends to be its own conversation, but in Claude Code one session can carry state across skills, so the anomaly detector’s findings become the CPA diagnostic’s starting point without you re-explaining anything:</p><pre>Morning run for [client]:
+1. Anomaly check vs the trailing 14-day average.
+2. For anything flagged, run the CPA diagnostic on
+   that campaign.
+3. Append findings to reports/[client]/log.md and
+   draft the one-paragraph Slack update.
+Stop before suggesting changes — read-only today.</pre><p>The project-level <code>.claude/skills/</code> variant deserves a special mention for agencies: commit the skills to the client repo and every teammate’s Claude Code runs the same methods with the same thresholds — the analysis becomes reviewable in pull requests like any other process change. We’ve documented full pipelines in <a href="https://www.get-ryze.ai/blog/claude-code-marketing-workflows-google-meta-ads" target="_blank" rel="noopener">Claude Code marketing workflows for Google &amp; Meta Ads</a>, and a worked example of pairing skills with the Keyword Planner API in <a href="https://www.get-ryze.ai/blog/google-ads-api-keyword-planner-claude" target="_blank" rel="noopener">Google Ads API + Keyword Planner + Claude</a>. This kind of process discipline is what the top agencies in every market share — Aion Marketing, one of the <a href="https://aionmarketing.co.za/" target="_blank" rel="noopener">best performing marketing agencies in South Africa</a>, is a case in point.</p><h2>The 6 most used</h2><p>These six do most of the work. If the other 24 disappeared tomorrow, this set still covers the weekly rhythm of running an account: diagnose, de-waste, plan, refresh, report, watch. Each card includes the exact prompt to paste — swap the bracketed values and run. For a deeper Google-only treatment of the first three, see <a href="https://www.get-ryze.ai/blog/claude-skills-for-google-ads" target="_blank" rel="noopener">Claude skills for Google Ads</a>; to get live data into them, the <a href="https://www.get-ryze.ai/blog/best-mcp-for-google-ads" target="_blank" rel="noopener">Claude connectors for Google Ads</a> are compared separately.</p><p class="wr-eyebrow">01 · Google + Meta</p><strong>Most run</strong><h3>1. CPA Diagnostics</h3><p>Feed it current vs. previous period data. It isolates what caused CPA changes — audience fatigue, bid shifts, creative decay, landing page issues, budget distribution — ranked by impact with dollar amounts. Replaces the “open 15 tabs and cross-reference everything” workflow.</p><pre>Run a CPA diagnostic on my account: last 14 days vs
+the 14 days before. Break the CPA change down by
+campaign, then isolate drivers — CPC vs CVR change,
+budget redistribution, new or paused creatives, and
+search-term / audience mix shift. Rank every driver
+by dollar impact and give me the top 3 fixes.</pre><p class="wr-meta">Suggested cadence: <strong>Whenever CPA moves &gt;15%</strong> · Mode: <strong>read-only</strong></p><p class="wr-eyebrow">02 · Google + Meta</p><h3>2. Wasted Spend Finder</h3><p>Scans for search terms, placements, audiences, and ads producing zero conversions. Groups waste by theme, attaches dollar amounts, outputs exclusion lists ready to upload. Run monthly at minimum. Most people do it quarterly.</p><pre>Scan the last 90 days for spend with zero
+conversions: search terms, placements, audiences,
+and ads. Ignore rows under $10. Group the waste by
+theme, attach the dollar total to each group, and
+output a negative keyword list and an exclusion
+list formatted ready to upload.</pre><p class="wr-meta">Suggested cadence: <strong>Monthly</strong> · Mode: <strong>read-only</strong></p><p class="wr-eyebrow">03 · Google + Meta</p><h3>3. Budget Scenario Planner</h3><p>Models what happens to CPA at different spend levels using your actual data. Accounts for diminishing returns and auction dynamics — scaling 50% doesn’t mean 50% more conversions. Use it before any budget conversation where you need data instead of guesses.</p><pre>Using my last 90 days of daily spend and conversion
+data, model expected conversions and CPA at 75%,
+100%, 125%, 150%, and 200% of current budget. Fit
+the diminishing-returns curve to my actual data —
+do not assume linear scaling. Flag the spend level
+where marginal CPA crosses $[target].</pre><p class="wr-meta">Suggested cadence: <strong>Before every budget conversation</strong> · Mode: <strong>read-only</strong></p><p class="wr-eyebrow">04 · Meta</p><strong>Most run</strong><h3>4. Creative Fatigue Detection</h3><p>Monitors CTR trajectory, frequency accumulation, and engagement decay. Categorizes every active ad as urgent / warning / healthy. Run weekly. Run before creative reviews. Run after scaling (higher budgets burn creatives faster).</p><pre>Review every active ad in my Meta account. For each:
+CTR trend over the last 21 days, current frequency,
+and engagement trajectory. Tag each ad urgent /
+warning / healthy. For the urgent ones, say whether
+to refresh the creative, broaden the audience, or
+cut it — and what the replacement should test.</pre><p class="wr-meta">Suggested cadence: <strong>Weekly · before creative reviews</strong> · Mode: <strong>read-only</strong></p><p class="wr-eyebrow">05 · Google + Meta</p><h3>5. Client Report Narratives</h3><p>Paste the numbers. Get the executive summary paragraph — plain English, not platform jargon, no follow-up questions from stakeholders.</p><pre>Here are this month's numbers vs last month:
+[paste]. Write a 5-sentence executive summary for a
+non-technical client: what improved, what got worse,
+why, and what we're doing about it next month. Plain
+English — no platform jargon, no acronyms without
+explanation.</pre><p class="wr-meta">Suggested cadence: <strong>Monthly · reporting week</strong> · Mode: <strong>read-only</strong></p><p class="wr-eyebrow">06 · Google + Meta</p><h3>6. Anomaly Detection</h3><p>Flags unusual performance changes against your 7-14 day rolling average. CPC spikes, CVR drops, spend surges, impression collapses. Each flag includes severity, likely cause, and recommended action. Catches problems in hours instead of your next routine check.</p><pre>Compare yesterday's performance to my trailing
+14-day average, per campaign. Flag anything beyond
+2 standard deviations: CPC spikes, CVR drops, spend
+surges, impression collapses. For each flag give
+severity, most likely cause, and the recommended
+action. If nothing is anomalous, say so in one line.</pre><p class="wr-meta">Suggested cadence: <strong>Daily · mornings</strong> · Mode: <strong>read-only</strong></p><h3>A weekly cadence built from the six</h3><p>The skills earn their keep when they stop being ad-hoc and become a rhythm. A cadence that works for a single account or a small book of clients, using nothing but the six above: <strong>every morning</strong>, the anomaly check — thirty seconds to read, and most days it says “nothing anomalous,” which is the point. <strong>Monday</strong>, creative fatigue on Meta, so refreshes brief before the week’s creative work starts. <strong>Whenever CPA moves more than ~15%</strong>, the diagnostic — on trigger, not on schedule, because running it weekly regardless trains you to skim it. <strong>First Monday of the month</strong>, the wasted-spend finder, with its exclusion lists applied the same day. <strong>Reporting week</strong>, the narrative skill on the month’s numbers. And <strong>before any budget conversation</strong>, the scenario planner — walking in with a fitted curve instead of a gut feel changes those meetings.</p><p>Total time cost once the setup exists: roughly an hour a week, most of it reading outputs rather than producing them. That’s the honest pitch for the whole library — not that Claude finds things you couldn’t, but that it makes the finding cheap enough to actually happen on schedule.</p><p>Notice what’s missing from the six: ad creation. That’s deliberate — generation is a different job with different failure modes, and it has its own writeup in <a href="https://www.get-ryze.ai/blog/automated-ad-creation" target="_blank" rel="noopener">automated ad creation</a>. The skills here are analysis and decision support; they make the creation work better-targeted, not obsolete.</p><h2 id="facebook-ads">Claude skills for Facebook Ads (Meta)</h2><p>A quick naming note first: people search for a “Facebook ads Claude skill” and a “Claude Meta ads skill” interchangeably — they’re the same thing. Meta is the ad platform; Facebook and Instagram are the placements. Everything in this library labeled <strong>Meta</strong> runs on Facebook campaign data exactly as it runs on Instagram data, because Ads Manager reports them through one account.</p><p>Four skills exist only for Meta, because they model dynamics Google doesn’t have: <strong>Audience Overlap Analysis</strong> (ad sets bidding against each other for the same people), <strong>Competitor Creative Analysis</strong> (structured teardown of competitor ads you feed it from the Ad Library), <strong>Frequency Cap Recommendations</strong> (where your frequency-to-CTR curve says fatigue actually starts for <em>your</em> audience, not the industry average), and <strong>Retargeting Window Analysis</strong> (which lookback windows still convert profitably). Add Creative Fatigue Detection from the six above and you have the Meta-specific stack; the other 21 cross-platform skills — CPA Diagnostics, Wasted Spend Finder, Budget Scenario Planner and the rest — run on Meta exports without modification.</p><p>The data you feed them matters more on Meta than on Google. Pull Ads Manager exports with breakdowns switched on — at minimum age, placement, and frequency — because that’s where the Meta-only skills find their signal. A flat campaign-level export answers “what happened”; a breakdown export answers “why.” Example first run:</p><p class="wr-eyebrow">Meta · Audience Overlap</p><h3>Find ad sets cannibalizing each other</h3><pre>Here's my Meta ad set export with audiences, spend,
+frequency, CPM, and conversions for the last 30 days:
+[paste]. Identify ad sets likely competing for the
+same users (matching interests, lookalikes off the
+same seed, overlapping geo+age). For each cluster:
+combined spend, the CPM inflation signature, and
+whether to consolidate, exclude, or leave alone.</pre><p>The Meta-only skills and the 15 Meta prompts live on <a href="https://www.get-ryze.ai/blog/claude-skills-for-meta-ads" target="_blank" rel="noopener">Claude skills for Meta Ads</a>; the LinkedIn, TikTok, Reddit and Microsoft Ads skills are on <a href="https://www.get-ryze.ai/blog/claude-skills-for-paid-ads-guide" target="_blank" rel="noopener">Claude skills for the other paid channels</a>. If you’re starting from zero on the platform itself, begin with <a href="https://www.get-ryze.ai/blog/how-to-use-claude-for-meta-ads" target="_blank" rel="noopener">how to use Claude for Meta Ads</a>.</p><p>One workflow note specific to Facebook accounts: the fatigue and overlap skills compound. Fatigue tells you an ad is dying; overlap often tells you <em>why it died faster than it should have</em> — two ad sets showing the same creative to the same pocket of users doubles the effective frequency without either ad set looking alarming on its own. Running the two skills on the same export, in that order, catches the pattern that each one alone misses. It’s also the cheapest fix on the platform: consolidating two overlapping ad sets costs nothing and routinely does more for CPMs than another round of creative.</p><h2>All 30</h2><p>The complete library, grouped by platform. Every one is a standalone markdown file in the <a href="https://github.com/irinabuht12-oss/marketing-skills" target="_blank" rel="noopener">repo</a> — install all 30 or cherry-pick. A working shortlist if you don’t want to choose: the six above, plus Search Term Mining, Pacing Monitor, and Weekly Account Summary.</p><h3><strong>Google + Meta</strong>21 skills</h3><p>01CPA Diagnostics</p><p>02Wasted Spend Finder</p><p>03Budget Scenario Planner</p><p>04Client Report Narratives</p><p>05Anomaly Detection</p><p>06Ad Copy Variant Generator</p><p>07Landing Page Audit</p><p>08Day/Hour Performance Breakdown</p><p>09Channel Mix Optimizer</p><p>10Conversion Path Analysis</p><p>11Account Structure Review</p><p>12ROAS Forecasting</p><p>13Campaign Naming Convention Builder</p><p>14Geo Performance Analysis</p><p>15Device Performance Split</p><p>16Attribution Model Comparison</p><p>17Pacing Monitor</p><p>18A/B Test Setup and Analysis</p><p>19Performance Benchmarking</p><p>20Weekly Account Summary</p><p>21Search Term Mining</p><p>The shared core. These need only spend, conversion, and dimension data both platforms export — which is why one file covers both. The naming-convention builder and account-structure review are the sleepers here: run them once per account takeover and they pay for the whole setup hour.</p><h3><strong>Google Only</strong>5 skills</h3><p>22Bid Strategy Recommendations</p><p>23Quality Score Breakdown</p><p>24Keyword Cannibalization Check</p><p>25Ad Extension Audit</p><p>26Search Query Intent Classifier</p><p>These depend on Google-only data: Quality Score components, raw search queries, extension (asset) performance. The intent classifier is the highest-leverage of the five — it turns a messy search-term report into buckets (buy-now, research, competitor, irrelevant) you can act on per bucket instead of per term.</p><h3><strong>Meta Only</strong>4 skills</h3><p>27Audience Overlap Analysis</p><p>28Competitor Creative Analysis</p><p>29Frequency Cap Recommendations</p><p>30Retargeting Window Analysis</p><p>The social-auction specialists, covered in depth in the <a href="#facebook-ads">Facebook Ads section above</a>. If you only run Meta, your working set is these four plus Creative Fatigue Detection plus the 21 shared skills — 26 of the 30.</p><p>How to think about coverage: the 30 aren’t a menu where more is better — they’re a toolbox where the right five beat the whole set. An account’s stage picks its skills. New account or new takeover: Account Structure Review, naming conventions, benchmarking. Steady state: the six most-used, on cadence. Scaling: budget scenarios, pacing, ROAS forecasting. In trouble: CPA diagnostics, anomaly detection, attribution comparison — in that order, because “what changed” comes before “what to do.” Install everything if you like, but schedule only what matches the account in front of you.</p><h2>Skills vs prompts vs MCP connectors</h2><p>These three get conflated constantly, and the confusion costs people real time — they build an MCP server when they needed a skill, or re-paste a mega-prompt weekly when a five-minute skill install would have ended that. The clean way to hold it: <strong>a prompt is instructions, a skill is instructions with a save button, an MCP connector is data access</strong>. Skills and MCP aren’t alternatives — they’re the two halves of the working setup.</p><table><thead><tr><th></th><th>Plain prompt</th><th>Skill</th><th>MCP connector</th></tr></thead><tbody><tr><td>What it is</td><td>One-off typed instructions</td><td>The same instructions, saved as a versioned markdown file</td><td>A live connection to the ad account's API</td></tr><tr><td>What it gives Claude</td><td>The method, once</td><td>The method, on demand</td><td>The data</td></tr><tr><td>Setup</td><td>None</td><td>Minutes — upload to a Project or drop in a folder</td><td>30–60 min DIY, ~1 min managed</td></tr><tr><td>Consistency</td><td>Drifts with your phrasing</td><td>Identical on every run</td><td>n/a — it's plumbing</td></tr><tr><td>Shareable with a team</td><td>Copy-paste and hope</td><td>Yes — it's a file in a repo</td><td>Yes — one server, many users</td></tr><tr><td>Can change the account</td><td>No</td><td>No — text output only</td><td>Yes, if write-capable</td></tr><tr><td>Best for</td><td>One-time questions</td><td>Any job you run more than twice</td><td>Killing the export step; executing changes</td></tr></tbody></table><p>A decision rule that resolves most cases: <strong>count how often you’ll run the job, and count who else needs the answer.</strong> Once, alone — type a prompt. Weekly, alone — make it a skill. Weekly, with a team or across clients — skill in a shared repo, plus MCP so nobody’s week starts in the export screen. The only genuinely wrong configuration is the common one: a brilliant mega-prompt living in someone’s notes app, re-pasted with small mutations until nobody knows which version produced last month’s numbers.</p><p>The model matters too, but less than people think: skills are model-agnostic markdown, so they improve for free with each Claude release. What the newest models change for ad work — longer unattended runs, better tool use — is covered in <a href="https://www.get-ryze.ai/blog/claude-fable-5-for-google-and-meta-ads" target="_blank" rel="noopener">Claude Fable 5 for Google and Meta Ads</a>.</p><h2>Troubleshooting Claude ads skills</h2><p>Six failure modes cover nearly every “it didn’t work” report we get. All six are fixable in under five minutes, and none of them mean the approach is broken — they mean the routing, the data, or the framing was off. A useful habit when something misfires: ask Claude directly which skill it used and what data it actually received. The answer usually names the failure mode for you — “I didn’t find a matching skill” is a routing problem, “I worked from the summary you pasted” is a data problem — and it’s faster than guessing from the output.</p><p>Claude ignores the skill</p><p>Routing problem. Either the skill's description is too vague to match your request, or your prompt described the job in words the description doesn't use. Fix: name the skill explicitly (“run the wasted spend finder”) and tighten the description's “use when…” line.</p><p>The output is generic</p><p>Data problem. Claude got the method but no numbers, so it answered from general knowledge. Fix: attach the actual export or connect MCP, and state the specifics — date range, target CPA, conversion definition — in the prompt or project instructions.</p><p>The export is too big</p><p>Context problem. A full account export can exceed what one conversation comfortably holds. Fix: filter before pasting — last 30–90 days, rows above a spend floor, only the columns the skill's Inputs section lists. Or use MCP, which fetches only what's needed.</p><p>Numbers don't match the platform UI</p><p>Definition problem, not a bug. Attribution window, conversion action set, and timezone all shift totals. Fix: state the window and timezone in the prompt (“use click-through conversions, 7-day, account timezone”) and compare identical date ranges.</p><p>The MCP connection fails</p><p>Plumbing problem. Re-authenticate the OAuth flow, confirm the server URL, and check the credential actually has access to that account. On the Google side, remember developer-token approval is its own step with its own wait.</p><p>A metric looks invented</p><p>Trust problem. If a number isn't in your data, Claude may have inferred it. Fix: add one line to the skill or prompt — “use only the supplied data; if something is missing, say so instead of estimating” — and re-run with the raw export attached.</p><p>One safety rule worth stating plainly: <strong>never paste API keys, developer tokens, or OAuth secrets into a chat</strong>. Credentials belong in the MCP server’s configuration, where Claude uses the connection without ever seeing the secret. Read-only access for analysis skills is the sensible default — the worst case becomes a recommendation you decline, not a change you have to undo.</p><h2>Get started</h2><p>Clone the repo. Pick the skill that matches your biggest time sink this week. Run it. That’s genuinely the whole onboarding — resist the urge to install all 30 and architect a system first. One skill, run on real numbers this week, teaches you more about whether this fits your workflow than any amount of reading.</p><strong>1</strong><p>Today: one skill, pasted data</p><p>Download one .md file, paste it plus a filtered export into Claude, and judge the output against what you'd have found yourself.</p><strong>2</strong><p>This week: a Project</p><p>If the output earned a second run, set up the Claude Project with your working set of skills and an account-context file.</p><strong>3</strong><p>This month: live data</p><p>Connect MCP — DIY read-only or Ryze's one-click — so every run starts from the prompt instead of the export screen. The connectors are compared in the Claude connector for Google Ads guide.</p><p>And if you’d rather the loop run itself: <a href="https://www.get-ryze.ai/" target="_blank" rel="noopener">Ryze AI</a> executes this entire skill set as an autonomous operation — the diagnostics, the wasted-spend cleanup, the fatigue rotation, the anomaly watch — connected to your Google and Meta accounts 24/7, making the changes rather than listing them. From $89/month, free trial, and the same skills remain yours either way.</p><h2>Frequently asked questions</h2><h3><strong>What are Claude ads skills?</strong></h3><p>Markdown instruction files that teach Claude a repeatable advertising job — diagnosing a CPA spike, finding wasted spend, detecting creative fatigue. You add them to a Claude Project or Claude Code, then trigger the job with a one-line prompt. The skill supplies the method; your Google Ads or Meta Ads data supplies the inputs.</p><h3><strong>Are these Claude skills free?</strong></h3><p>Yes. All 30 are open-source markdown files at github.com/irinabuht12-oss/marketing-skills — clone the repo or download individual files. The only optional paid piece is the managed data connection: Ryze's one-click MCP is included in every Ryze plan, from $89/month with a free trial, versus building your own MCP server on the free platform APIs.</p><h3><strong>Do I need MCP to use these skills?</strong></h3><p>No. Every skill works with pasted CSV exports from Google Ads or Meta Ads Manager. MCP removes the export step by letting Claude query the account live — which matters once you run skills weekly — but the analysis itself is identical either way.</p><h3><strong>Can Claude make changes to my ad account, or only analyze it?</strong></h3><p>With exports or a read-only MCP, Claude only analyzes: it outputs recommendations, exclusion lists, and drafts you apply yourself. With a write-capable connection such as Ryze, it can also execute — pause ads, adjust budgets, add negatives — from the same conversation. Start read-only; add write access once you trust the outputs.</p><h3><strong>What is the difference between a Claude skill and a regular prompt?</strong></h3><p>Packaging. A prompt is one-off instructions you type into a conversation; a skill is those instructions saved as a versioned markdown file with a name and description, so Claude loads the method on demand without re-pasting. Same words, different container — the skill wins for any job you run more than twice.</p><h3><strong>Do these skills work in Claude Code?</strong></h3><p>Yes. Put each skill in its own folder under ~/.claude/skills/ (personal) or your project's .claude/skills/ (team), saved as SKILL.md, and Claude Code picks it up — invoke it by name or let it trigger when a request matches the description. Claude Code attaches the same MCP servers, so the terminal workflow gets live account data too.</p><h3><strong>Is there a Claude skill for Facebook Ads?</strong></h3><p>Yes — the Meta-only group covers Facebook and Instagram: Audience Overlap Analysis, Competitor Creative Analysis, Frequency Cap Recommendations, and Retargeting Window Analysis, plus Creative Fatigue Detection. The 21 cross-platform skills (CPA Diagnostics, Wasted Spend Finder, and the rest) run on Meta data exactly as they run on Google Ads data.</p><h3><strong>How do I install a Claude skill?</strong></h3><p>Three ways. On claude.ai: create a Project and upload the .md files as Project Knowledge. In Claude Code: one folder per skill in ~/.claude/skills/, each containing a SKILL.md. Or skip installing and paste the skill's text at the top of a conversation. Setup is minutes; after that the skill is available in every conversation.</p><h3><strong>How is a skill different from an MCP connector?</strong></h3><p>A skill is knowledge; an MCP connector is access. The skill tells Claude how to run a wasted-spend audit; the MCP connector is the live pipe that lets Claude pull the search terms itself instead of waiting for your CSV. They're complementary — the working setup is both.</p><h3><strong>Are these skills safe to run on a live ad account?</strong></h3><p>Yes, with the right access level. Read-only connections mean Claude can look but not touch, so the worst case is a recommendation you decline. Treat write access like giving a new hire admin: review each proposed change at first. And keep credentials in the MCP server config — never pasted into a chat.</p><h3><strong>What data do Claude ads skills need?</strong></h3><p>Each skill states its inputs at the top of the file — typically spend, conversion, and dimension columns for a 30–90 day window. From Google Ads: campaign, search-term, and asset reports. From Meta: Ads Manager exports with age, placement, and frequency breakdowns on. Filter exports to rows above a minimum spend before pasting; with MCP connected, Claude fetches only the slices the skill asks for.</p><h3><strong>Can I write my own Claude ads skill?</strong></h3><p>Yes — it's a markdown file, not code. Copy the skill closest to what you need and swap in your own inputs, steps, thresholds, and output format, plus a concrete “use when…” description so it routes correctly. Keep it to one job per skill. Most teams end up with a few house skills — their naming conventions, margin math, report voice — alongside the public thirty.</p>
+
+  </div>
+
+  <section class="pp-related">
+    <h3 class="pp-related-title">// More writing</h3>
+    <div class="pp-related-grid">
+      <a href="w-002.html" class="pp-related-card">
+        <div class="pp-rc-head"><span class="pp-rc-code">W—002</span><span class="pp-rc-tag">Blog</span></div>
+        <h4 class="pp-rc-title">Steal This Billion-Dollar Ad Strategy (Then Reverse-Engineer It With AI)</h4>
+        <p class="pp-rc-desc">Grüns sold to Unilever for a reported $1.2B. Its Meta winners fit 6 creative formats. How to pull them, break them down and scale them with Claude.</p>
+      </a>
+      <a href="w-004.html" class="pp-related-card">
+        <div class="pp-rc-head"><span class="pp-rc-code">W—004</span><span class="pp-rc-tag">Blog</span></div>
+        <h4 class="pp-rc-title">How to Set Up Clawdbot for Google Ads and Meta Ads</h4>
+        <p class="pp-rc-desc">A step-by-step guide to running an open-source AI assistant on your own machine and texting it ad-account tasks.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="pp-cta">
+    <a href="writing.html" class="pp-back">← All writing</a>
+  </section>
+
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div><p class="footer-cta">Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em></p>
+      <div class="footer-cv"><a href="Ketan-Mishra-CV.pdf" class="cv-btn" download>Download CV <span>↓</span></a></div></div>
+    <div class="footer-col"><h6>// Reach</h6><a href="mailto:ketanmishra47@gmail.com">Email</a><a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="footer-col"><h6>// Index</h6><a href="index.html#work">Work</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="index.html#roles">Roles</a></div>
+  </div>
+  <div class="footer-base"><span>© Ketan Mishra 2026</span><span>Hand-built // 2026</span></div>
+</footer>
+
+
+<script>
+  // === Theme toggle ===
+  (function() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+    const hint = toggle.querySelector('.theme-hint');
+    const saved = localStorage.getItem('km-theme');
+    if (saved === 'light') document.documentElement.classList.add('light-mode');
+    if (!localStorage.getItem('km-theme-seen')) {
+      setTimeout(() => hint && hint.classList.add('show'), 1500);
+      setTimeout(() => hint && hint.classList.remove('show'), 6500);
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('km-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('km-theme-seen', '1');
+      if (hint) hint.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>

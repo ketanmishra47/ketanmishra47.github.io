@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>W—008 · Vibelets launch site: homepage copy — Ketan Mishra</title>
+<meta name="description" content="The full homepage, section by section: hero, problem, product, loop, pricing and FAQ. Written and designed by me, built by a web designer." />
+<!-- share -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="canonical" href="https://ketanmishra47.github.io/w-008.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ketan Mishra" />
+<meta property="og:title" content="W—008 · Vibelets launch site: homepage copy — Ketan Mishra" />
+<meta property="og:description" content="The full homepage, section by section: hero, problem, product, loop, pricing and FAQ. Written and designed by me, built by a web designer." />
+<meta property="og:url" content="https://ketanmishra47.github.io/w-008.html" />
+<meta property="og:image" content="https://ketanmishra47.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="W—008 · Vibelets launch site: homepage copy — Ketan Mishra" />
+<meta name="twitter:description" content="The full homepage, section by section: hero, problem, product, loop, pricing and FAQ. Written and designed by me, built by a web designer." />
+<meta name="twitter:image" content="https://ketanmishra47.github.io/og-image.png" />
+<!-- /share -->
+
+<script>
+  // Apply saved theme before first paint to avoid FOUC
+  try { if (localStorage.getItem('km-theme') === 'light') document.documentElement.classList.add('light-mode'); } catch(e) {}
+</script>
+
+<style>
+  :root { --bg: #0A0A0B; --bg-elev: #131316; --bg-card: #16161A; --border: #1F1F23; --border-bright: #2A2A30; --text: #F5F5F0; --text-mute: #7A7A82; --text-dim: #4D4D54; --accent: #FF6B35; --accent-soft: #FFB088; --green: #7FB069; --serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif; --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace; --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 1; mix-blend-mode: overlay; }
+  a { color: inherit; }
+  nav { position: fixed; top: 0; left: 0; right: 0; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(10, 10, 11, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .logo { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--text-mute); text-transform: uppercase; text-decoration: none; transition: color 0.2s ease; }
+  .logo:hover { color: var(--accent); }
+  .logo span { color: var(--text); }
+  .logo:hover span { color: var(--accent); }
+  .status-pill { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); display: flex; align-items: center; gap: 8px; }
+  .status-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite ease-in-out; }
+  @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  .pp { max-width: 1100px; margin: 0 auto; padding: 120px 32px 80px; position: relative; z-index: 2; }
+  .pp-hero { margin-bottom: 48px; }
+  .pp-breadcrumb { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 32px; }
+  .pp-breadcrumb a { color: var(--text-mute); text-decoration: none; border: 1px solid var(--border-bright); width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+  .pp-breadcrumb a:hover { border-color: var(--accent); color: var(--accent); }
+  .pp-meta-row { display: flex; align-items: center; gap: 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 24px; flex-wrap: wrap; }
+  .pp-code { color: var(--accent); font-weight: 600; }
+  .pp-tag { color: var(--text); }
+  .pp-status { color: var(--text-dim); }
+  .pp-divider { width: 1px; height: 14px; background: var(--border-bright); }
+  .pp-title { font-family: var(--serif); font-size: clamp(48px, 8vw, 110px); line-height: 0.95; font-weight: 400; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .pp-title em { font-style: italic; color: var(--text-mute); }
+  .pp-title .pp-dot { color: var(--accent); font-style: normal; }
+  .pp-tagline { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 24px); color: var(--text-mute); max-width: 720px; line-height: 1.4; }
+  .pp-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 64px; }
+  .pp-stripe-item { background: var(--bg); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .pp-stripe-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); }
+  .pp-stripe-item strong { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: -0.005em; }
+  .pp-section { margin-bottom: 56px; }
+  .pp-section-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+  .pp-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .pp-section-body { max-width: 760px; }
+  .pp-section-body p { font-family: var(--serif); font-size: clamp(18px, 1.4vw, 22px); line-height: 1.55; color: var(--text); margin-bottom: 18px; letter-spacing: -0.005em; }
+  .pp-section-body p:last-child { margin-bottom: 0; }
+  .pp-output { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2vw, 28px) !important; color: var(--accent-soft) !important; line-height: 1.35 !important; padding: 20px 0 0; border-top: 1px solid var(--border); max-width: 640px; }
+  .pp-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pp-stack span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); padding: 8px 14px; border: 1px solid var(--border-bright); background: var(--bg-elev); }
+  .pp-shot { margin: 0 0 28px; border: 1px solid var(--border-bright); background: var(--bg-elev); overflow: hidden; }
+  .pp-shot:last-child { margin-bottom: 0; }
+  .pp-shot img { display: block; width: 100%; height: auto; }
+  .pp-shot video { display: block; width: 100%; height: auto; max-height: 70vh; background: #000; }
+  .pp-shot figcaption { padding: 14px 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--text-mute); text-transform: uppercase; line-height: 1.6; border-top: 1px solid var(--border); }
+  .pp-shot figcaption strong { color: var(--accent); font-weight: 600; }
+
+  .pp-related { margin-top: 80px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .pp-related-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 22px; font-weight: 500; }
+  .pp-related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .pp-related-card { text-decoration: none; color: inherit; padding: 24px; border: 1px solid var(--border); background: var(--bg-elev); transition: all 0.25s ease; display: flex; flex-direction: column; gap: 14px; }
+  .pp-related-card:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+  .pp-rc-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .pp-rc-code { color: var(--accent); }
+  .pp-rc-tag { color: var(--text-mute); }
+  .pp-rc-title { font-family: var(--serif); font-size: 22px; line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; }
+  .pp-rc-desc { font-family: var(--sans); font-size: 13px; color: var(--text-mute); line-height: 1.5; }
+  .pp-cta { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .pp-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mute); text-decoration: none; border: 1px solid var(--border-bright); padding: 12px 22px; display: inline-block; transition: all 0.2s ease; }
+  .pp-back:hover { color: var(--accent); border-color: var(--accent); }
+  footer { border-top: 1px solid var(--border); padding: 60px 32px 40px; margin-top: 80px; position: relative; z-index: 2; }
+  .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+  .footer-cta { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em; }
+  .footer-cta em { font-style: italic; color: var(--accent); }
+  .footer-cta a { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: opacity 0.2s; }
+  .footer-cta a:hover { opacity: 0.7; }
+  .footer-col h6 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 16px; font-weight: 500; }
+  .footer-col a { display: block; color: var(--text); text-decoration: none; padding: 4px 0; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-base { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+  @media (max-width: 900px) { .pp { padding: 100px 20px 60px; } nav { padding: 16px 20px; } .pp-related-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-base { flex-direction: column; gap: 8px; } }
+  @media (max-width: 500px) { .pp-meta-row { gap: 12px; } .pp-divider { display: none; } }
+
+  /* === LIGHT MODE (toggled via .light-mode on body) === */
+  .light-mode {
+    --bg: #FAFAF8;
+    --bg-elev: #FFFFFF;
+    --bg-card: #F0F0EC;
+    --border: #E5E5E0;
+    --border-bright: #C5C5C0;
+    --text: #0A0A0B;
+    --text-mute: #5A5A62;
+    --text-dim: #9A9AA0;
+    --accent: #E5550F;
+    --accent-soft: #FF6B35;
+    --green: #5A9050;
+  }
+  .light-mode body::before { opacity: 0.015; mix-blend-mode: multiply; }
+  .light-mode nav { background: rgba(250, 250, 248, 0.78); }
+
+  /* === THEME TOGGLE === */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .theme-toggle {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-mute);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 14px; height: 14px; }
+  .theme-toggle .icon-light { display: none; }
+  .light-mode .theme-toggle .icon-dark { display: none; }
+  .light-mode .theme-toggle .icon-light { display: block; }
+  .theme-hint {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .theme-hint::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid var(--accent);
+  }
+  .theme-hint.show { opacity: 1; transform: translateY(0); }
+
+
+  /* === CV DOWNLOAD === */
+  .cv-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); text-decoration: none; border: 1px solid var(--accent); background: rgba(255, 107, 53, 0.06); padding: 12px 20px; transition: background 0.2s ease, color 0.2s ease; }
+  .cv-btn:hover { background: var(--accent); color: #fff; }
+  .cv-btn span { color: var(--accent); transition: color 0.2s ease; }
+  .cv-btn:hover span { color: #fff; }
+  .footer-cv { margin-top: 28px; }
+  .hero-cv { margin-top: 28px; }
+
+  /* === WRITING === */
+  .wr-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); line-height: 1.7; margin: -40px 0 48px; }
+  .wr-note a { color: var(--text-mute); }
+  .wr-note a:hover { color: var(--accent); }
+  .wr-cover { margin: 0 0 48px; border: 1px solid var(--border-bright); }
+  .wr-cover img { display: block; width: 100%; height: auto; }
+  .wr-body { max-width: 720px; }
+  .wr-body > * + * { margin-top: 20px; }
+  .wr-body p, .wr-body li { font-size: 18px; line-height: 1.7; color: var(--text); }
+  .wr-body h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-top: 56px; }
+  .wr-body h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; margin-top: 40px; }
+  .wr-body h4 { font-size: 17px; font-weight: 600; margin-top: 28px; }
+  .wr-body h2 + *, .wr-body h3 + *, .wr-body h4 + * { margin-top: 12px; }
+  .wr-body [id] { scroll-margin-top: 90px; }
+  .wr-body a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  .wr-body a:hover { color: var(--accent); }
+  .wr-body strong { font-weight: 600; }
+  .wr-body ul, .wr-body ol { padding-left: 24px; }
+  .wr-body li + li { margin-top: 8px; }
+  .wr-body li::marker { color: var(--accent); }
+  .wr-body blockquote { border-left: 2px solid var(--accent); background: var(--bg-elev); padding: 16px 20px; font-size: 16px; line-height: 1.65; color: var(--text); }
+  .wr-body blockquote p { font-size: 16px; }
+  .wr-body pre { font-family: var(--mono); font-size: 13px; line-height: 1.6; background: var(--bg-elev); border: 1px solid var(--border-bright); padding: 16px 18px; white-space: pre-wrap; word-break: break-word; color: var(--text); }
+  .wr-body code { font-family: var(--mono); font-size: 0.88em; background: var(--bg-elev); padding: 1px 5px; }
+  .wr-body pre code { background: none; padding: 0; }
+  .wr-body table { width: 100%; border-collapse: collapse; font-size: 14px; display: block; overflow-x: auto; }
+  .wr-body th, .wr-body td { border: 1px solid var(--border-bright); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.5; }
+  .wr-body th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); font-weight: 500; }
+  .wr-body tr:first-child td { font-weight: 600; }
+  .wr-fig { margin: 32px 0; border: 1px solid var(--border-bright); background: var(--bg-elev); }
+  .wr-fig img { display: block; width: 100%; height: auto; }
+  .wr-body .wr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 36px; }
+  .wr-body .wr-eyebrow + h3 { margin-top: 6px; }
+  .wr-body .wr-meta { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-mute); }
+  .wr-body .wr-imgnote { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; line-height: 1.6; color: var(--text-mute); border: 1px dashed var(--border-bright); padding: 12px 14px; }
+  .wr-body .wr-imgnote::before { content: '// Image · '; color: var(--accent); }
+  .wr-body .wr-numlist { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 20px; }
+  .wr-body .wr-numlist li { font-size: 15px; margin: 0; }
+  .wr-body .wr-numlist span { font-family: var(--mono); font-size: 12px; color: var(--accent); margin-right: 6px; }
+
+  /* === AD SCRIPTS === */
+  .wr-body .ad { border: 1px solid var(--border-bright); background: var(--bg-elev); margin-top: 32px; }
+  .wr-body .ad + .ad { margin-top: 24px; }
+  .ad-head { display: flex; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--border-bright); font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .ad-code { color: var(--accent); font-weight: 600; }
+  .ad-shape { color: var(--text-mute); }
+  .wr-body .ad-shot { margin: 0; background: #fff; border-bottom: 1px solid var(--border-bright); }
+  .wr-body .ad-shot img { display: block; width: 100%; height: auto; }
+  .ad-hooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border-bright); }
+  .ad-part { background: var(--bg); padding: 18px 20px; }
+  .ad-bodypart { background: var(--bg); }
+  .ad-label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .ad-bodypart .ad-label { color: var(--text-mute); }
+  .wr-body .ad-lines p { font-size: 16px; line-height: 1.6; margin: 0; }
+  .wr-body .ad-lines p + p { margin-top: 6px; }
+  .wr-body .ad-hooks .ad-lines p { font-size: 15px; }
+  .ad-cue { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; line-height: 1.5; color: var(--text-mute); border-left: 2px solid var(--border-bright); padding: 2px 0 2px 8px; margin: 2px 0; }
+  .ad-cue::before { content: 'VISUAL · '; color: var(--text-dim); }
+  .ph { font-family: var(--mono); font-size: 0.78em; letter-spacing: 0.06em; color: var(--accent); background: rgba(255, 107, 53, 0.08); padding: 1px 4px; white-space: nowrap; }
+  .ph::before { content: '['; } .ph::after { content: ']'; }
+  .ad-cue .ph { font-size: 1em; }
+
+  /* === WRITING HUB === */
+  .wh-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .wh-filter { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); background: transparent; border: 1px solid var(--border-bright); padding: 9px 16px; cursor: pointer; transition: all 0.2s ease; }
+  .wh-filter:hover { color: var(--text); border-color: var(--text-mute); }
+  .wh-filter.active { color: var(--accent); border-color: var(--accent); }
+  .wh-filter span { color: var(--text-dim); margin-left: 6px; }
+  .wh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .wh-card { text-decoration: none; color: inherit; padding: 24px; border: 1px solid var(--border); background: var(--bg-elev); transition: all 0.25s ease; display: flex; flex-direction: column; gap: 14px; }
+  .wh-card:hover { border-color: var(--accent); background: var(--bg-card); transform: translateY(-2px); }
+  .wh-card[hidden] { display: none; }
+  .wh-title { font-family: var(--serif); font-size: 24px; line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; }
+  .wh-dek { font-size: 14px; color: var(--text-mute); line-height: 1.55; flex: 1; }
+  .wh-foot { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 14px; }
+  @media (max-width: 600px) { .wh-grid { grid-template-columns: 1fr; } .wr-body p, .wr-body li { font-size: 17px; } }
+  /* === WRITING HUB SECTIONS (posts, hooks, email) === */
+  .sm-section { padding-top: 24px; margin-bottom: 72px; scroll-margin-top: 80px; }
+  .sm-intro { margin-bottom: 28px; }
+  .sm-from { display: inline-block; margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); text-decoration: none; border-bottom: 1px solid var(--border-bright); padding-bottom: 2px; transition: color 0.2s ease, border-color 0.2s ease; }
+  .sm-from:hover { color: var(--accent); border-color: var(--accent); }
+
+
+  .hk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .hk-card { background: var(--bg); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .hk-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .hk-code { color: var(--accent); font-weight: 600; }
+  .hk-share { color: var(--text-mute); }
+  .hk-bar { height: 3px; background: var(--border-bright); }
+  .hk-bar span { display: block; height: 100%; background: var(--accent); }
+  .hk-name { font-family: var(--serif); font-size: 24px; line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; }
+  .hk-line { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.4; color: var(--accent-soft); }
+  .hk-row { font-size: 13px; line-height: 1.55; color: var(--text-mute); }
+  .hk-row b { display: block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dim); font-weight: 500; margin-bottom: 2px; }
+  .hk-note { margin-top: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); line-height: 1.6; }
+  .hk-structure { margin-top: 28px; }
+  .hk-structure .pp-stack span { color: var(--text); }
+  .sm-section[hidden] { display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">KM <span>// CREATIVE OPS</span></a>
+  <div class="nav-right">
+    <div class="status-pill"><span class="status-dot"></span>Available for new roles</div>
+    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
+      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <span class="theme-hint">Try light mode</span>
+    </button>
+  </div>
+</nav>
+
+<article class="pp">
+
+  <header class="pp-hero">
+    <div class="pp-breadcrumb">
+      <a href="writing.html" aria-label="Back to writing">←</a>
+      <span>// PORTFOLIO / WRITING / W—008</span>
+    </div>
+    <div class="pp-meta-row">
+      <span class="pp-code">W—008</span>
+      <span class="pp-divider"></span>
+      <span class="pp-tag">Website copy</span>
+    </div>
+    <h1 class="pp-title" style="font-size: clamp(36px, 5.5vw, 72px); line-height: 1.02;">Vibelets launch site: homepage copy</h1>
+    <p class="pp-tagline">The full homepage, section by section: hero, problem, product, loop, pricing and FAQ. Written and designed by me, built by a web designer.</p>
+  </header>
+
+  <div class="pp-strip">
+    <div class="pp-stripe-item"><span class="pp-stripe-label">Length</span><strong>938 words · 4 min read</strong></div>
+  </div>
+
+
+  <div class="wr-body">
+<p class="wr-meta">The live homepage, section by section. See it designed and running in <a href="p-008.html">P—008</a>.</p>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 01 · Hero</span><span class="ad-shape">Promise + trust line</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-hero.jpg" alt="vibelets.ai, live: Hero, with the rotating word mid-cycle" loading="lazy"></figure>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Headline</span>
+        <div class="ad-lines">
+        <p>Set the goal.</p>
+        <p>We get it <strong>Scaled. / Optimised. / Strategised.</strong></p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Subhead</span>
+        <div class="ad-lines">
+        <p>Vibelets connects with your business and does the thinking.</p>
+        <p>You approve every move.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Buttons</span>
+      <div class="ad-lines">
+        <p>Scale your business →</p>
+        <p>See how it works</p>
+        <p><span class="ad-cue">The last word of the headline rotates on a loop</span></p>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Live UI copy · cards around the hero</span>
+      <div class="ad-lines">
+        <p>Hook: “I tried 6 serums” · UGC · 15s · ready to review</p>
+        <p>Hook: “Sold out in 4 days” · Reel · 9:16 · drafting</p>
+        <p>Hook: “Stop buying the wrong one” · Static · 1:1 · in review</p>
+        <p>Scale the winning hook. Pause the tired ads. Launch 4 new creatives. Raise budget on the winner. Test a new offer angle. Refresh the UGC hook. Duplicate the best ad set. Cut spend on the losers. Write next week’s plan.</p>
+      </div>
+    </div>
+  </section>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 02 · See it work</span><span class="ad-shape">Product in one line</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-product.jpg" alt="vibelets.ai, live: See it work" loading="lazy"></figure>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Headline</span>
+        <div class="ad-lines">
+        <p>Set a goal.</p>
+        <p>Vibelets does the rest.</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Subhead</span>
+        <div class="ad-lines">
+        <p>Connect your accounts, review the plan, and let it run on autopilot.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Buttons</span>
+      <div class="ad-lines">
+        <p>Start Free Trial</p>
+        <p>Book a demo</p>
+        <p><span class="ad-cue">The launch film plays here</span></p>
+      </div>
+    </div>
+  </section>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 03 · The problem</span><span class="ad-shape">Pain in the buyer’s words</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-problem.jpg" alt="vibelets.ai, live: The problem block" loading="lazy"></figure>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Headline</span>
+        <div class="ad-lines">
+        <p>Your Meta ads are running</p>
+        <p>with a broken strategy.</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">The 3 pains</span>
+        <div class="ad-lines">
+        <p>You can’t tell what’s working.</p>
+        <p>There’s no plan for next week.</p>
+        <p>Returns are a guess.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Questions that float around the AI</span>
+      <div class="ad-lines">
+        <p>Why did ROAS fall? Where’s my next winning ad? What do I do next? How do I scale? Where is the growth? Which ad is working? What budget should I set? Why did sales drop? What should I test next? Why is my CPA rising? Which audience buys? Is my best ad tired? When should I scale? What will next month bring?</p>
+        <p><span class="ad-cue">Questions fade in and out one at a time</span></p>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Bridge</span>
+      <div class="ad-lines">
+        <p>Here’s what changes with Vibelets</p>
+      </div>
+    </div>
+  </section>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 04 · The product</span><span class="ad-shape">One idea, two halves</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-product-brain.jpg" alt="vibelets.ai, live: One brain, built for growth" loading="lazy"></figure>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Eyebrow + headline</span>
+        <div class="ad-lines">
+        <p>How Vibelets grows your business</p>
+        <p><strong>One brain. Built for growth.</strong></p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Subhead</span>
+        <div class="ad-lines">
+        <p>Half analyst, half creative. Vibelets turns your data into a weekly plan and the ads to match, so revenue keeps climbing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Analytical</span>
+        <div class="ad-lines">
+        <p>Reads your data for you</p>
+        <p>Watches your ads every day</p>
+        <p>Remembers every test</p>
+        <p>Predicts revenue before you spend</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Creative</span>
+        <div class="ad-lines">
+        <p>Shows what’s working, and why</p>
+        <p>Plans your next week</p>
+        <p>Creates your ad creatives</p>
+        <p>Explains why each ad should work</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 05 · The loop</span><span class="ad-shape">Why it compounds</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-loop.jpg" alt="vibelets.ai, live: The loop" loading="lazy"></figure>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Headline</span>
+        <div class="ad-lines">
+        <p>Every ad you run makes the next one better.</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Subhead</span>
+        <div class="ad-lines">
+        <p>Each week starts from what the last one taught. The plan sharpens, the ads get better, and growth compounds.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">The 5 steps</span>
+      <div class="ad-lines">
+        <p><strong>01 Plan.</strong> Set the goal and the moves.</p>
+        <p><strong>02 Run.</strong> Launch the ads.</p>
+        <p><strong>03 Learn.</strong> Read what worked, and why.</p>
+        <p><strong>04 Scale.</strong> Put more behind what works.</p>
+        <p><strong>05 Repeat.</strong> Start smarter than last time.</p>
+        <p><span class="ad-cue">Loop counter: Loop 1 · Smarter than the last</span></p>
+      </div>
+    </div>
+  </section>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 06 · Pricing</span><span class="ad-shape">Each plan named by its buyer</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-pricing.jpg" alt="vibelets.ai, live: Pricing" loading="lazy"></figure>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Headline</span>
+      <div class="ad-lines">
+        <p>Simple, scalable pricing</p>
+      </div>
+    </div>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Starter · $49/month</span>
+        <div class="ad-lines">
+        <p>One brand, one buyer. Everything you need to run the weekly plan.</p>
+        <p>500 credits / month, about 5 renders</p>
+        <p>One ad account, one seat · Baseline Report and the weekly plan · Daily sprint and schedules · Buy top-up credits anytime</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Max · $99/month</span>
+        <div class="ad-lines">
+        <p>For teams running several accounts, with approvals that need an owner.</p>
+        <p>1,000 credits / month, about 10 renders</p>
+        <p>Everything in Starter · Up to five ad accounts · Five seats with approval rights · Creative Studio and the storyboard loop · Meta ad accounts and pages</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Pro · $199/month</span>
+        <div class="ad-lines">
+        <p>For agencies and brands running many accounts under one set of rules.</p>
+        <p>2,500 credits / month, about 52 renders</p>
+        <p>Everything in Max · Unlimited ad accounts and seats · Your own brand rules and hard lines per client · Connect your own Claude account · Priority support</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Enterprise</span>
+        <div class="ad-lines">
+        <p>For organizations that need scale, security, and control.</p>
+        <p>Everything in Max · Dedicated audit &amp; analytics · Advanced permissions · Dedicated onboarding</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="ad">
+    <div class="ad-head"><span class="ad-code">Section 07 · FAQ</span><span class="ad-shape">Objections, answered</span></div>
+    <figure class="ad-shot"><img src="screenshots/writing/w008-faq.jpg" alt="vibelets.ai, live: FAQ" loading="lazy"></figure>
+    <div class="ad-hooks">
+      <div class="ad-part">
+        <span class="ad-label">Headline</span>
+        <div class="ad-lines">
+        <p>Objections, handled.</p>
+        </div>
+      </div>
+      <div class="ad-part">
+        <span class="ad-label">Subhead</span>
+        <div class="ad-lines">
+        <p>We’ve heard every reason not to try it. Here are the honest answers.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ad-part ad-bodypart">
+      <span class="ad-label">Questions + answers</span>
+      <div class="ad-lines">
+        <p><strong>What is Vibelets.ai?</strong> Vibelets.ai is an AI-powered marketing platform that helps you create, launch and optimize Facebook (Meta) campaigns with speed and precision. It unifies creative generation, campaign setup, and performance insights in one place.</p>
+        <p><strong>Who is Vibelets built for?</strong> Vibelets is designed for D2C brands, startups, growth teams and performance marketers who want to launch high-performing ads quickly without navigating complex ad manager interfaces.</p>
+        <p><strong>Which advertising platforms does Vibelets support?</strong> At launch, Vibelets supports Facebook (Meta) end-to-end — from creative creation to campaign launch and live monitoring. Integrations with TikTok, Google and other platforms are coming soon.</p>
+        <p><strong>How does Vibelets improve campaign performance?</strong> Vibelets uses AI to analyse performance in real time, detect opportunities or issues, and recommend the next best action — helping you scale winners and control wasted spend effortlessly.</p>
+        <p><strong>Can I create and manage campaigns inside Vibelets?</strong> Yes. You can build and launch campaigns directly in Vibelets and take key actions like pause, launch, clone, replicate based on AI guidance. Edit functionality is coming soon.</p>
+        <p><strong>Does Vibelets help with creative development?</strong> Absolutely. Vibelets generates high-quality brand images, ad creatives and platform-ready video ads using AI.</p>
+        <p><strong>What analytics does Vibelets provide?</strong> Vibelets gives you a complete performance view of your Meta campaigns — including spend, conversions, ROAS, CTR, CPC, CAC and other key metrics — all in a simple, unified dashboard.</p>
+        <p><strong>How real-time is the data inside Vibelets?</strong> Campaign data is synced through Meta’s official APIs, giving you accurate, near real-time insights for better decision-making.</p>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <section class="pp-related">
+    <h3 class="pp-related-title">// More writing</h3>
+    <div class="pp-related-grid">
+      <a href="w-002.html" class="pp-related-card">
+        <div class="pp-rc-head"><span class="pp-rc-code">W—002</span><span class="pp-rc-tag">Blog</span></div>
+        <h4 class="pp-rc-title">Steal This Billion-Dollar Ad Strategy (Then Reverse-Engineer It With AI)</h4>
+        <p class="pp-rc-desc">Grüns sold to Unilever for a reported $1.2B. Its Meta winners fit 6 creative formats. How to pull them, break them down and scale them with Claude.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="pp-cta">
+    <a href="writing.html" class="pp-back">← All writing</a>
+  </section>
+
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div><p class="footer-cta">Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em></p>
+      <div class="footer-cv"><a href="Ketan-Mishra-CV.pdf" class="cv-btn" download>Download CV <span>↓</span></a></div></div>
+    <div class="footer-col"><h6>// Reach</h6><a href="mailto:ketanmishra47@gmail.com">Email</a><a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="footer-col"><h6>// Index</h6><a href="index.html#work">Work</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="index.html#roles">Roles</a></div>
+  </div>
+  <div class="footer-base"><span>© Ketan Mishra 2026</span><span>Hand-built // 2026</span></div>
+</footer>
+
+
+<script>
+  // === Theme toggle ===
+  (function() {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+    const hint = toggle.querySelector('.theme-hint');
+    const saved = localStorage.getItem('km-theme');
+    if (saved === 'light') document.documentElement.classList.add('light-mode');
+    if (!localStorage.getItem('km-theme-seen')) {
+      setTimeout(() => hint && hint.classList.add('show'), 1500);
+      setTimeout(() => hint && hint.classList.remove('show'), 6500);
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('km-theme', isLight ? 'light' : 'dark');
+      localStorage.setItem('km-theme-seen', '1');
+      if (hint) hint.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>
