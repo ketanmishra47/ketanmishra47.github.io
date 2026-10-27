@@ -296,6 +296,129 @@
   .samples-link + .samples-link { margin-top: -20px; }
   .samples-link span:last-child { color: var(--accent); white-space: nowrap; }
 
+  /* === TRACKS === */
+  .track-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .track-tab {
+    background: var(--bg);
+    border: 0;
+    color: var(--text-mute);
+    text-align: left;
+    padding: 22px 24px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .track-tab::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .track-tab:hover { background: var(--bg-elev); color: var(--text); }
+  .track-tab[aria-selected="true"] { background: var(--bg-card); color: var(--text); }
+  .track-tab[aria-selected="true"]::after { transform: scaleX(1); }
+  .track-tab:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+  .track-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+  }
+  .track-name {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.4vw, 28px);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .track-panel[hidden] { display: none; }
+  .track-panel { animation: trackIn 0.35s ease; }
+  @keyframes trackIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .track-intro {
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.5;
+    max-width: 760px;
+    margin-bottom: 32px;
+  }
+  .track-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .track-stat { background: var(--bg); padding: 22px 24px; }
+  .track-stat-num {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.4vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .track-stat-label {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text-mute);
+  }
+  .track-pieces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .track-pieces.four { grid-template-columns: repeat(2, 1fr); }
+  .piece {
+    background: var(--bg);
+    padding: 26px 26px 24px;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 190px;
+    transition: background 0.2s ease;
+  }
+  .piece:hover { background: var(--bg-card); }
+  .piece-type {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .piece-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .piece-desc { font-size: 14px; line-height: 1.55; color: var(--text-mute); flex: 1; }
+  .piece-go {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    transition: color 0.2s ease;
+  }
+  .piece:hover .piece-go { color: var(--accent); }
+
   /* === FILTER BAR === */
   .filters {
     display: flex;
@@ -860,7 +983,21 @@
     .footer-base { flex-direction: column; gap: 8px; }
   }
 
+  @media (max-width: 900px) {
+    .track-stats { grid-template-columns: repeat(2, 1fr); }
+    .track-pieces, .track-pieces.four { grid-template-columns: 1fr; }
+    .piece { min-height: 0; }
+  }
+
+  @media (max-width: 600px) {
+    .track-tabs { grid-template-columns: 1fr; }
+    .track-tab { padding: 16px 20px; flex-direction: row; align-items: baseline; gap: 14px; }
+    .track-tab::after { top: 0; bottom: 0; right: auto; width: 2px; height: auto; transform: scaleY(0); transform-origin: top; }
+    .track-tab[aria-selected="true"]::after { transform: scaleY(1); }
+  }
+
   @media (max-width: 500px) {
+    .track-stats { grid-template-columns: 1fr; }
     .project-row { grid-template-columns: 1fr; gap: 4px; }
     .stat-grid { grid-template-columns: 1fr; }
     .stat-num { font-size: 48px; }
@@ -1079,6 +1216,155 @@
   </div>
 </section>
 
+<!-- ============ TRACKS ============ -->
+<section class="section" id="tracks">
+  <div class="section-head">
+    <h2 class="section-title">Work by <em>track</em></h2>
+    <span class="section-meta">3 TRACKS // PICK ONE</span>
+  </div>
+
+  <div class="track-tabs" role="tablist" aria-label="Work by track">
+    <button class="track-tab" role="tab" id="tab-performance" aria-controls="panel-performance" aria-selected="true" tabindex="0" data-track="performance">
+      <span class="track-num">01</span><span class="track-name">Performance creative</span>
+    </button>
+    <button class="track-tab" role="tab" id="tab-b2b-saas" aria-controls="panel-b2b-saas" aria-selected="false" tabindex="-1" data-track="b2b-saas">
+      <span class="track-num">02</span><span class="track-name">B2B SaaS</span>
+    </button>
+    <button class="track-tab" role="tab" id="tab-brand" aria-controls="panel-brand" aria-selected="false" tabindex="-1" data-track="brand">
+      <span class="track-num">03</span><span class="track-name">Brand creative</span>
+    </button>
+  </div>
+
+  <!-- 01 Performance creative -->
+  <div class="track-panel" role="tabpanel" id="panel-performance" aria-labelledby="tab-performance">
+    <p class="track-intro">Paid creative for 5 regulated verticals: the hooks, the ads and the systems that ship them at volume.</p>
+    <div class="track-stats">
+      <div class="track-stat"><div class="track-stat-num">14,513</div><div class="track-stat-label">Creatives shipped across 5 performance verticals</div></div>
+      <div class="track-stat"><div class="track-stat-num">200+</div><div class="track-stat-label">Creatives a day after AI copy and automated video</div></div>
+      <div class="track-stat"><div class="track-stat-num">+30%</div><div class="track-stat-label">Profit on performance campaigns</div></div>
+      <div class="track-stat"><div class="track-stat-num">100+</div><div class="track-stat-label">Creative handoffs a day on one automated workflow</div></div>
+    </div>
+    <div class="track-pieces">
+      <a class="piece" href="ads.html">
+        <span class="piece-type">Ads &amp; videos</span>
+        <span class="piece-title">13 short-form ads</span>
+        <span class="piece-desc">UGC skits, talking heads and product films for personal loans, insurance and B2B SaaS.</span>
+        <span class="piece-go">Watch →</span>
+      </a>
+      <a class="piece" href="w-005.html">
+        <span class="piece-type">VSL ads</span>
+        <span class="piece-title">Pink gelatin: 6 weight-loss VSL ads</span>
+        <span class="piece-desc">6 UGC-style ads that drive to a VSL, with 18 hooks run over shared bodies.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="w-007.html">
+        <span class="piece-type">UGC scripts</span>
+        <span class="piece-title">Personal loans: 10 UGC scripts</span>
+        <span class="piece-desc">Picked from 3 months of daily output: skeptic tests, reaction skits, newsjacks and creator confessions.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="w-014.html">
+        <span class="piece-type">Article</span>
+        <span class="piece-title">How to write regulated ads people stop for</span>
+        <span class="piece-desc">Meta won't let an ad name the viewer's health or money problem. 4 ways to make the right person stop anyway.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="p-004.html">
+        <span class="piece-type">P—004 · AI workflow</span>
+        <span class="piece-title">Claude creative replication pipeline</span>
+        <span class="piece-desc">Breaks down winning scripts and turns them into structured prompts for AI video.</span>
+        <span class="piece-go">Case study →</span>
+      </a>
+      <a class="piece" href="p-001.html">
+        <span class="piece-type">P—001 · System</span>
+        <span class="piece-title">Creative Intelligence Dashboard</span>
+        <span class="piece-desc">Daily creative performance across 5 verticals: winning hooks, format decay, angle saturation.</span>
+        <span class="piece-go">Case study →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 02 B2B SaaS -->
+  <div class="track-panel" role="tabpanel" id="panel-b2b-saas" aria-labelledby="tab-b2b-saas" hidden>
+    <p class="track-intro">Long-form content, launch copy and founder-led social for SaaS and AI products, tied to pipeline.</p>
+    <div class="track-stats">
+      <div class="track-stat"><div class="track-stat-num">5K → 25K+</div><div class="track-stat-label">Founder followers on LinkedIn</div></div>
+      <div class="track-stat"><div class="track-stat-num">5M+</div><div class="track-stat-label">Impressions from founder branding</div></div>
+      <div class="track-stat"><div class="track-stat-num">+40%</div><div class="track-stat-label">MQLs from demand-gen campaigns</div></div>
+      <div class="track-stat"><div class="track-stat-num">+20%</div><div class="track-stat-label">B2B deal closure from ABM programs</div></div>
+    </div>
+    <div class="track-pieces">
+      <a class="piece" href="w-009.html">
+        <span class="piece-type">Playbook</span>
+        <span class="piece-title">How to ship 200+ ad creatives a day without growing the team</span>
+        <span class="piece-desc">One daily performance view, briefs from winners, automated handoffs and AI first drafts.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="w-003.html">
+        <span class="piece-type">Blog</span>
+        <span class="piece-title">30 Claude Skills for Google and Meta Ads</span>
+        <span class="piece-desc">A library of Claude skills that run the weekly work of an ad account: CPA, waste, budgets and reports.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="w-008.html">
+        <span class="piece-type">Website copy</span>
+        <span class="piece-title">Vibelets launch site: homepage copy</span>
+        <span class="piece-desc">Every section of an AI growth tool's homepage, from the hero to pricing and objections.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="w-013.html">
+        <span class="piece-type">Email sequence</span>
+        <span class="piece-title">Vibelets: 4-email trial onboarding</span>
+        <span class="piece-desc">One job per email, sent on what the user has or hasn't done, with the reasoning behind each.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+      <a class="piece" href="p-007.html">
+        <span class="piece-type">P—007 · Founder-led social</span>
+        <span class="piece-title">Founder-led LinkedIn growth</span>
+        <span class="piece-desc">Voice doc, post structures and a daily cadence, ghostwritten in the founder's voice.</span>
+        <span class="piece-go">Case study →</span>
+      </a>
+      <a class="piece" href="w-010.html">
+        <span class="piece-type">Newsletter</span>
+        <span class="piece-title">The AI Creative Lab #01</span>
+        <span class="piece-desc">You can't scale a winning ad you can't explain. What 14,513 creatives taught me, and the prompt I'd start with.</span>
+        <span class="piece-go">Read →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 03 Brand creative -->
+  <div class="track-panel" role="tabpanel" id="panel-brand" aria-labelledby="tab-brand" hidden>
+    <p class="track-intro">Concepts, films and launch sites for brands that need a look and a story people remember.</p>
+    <div class="track-pieces four">
+      <a class="piece" href="p-008.html">
+        <span class="piece-type">Launch site</span>
+        <span class="piece-title">vibelets.ai, words and design</span>
+        <span class="piece-desc">I wrote every word and designed the page in Claude Design. A web designer built it from my design.</span>
+        <span class="piece-go">Case study →</span>
+      </a>
+      <a class="piece" href="ads.html">
+        <span class="piece-type">Brand film &amp; ads</span>
+        <span class="piece-title">Vibelets launch campaign</span>
+        <span class="piece-desc">The launch film and 2 launch ads for a B2B AI product.</span>
+        <span class="piece-go">Watch →</span>
+      </a>
+      <a class="piece" href="p-013.html">
+        <span class="piece-type">Interactive</span>
+        <span class="piece-title">Coding Sharks gesture FX</span>
+        <span class="piece-desc">A webcam demo for a coding institute: 1,800 particles form brand words and scatter when you raise your hands.</span>
+        <span class="piece-go">Case study →</span>
+      </a>
+      <a class="piece" href="coding-sharks-demo.html">
+        <span class="piece-type">Live demo</span>
+        <span class="piece-title">Try the gesture demo</span>
+        <span class="piece-desc">Open it on a laptop with a webcam and raise your hands.</span>
+        <span class="piece-go">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PROJECTS ============ -->
 <section class="section" id="work">
   <div class="section-head">
@@ -1087,7 +1373,7 @@
   </div>
 
   <a href="writing.html" class="samples-link">
-    <span>// The copy itself: blogs, VSL ads, video scripts and hooks</span>
+    <span>// The copy itself: blogs, a playbook, newsletters, emails, VSL ads and scripts</span>
     <span>Writing →</span>
   </a>
   <a href="ads.html" class="samples-link">
@@ -1532,6 +1818,40 @@
   // Optional: keeps the page feeling alive on the meta
   const updated = document.querySelector('.hero-meta span:last-child');
   // Already set in HTML — no action needed.
+
+  // === Tracks (tabs; #performance, #b2b-saas, #brand link straight to one) ===
+  (function() {
+    const tabs = Array.from(document.querySelectorAll('.track-tab'));
+    if (!tabs.length) return;
+    function select(tab, fromHash) {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (!fromHash) history.replaceState(null, '', '#' + tab.dataset.track);
+    }
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', (e) => {
+        const step = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        const next = tabs[(i + step + tabs.length) % tabs.length];
+        next.focus();
+        select(next);
+      });
+    });
+    function fromHash() {
+      const tab = tabs.find(t => '#' + t.dataset.track === location.hash);
+      if (!tab) return;
+      select(tab, true);
+      document.getElementById('tracks').scrollIntoView();
+    }
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+  })();
 
   // === Theme toggle ===
   (function() {
