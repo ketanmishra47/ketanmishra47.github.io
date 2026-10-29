@@ -194,20 +194,27 @@
   .footer-cv { margin-top: 28px; }
   .hero-cv { margin-top: 28px; }
 </style>
+<!-- km:head -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<!-- /km:head -->
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="logo">KM <span>// CREATIVE OPS</span></a>
-  <div class="nav-right">
-    <div class="status-pill"><span class="status-dot"></span>Available for new roles</div>
-    <button class="theme-toggle" type="button" aria-label="Toggle light or dark mode">
-      <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <span class="theme-hint">Try light mode</span>
-    </button>
+<!-- km:nav -->
+<header class="site-nav">
+  <a href="index.html" class="brand" aria-label="Ketan Mishra, home"><span class="brand-mark">KM</span>Ketan Mishra</a>
+  <div class="nav-links" role="navigation" aria-label="Primary"><a href="index.html#tracks">Work</a><a href="index.html#projects" class="active" aria-current="page">Projects</a><a href="writing.html">Writing</a><a href="ads.html">Ads</a><a href="index.html#about">About</a></div>
+  <div class="nav-actions">
+    <button class="icon-btn theme-btn" type="button" aria-label="Toggle light or dark mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+    <a href="#contact" class="btn btn-primary btn-sm">Get in touch</a>
+    <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
   </div>
-</nav>
+</header>
+<div class="sheet" id="sheet" aria-hidden="true"><a href="index.html#tracks">Work</a><a href="index.html#projects">Projects</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="index.html#about">About</a><a href="#contact" class="btn btn-primary">Get in touch <span class="arr">→</span></a></div>
+<!-- /km:nav -->
 
 <article class="pp">
 
@@ -365,15 +372,26 @@
 
 </article>
 
-<footer>
-  <div class="footer-grid">
-    <div><p class="footer-cta">Building something that needs <em>creative <a href="mailto:ketanmishra47@gmail.com">that ships?</a></em></p>
-      <div class="footer-cv"><a href="Ketan-Mishra-CV.pdf" class="cv-btn" download>Download CV <span>↓</span></a></div></div>
-    <div class="footer-col"><h6>// Reach</h6><a href="mailto:ketanmishra47@gmail.com">Email</a><a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a></div>
-    <div class="footer-col"><h6>// Index</h6><a href="index.html#work">Work</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="index.html#roles">Roles</a></div>
+<!-- km:foot -->
+<section class="site-contact" id="contact">
+  <div class="contact-inner">
+    <a href="mailto:ketanmishra47@gmail.com" class="chip"><span class="dot"></span>Open to conversations</a>
+    <h2>Building something that needs creative <em>that ships?</em></h2>
+    <p>Tell me about the team and the role you're hiring for.</p>
+    <div class="cta-row">
+      <a href="mailto:ketanmishra47@gmail.com" class="btn btn-primary">ketanmishra47@gmail.com <span class="arr">→</span></a>
+      <button type="button" class="btn btn-ghost" id="copy-email">Copy email</button>
+      <a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="Ketan-Mishra-CV.pdf" class="btn btn-text" download>CV ↓</a>
+    </div>
+    <span class="copy-note" id="copy-note" aria-live="polite"></span>
   </div>
-  <div class="footer-base"><span>© Ketan Mishra 2026</span><span>Hand-built // 2026</span></div>
-</footer>
+</section>
+<div class="site-foot" role="contentinfo">
+  <span>© Ketan Mishra 2026 · Updated Oct 2026</span>
+  <div class="site-foot-links"><a href="index.html#tracks">Work</a><a href="writing.html">Writing</a><a href="ads.html">Ads &amp; videos</a><a href="mailto:ketanmishra47@gmail.com">Email</a><a href="https://www.linkedin.com/in/ketan-mishra/" target="_blank" rel="noopener">LinkedIn</a></div>
+</div>
+<!-- /km:foot -->
 
 
 <script>
@@ -397,5 +415,8 @@
   })();
 </script>
 
+<!-- km:js -->
+<script src="assets/site.js" defer></script>
+<!-- /km:js -->
 </body>
 </html>
