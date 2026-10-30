@@ -41,8 +41,13 @@
   .hero-orb.two { width: 520px; height: 520px; left: -200px; right: auto; top: auto; bottom: -200px; background: radial-gradient(circle, rgba(255,61,110,0.10) 0%, transparent 62%); animation-duration: 24s; }
   @keyframes drift { to { transform: translate(-60px, 40px) scale(1.08); } }
   .hero .wrap { position: relative; width: 100%; }
-  .hero h1 { font-family: var(--display); font-weight: 500; font-size: clamp(56px, 10.5vw, 148px); line-height: .92; letter-spacing: -0.055em; margin: 28px 0 18px; padding-bottom: .1em; background: linear-gradient(180deg, var(--text) 30%, color-mix(in srgb, var(--text) 55%, transparent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero h1 { font-family: var(--display); font-weight: 500; font-size: clamp(64px, 12.5vw, 184px); line-height: .9; letter-spacing: -0.06em; margin: 28px 0 22px; }
+  .hero h1 .hl { display: block; width: max-content; padding-bottom: .08em; background: linear-gradient(180deg, var(--text) 30%, color-mix(in srgb, var(--text) 55%, transparent)); -webkit-background-clip: text; background-clip: text; color: transparent; will-change: transform; }
+  .hero h1 .hl-2 { margin-left: 0.9em; }
   .hero h1 .pt { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+  .hero-line { position: absolute; width: 1px; height: 160vh; top: -30vh; background: linear-gradient(180deg, transparent, var(--line-2) 30%, var(--line-2) 70%, transparent); transform: rotate(32deg); transform-origin: top; }
+  .hero-line.a { right: 30%; } .hero-line.b { right: 12%; opacity: .6; }
+  .hero-lines { position: absolute; inset: 0; will-change: transform; }
   .lede { font-family: var(--display); font-size: clamp(20px, 2.1vw, 26px); line-height: 1.4; letter-spacing: -0.015em; color: var(--mute); max-width: 720px; }
   .lede strong { color: var(--text); font-weight: 500; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 36px; }
@@ -164,6 +169,8 @@
     .about, .samples { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
+    .track-tabs { display: flex; flex-direction: column; width: 100%; border-radius: 18px; }
+    .track-tab { width: 100%; justify-content: flex-start; border-radius: 12px; padding: 12px 16px; }
     .wrap, .section, .principle { padding-left: 16px; padding-right: 16px; }
     .hero { padding-top: 120px; }
     .projects, .track-pieces, .track-pieces.four, .range { grid-template-columns: 1fr; }
@@ -200,10 +207,11 @@
 <main id="top">
 
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"><div class="hero-grid"></div><div class="hero-orb"></div><div class="hero-orb two"></div></div>
+  <div class="hero-bg" aria-hidden="true" data-speed="-0.35" data-origin="top"><div class="hero-grid"></div><div class="hero-orb"></div><div class="hero-orb two"></div></div>
+  <div class="hero-lines" aria-hidden="true" data-speed="-0.15" data-origin="top"><span class="hero-line a"></span><span class="hero-line b"></span></div>
   <div class="wrap">
     <a href="#contact" class="chip rv"><span class="dot"></span>Available for new roles</a>
-    <h1 class="rv" style="--d:80ms">Ketan Mishra<span class="pt">.</span></h1>
+    <h1 class="rv" style="--d:80ms" aria-label="Ketan Mishra"><span class="hl" data-px="0.28" data-origin="top" aria-hidden="true">Ketan</span><span class="hl hl-2" data-px="-0.28" data-origin="top" aria-hidden="true">Mishra<span class="pt">.</span></span></h1>
     <p class="lede rv" style="--d:160ms"><strong>Creative Lead</strong> who makes content people stop scrolling for, then builds the systems and teams that ship it at volume.</p>
     <div class="cta-row rv" style="--d:240ms">
       <a href="#tracks" class="btn btn-primary">See the work <span class="arr">→</span></a>
@@ -383,9 +391,88 @@
 
 
 
+<section class="showcase" id="featured">
+  <div class="section-head rv">
+    <div><span class="eyebrow">Featured work</span><h2 class="section-title">6 case studies, <em>one at a time</em></h2></div>
+    <span class="section-meta">Scroll</span>
+  </div>
+  <article class="sc-item sc-left">
+    <div class="sc-media-wrap" data-speed="-0.18">
+      <a class="sc-media rv" href="p-014.html" tabindex="-1" aria-hidden="true"><img src="screenshots/showcase-p-014.jpg" alt="" loading="lazy" data-speed="0.12" data-scale="1.18"></a>
+    </div>
+    <div class="sc-text">
+      <span class="sc-num rv">01 / 06</span>
+      <h3 class="sc-title rv"><a href="p-014.html">Miduty Liver Detox</a></h3>
+      <span class="sc-kind rv">Campaign · Brand</span>
+      <p class="sc-line rv">₹50,000 at the clinic, ₹0 from your liver. 1 insight, carried from the reel to the 5th email.</p>
+      <a class="sc-link rv" href="p-014.html">View case study <span class="arr">→</span></a>
+    </div>
+  </article>
+  <article class="sc-item sc-right">
+    <div class="sc-media-wrap" data-speed="-0.18">
+      <a class="sc-media rv" href="p-001.html" tabindex="-1" aria-hidden="true"><img src="screenshots/showcase-p-001.jpg" alt="" loading="lazy" data-speed="0.12" data-scale="1.18"></a>
+    </div>
+    <div class="sc-text">
+      <span class="sc-num rv">02 / 06</span>
+      <h3 class="sc-title rv"><a href="p-001.html">Creative Intelligence Dashboard</a></h3>
+      <span class="sc-kind rv">System · Performance</span>
+      <p class="sc-line rv">1 daily view replaced the morning data huddle for 5 verticals.</p>
+      <a class="sc-link rv" href="p-001.html">View case study <span class="arr">→</span></a>
+    </div>
+  </article>
+  <article class="sc-item sc-left">
+    <div class="sc-media-wrap" data-speed="-0.18">
+      <a class="sc-media rv" href="p-008.html" tabindex="-1" aria-hidden="true"><img src="screenshots/showcase-p-008.jpg" alt="" loading="lazy" data-speed="0.12" data-scale="1.18"></a>
+    </div>
+    <div class="sc-text">
+      <span class="sc-num rv">03 / 06</span>
+      <h3 class="sc-title rv"><a href="p-008.html">Vibelets content operations</a></h3>
+      <span class="sc-kind rv">Copy · B2B SaaS</span>
+      <p class="sc-line rv">600 signups in 1.5 months with no audience and $0 ad spend. Then the launch site.</p>
+      <a class="sc-link rv" href="p-008.html">View case study <span class="arr">→</span></a>
+    </div>
+  </article>
+  <article class="sc-item sc-right">
+    <div class="sc-media-wrap" data-speed="-0.18">
+      <a class="sc-media rv" href="p-004.html" tabindex="-1" aria-hidden="true"><img src="screenshots/showcase-p-004.jpg" alt="" loading="lazy" data-speed="0.12" data-scale="1.18"></a>
+    </div>
+    <div class="sc-text">
+      <span class="sc-num rv">04 / 06</span>
+      <h3 class="sc-title rv"><a href="p-004.html">Claude creative replication pipeline</a></h3>
+      <span class="sc-kind rv">AI workflow</span>
+      <p class="sc-line rv">Winning ads in, replica scripts and AI video out. 2 analysts, 1 answer.</p>
+      <a class="sc-link rv" href="p-004.html">View case study <span class="arr">→</span></a>
+    </div>
+  </article>
+  <article class="sc-item sc-left">
+    <div class="sc-media-wrap" data-speed="-0.18">
+      <a class="sc-media rv" href="p-007.html" tabindex="-1" aria-hidden="true"><img src="screenshots/showcase-p-007.jpg" alt="" loading="lazy" data-speed="0.12" data-scale="1.18"></a>
+    </div>
+    <div class="sc-text">
+      <span class="sc-num rv">05 / 06</span>
+      <h3 class="sc-title rv"><a href="p-007.html">Founder-led LinkedIn growth</a></h3>
+      <span class="sc-kind rv">Founder voice</span>
+      <p class="sc-line rv">5M+ impressions. 5K to 25K+ followers, written in the founder's own voice.</p>
+      <a class="sc-link rv" href="p-007.html">View case study <span class="arr">→</span></a>
+    </div>
+  </article>
+  <article class="sc-item sc-right">
+    <div class="sc-media-wrap" data-speed="-0.18">
+      <a class="sc-media rv" href="p-002.html" tabindex="-1" aria-hidden="true"><img src="screenshots/showcase-p-002.jpg" alt="" loading="lazy" data-speed="0.12" data-scale="1.18"></a>
+    </div>
+    <div class="sc-text">
+      <span class="sc-num rv">06 / 06</span>
+      <h3 class="sc-title rv"><a href="p-002.html">ClickUp + n8n creative ops</a></h3>
+      <span class="sc-kind rv">System · Automation</span>
+      <p class="sc-line rv">1 workflow, 30+ branches, 100+ handoffs a day, 365 days a year.</p>
+      <a class="sc-link rv" href="p-002.html">View case study <span class="arr">→</span></a>
+    </div>
+  </article>
+</section>
+
 <section class="section" id="projects">
   <div class="section-head rv">
-    <div><span class="eyebrow">Projects</span><h2 class="section-title">Selected <em>case studies</em></h2></div>
+    <div><span class="eyebrow">All projects</span><h2 class="section-title">Every <em>case study</em></h2></div>
     <span class="section-meta">12 projects</span>
   </div>
 
@@ -831,12 +918,13 @@
       if (!step) return; e.preventDefault(); const next = tabs[(i + step + tabs.length) % tabs.length]; next.focus(); select(next);
     });
   });
-  function fromHash() { const tab = tabs.find(t => '#' + t.dataset.track === location.hash); if (!tab) return; select(tab, true); document.getElementById('tracks').scrollIntoView(); }
+  function fromHash() { const tab = tabs.find(t => '#' + t.dataset.track === location.hash); if (!tab) return; select(tab, true); const t = document.getElementById('tracks'); if (window.__lenis) window.__lenis.scrollTo(t, { immediate: true }); else t.scrollIntoView(); }
   fromHash(); addEventListener('hashchange', fromHash);
 
 })();
 </script>
 <!-- km:js -->
+<script src="assets/lenis.min.js" defer></script>
 <script src="assets/site.js" defer></script>
 <!-- /km:js -->
 </body>
